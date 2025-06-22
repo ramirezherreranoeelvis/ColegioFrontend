@@ -1,0 +1,42 @@
+<div class="horario">
+      <h2 class="horario__title"><text-gradient text="Horario" /></h2>
+      <div class="horario__select">
+            <select-list
+                  default="Selecciona a tu hijo"
+                  [items]="studentsList"
+                  styleSelect="bg-blue white"
+                  styleOption="bg-dark-blue"
+                  (changeElement)="updateDataStudentSelect($event)"
+            />
+
+            @if (studentSelectDNI != "0") {
+                  <select-list
+                        default="Selecciona un año"
+                        [items]="temporadasList"
+                        styleSelect="bg-blue white"
+                        (changeElement)="updateHorario($event)"
+                  />
+            }
+      </div>
+      @if (studentSelectDNI != "0") {
+            @if (horarioView) {
+                  <div class="table">
+                        <table-horario [dayHorarioList]="daysHorario" />
+                  </div>
+                  <div class="options">
+                        <input
+                              type="button"
+                              value="Descargar horario"
+                              class="horario__download-button"
+                              (click)="donwloadHorario()"
+                        />
+                  </div>
+            } @else {
+                  <p class="horario__mensaje">Usted no tiene un año escojido</p>
+            }
+      } @else {
+            <p class="horario__mensaje">
+                  Usted no tiene ningún hijo seleccionado
+            </p>
+      }
+</div>

@@ -1,0 +1,61 @@
+$radius__item: 10px;
+$margin-datos: 10px 10px;
+
+.course__item {
+      position: relative;
+      cursor: pointer;
+      border: 1px solid rgb(179, 179, 179);
+      font-family: lexend;
+      background-color: #fff;
+      font-size: 15px;
+      top: 0;
+      transition: 0.3s;
+      color: #363636;
+      border-radius: $radius__item;
+      overflow: hidden;
+      box-shadow: 0 0 10px 2px #0000004d;
+
+      &:hover {
+            top: -10px;
+            box-shadow: 3px 10px 16px 0px #0000005e;
+      }
+
+      &-cover {
+            &-image {
+                  width: 380px;
+                  height: 100px;
+            }
+
+            &-overlay {
+                  position: absolute;
+                  background-color: #ffffff00;
+                  width: 380px;
+                  height: 100px;
+            }
+      }
+
+      &-details {
+      }
+
+      &-name {
+            margin: $margin-datos;
+      }
+
+      &-code {
+            margin: $margin-datos;
+            background-color: #fff;
+      }
+
+      &-teacher {
+            margin: $margin-datos;
+      }
+
+      &-name,
+      &-code,
+      &-teacher {
+            &::selection {
+                  background: #240079;
+                  color: #ffffff;
+            }
+      }
+}

@@ -1,0 +1,32 @@
+$font_lexend: lexend, System-UI;
+.horario {
+        &__table {
+                box-shadow: 2px 1px 10px 0 #0000004d;
+                border-collapse: collapse;
+                border-color: #0044ff;
+                border-style: solid;
+                font-family: $font_lexend;
+                border-width: 3px;
+        }
+
+        &__header-item {
+                border-width: 4px;
+                border-style: solid;
+                background-color: #00b7ff;
+                color: #000;
+                padding: 10px;
+
+                &:first-child {
+                        padding: 25px 0;
+                }
+        }
+
+        &__body-item {
+                border-width: 4px;
+                border-style: solid;
+                text-align: center;
+                padding: 10px;
+                min-width: 100px;
+                text-transform: capitalize;
+        }
+}

@@ -1,0 +1,49 @@
+.course__content {
+      &-item {
+            box-shadow: 0 2px 2px 1px #0000004d;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+      }
+
+      &-title {
+            box-shadow: 0 0 3px 2px #0000004d;
+            display: flex;
+            align-items: center;
+            background: #00054e;
+            color: #ffffff;
+            padding: 20px 5px;
+            margin-bottom: -1px;
+            max-height: 60px;
+            transition: 0.1s ease-in-out;
+            border-radius: 10px;
+
+            .book-icon {
+                  width: 40px;
+                  height: 40px;
+                  padding: 5px 10px;
+
+                  .cover {
+                        fill: #4264ff;
+                        stroke: #6200ff;
+                        stroke-width: 4;
+                  }
+
+                  .page {
+                        fill: #ff0077;
+                  }
+
+                  .inner-page {
+                        fill: #ff0077;
+                  }
+
+                  .spine {
+                        fill: #2c3e50;
+                  }
+            }
+
+            &:hover {
+                  background: #370f83;
+            }
+      }
+}

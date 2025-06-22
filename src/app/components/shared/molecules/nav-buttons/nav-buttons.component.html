@@ -1,0 +1,9 @@
+<nav class="nav">
+      <ul class="nav-list">
+            @for (route of routes; track route.id) {
+                  <li class="nav-item">
+                        <a [routerLink]="route.id">{{ route.value }}</a>
+                  </li>
+            }
+      </ul>
+</nav>

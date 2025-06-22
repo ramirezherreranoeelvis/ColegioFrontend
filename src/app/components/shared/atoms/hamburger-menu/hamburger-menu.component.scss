@@ -1,0 +1,107 @@
+$z-index_menu-before: -1;
+$linear-gradient-azul-morado-fuxea: linear-gradient(45deg, #4032ff93, #913dff93, #ff2f9e93, #4032ff93, #4032ff93, #913dff93, #ff2f9e93, #4032ff93);
+$line__menu: linear-gradient(90deg, #ff0080, #000768);
+
+.menu {
+        width: 46px;
+        height: 38px;
+
+        &__content {
+                position: relative;
+                flex-direction: column;
+                justify-content: space-between;
+                display: flex;
+                margin: 5px 0px 0px 5px;
+                padding: 5px;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                border-radius: 5px;
+                background-color: #fff;
+
+                &::before {
+                        position: absolute;
+                        content: "";
+                        z-index: $z-index_menu-before;
+                        border-radius: 10px;
+                        background-position: 800% 0;
+                        width: 105%;
+                        height: 105%;
+                        left: -1px;
+                        top: -1px;
+                        filter: blur(3px);
+                        box-shadow: 0 0 3px 2px #0000004d;
+                        background: $linear-gradient-azul-morado-fuxea;
+                        background-size: 800%;
+                        animation: background_animation 20s linear infinite;
+                }
+        }
+
+        &__line {
+                overflow: hidden;
+                position: relative;
+                height: 7px;
+                border-radius: 50px;
+                transform-origin: left;
+                transition: .3s transform ease-in-out, opacity .3s ease-in-out;
+                background: $line__menu;
+                left: 0px;
+                opacity: 1;
+
+                &::after {
+                        top: 0;
+                        left: -55px;
+                        border-radius: 50px;
+                        position: absolute;
+                        content: "";
+                        background: $line__menu;
+                        width: 120%;
+                        height: 100%;
+                        filter: blur(3px);
+                        animation: menu 1s linear infinite;
+                }
+        }
+
+        &__active {
+                div {
+                        div {
+                                &:nth-child(1) {
+                                        transform: rotate(35deg) scaleX(1.2);
+                                }
+
+                                &:nth-child(2) {
+                                        opacity: 0;
+                                }
+
+                                &:nth-child(3) {
+                                        transform: rotate(-35deg) scaleX(1.2);
+                                }
+                        }
+                }
+
+        }
+}
+
+@keyframes menu {
+        from {
+                left: -55px;
+        }
+
+        to {
+                left: 47px;
+        }
+}
+
+@keyframes background_animation {
+        0% {
+                background-position: 0 0;
+        }
+
+        50% {
+                background-position: 800% 0;
+        }
+
+        100% {
+                background-position: 0 0;
+        }
+}

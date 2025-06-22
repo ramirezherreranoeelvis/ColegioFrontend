@@ -1,0 +1,62 @@
+<div class="course">
+      @if (ver == "cursos") {
+            <h2 class="course__title"><text-gradient text="Cursos" /></h2>
+            <div class="course__filters">
+                  <!-- filtro por hijos -->
+                  <select-list
+                        default="Selecciona a tu hijo"
+                        styleSelect="bg-blue white"
+                        styleOption="bg-dark-blue"
+                        id="select-hijo"
+                  />
+
+                  <!-- Filtros por cursos temporadas-->
+                  <input-text
+                        placeholder="Busque sus cursos por nombre"
+                        [text]="nameFind"
+                        (search)="setNameFind($event)"
+                  />
+                  <select-list
+                        default="Periodos"
+                        [items]="temporadasLst"
+                        styleSelect="bg-blue white"
+                        styleOption="bg-dark-blue"
+                        (changeElement)="updateDataCoursesSelect($event)"
+                        id="select-periodo"
+                  />
+            </div>
+
+            <!-- Lista de cursos -->
+            <div class="course__list">
+                  @for (curso of cursos; track $index) {
+                        <course-card
+                              [portada]="curso.portada"
+                              [name]="curso.nombre"
+                              [code]="curso.codigo"
+                              [profesores]="['Juan Perez']"
+                              (selectedCourse)="
+                                    verSeleccionado('curso', curso.codigo)
+                              "
+                        />
+                  } @empty {
+                        <p class="course__empty">No se encontraron cursos</p>
+                  }
+            </div>
+      } @else if (ver == "curso" && rol == "student") {
+            <menu-exit (exit)="verSeleccionado('cursos', null)" />
+            <course-content
+                  [course]="cursoSelect"
+                  [rol]="rol"
+                  (selectedResource)="viewResource($event)"
+            />
+      } @else if (ver == "recurso" && rol == "student") {
+            <menu-exit (exit)="verSeleccionado('curso', cursoCodeSelect)" />
+            <recurso [recurso]="recursoSelect" />
+      } @else if (ver == "curso" && rol == "teacher") {
+            <menu-exit (exit)="verSeleccionado('cursos', null)" />
+            <course-content
+                  [course]="cursoSelect"
+                  (selectedResource)="viewResource($event)"
+            />
+      }
+</div>

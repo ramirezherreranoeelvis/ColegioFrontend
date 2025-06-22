@@ -1,0 +1,71 @@
+$font_lexend: lexend, System-UI;
+
+select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        font-size: 15px;
+        font-family: $font_lexend;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all .2s;
+
+        &:hover {
+                box-shadow: 2px 1px 10px 0 #0000004d;
+        }
+}
+
+option {
+        cursor: pointer;
+}
+
+.bg-blue {
+        background: #240079;
+
+        &:hover,
+        &:focus {
+                background: #000441;
+        }
+
+}
+
+.bg-dark-blue {
+        background: #000441;
+
+        &:hover,
+        &:focus {
+                background: #240079;
+        }
+}
+
+.bg-celeste {
+        background: #00a2ff;
+
+        &:hover,
+        &:focus {
+                background: #000441;
+        }
+}
+
+.bg-white {
+        background: #ffffff;
+
+        &:hover,
+        &:focus {
+                background: #eeeeee;
+        }
+}
+
+.white {
+        color: #ffffff
+}
+
+.pink {
+        color: #ff0080;
+}

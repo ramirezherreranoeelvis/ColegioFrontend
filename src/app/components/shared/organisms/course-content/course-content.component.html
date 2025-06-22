@@ -1,0 +1,63 @@
+<div class="course__details">
+      <h2 class="course__details-title">
+            <text-gradient [text]="course().nombre" />
+      </h2>
+      <!-- Profesores -->
+      <div class="course__professors">
+            <details>
+                  <summary class="course__professors-title">
+                        Profesores:
+                  </summary>
+                  <div class="course__professors-list">
+                        @for (profesor of course().profesores; track $index) {
+                              <div class="course__professor">
+                                    {{ profesor }}
+                              </div>
+                        }
+                  </div>
+            </details>
+      </div>
+      <line-separator />
+      <!-- Datos del curso -->
+      <div class="course__data">
+            <details>
+                  <summary class="course__data-title">Datos:</summary>
+                  <div class="course__data-list">
+                        <div class="course__data-item">
+                              <span>Día: </span>{{ course().dia }}
+                        </div>
+                        <div class="course__data-item">
+                              <span>Hora de Inicio: </span
+                              >{{ course().horaInicio }}
+                        </div>
+                        <div class="course__data-item">
+                              <span>Hora de Salida: </span
+                              >{{ course().horaFin }}
+                        </div>
+                        <div class="course__data-item">
+                              <span>Piso: </span>{{ course().piso }}
+                        </div>
+                        <div class="course__data-item">
+                              <span>Salón: </span>{{ course().numeroSalon }}
+                        </div>
+                        <div class="course__data-item">
+                              <span>Número de Sesiones:</span
+                              >{{ course().numeroSesiones }}
+                        </div>
+                  </div>
+            </details>
+      </div>
+      <line-separator />
+      <!-- Contenido del curso -->
+      <details open class="course__contents">
+            <summary class="course__contents-title">Contenido:</summary>
+            <div class="course__contents-list">
+                  @for (contenido of course().contenidos; track $index) {
+                        <course-section-card
+                              [content]="contenido"
+                              (selectedContent)="handleClick($event)"
+                        />
+                  }
+            </div>
+      </details>
+</div>

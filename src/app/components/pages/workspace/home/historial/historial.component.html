@@ -1,0 +1,16 @@
+<div class="history">
+    <h2 class="history__title"><text-gradient text="Historial de Ingreso"/></h2>
+    <!-- para seleccionar algunos datos que pueden filtrar -->
+    <div class="history__filter">
+        <select-list default="Selecciona a tu hijo" styleSelect="bg-blue white" styleOption="bg-dark-blue"/>
+    </div>
+    <!-- tabla para mostrar datos -->
+    <div class="history__table-container">
+        @if (historial) {
+            <table-attendance-history [historial]="historial" />
+        }@else {
+            <span class="history__table-nofound">No tiene un historial de ingreso para ver</span>
+        }
+
+    </div>
+</div>

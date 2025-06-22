@@ -1,0 +1,68 @@
+$font_lexend: lexend, System-UI;
+
+.course__details {
+      font-family: $font_lexend;
+
+      &-title {
+            text-align: center;
+      }
+}
+
+.course {
+      &__details-title {
+            margin: 25px 0;
+      }
+
+      &__professors,
+      &__data,
+      &__contents {
+            &-title {
+                  padding: 10px 0;
+                  font-size: 1rem;
+                  font-weight: bold;
+                  cursor: pointer;
+            }
+      }
+
+      &__professors,
+      &__data,
+      &__contents {
+            summary::marker {
+                  color: #ff0077;
+            }
+
+            width: 100%;
+            padding: 10px;
+      }
+
+      &__professors {
+            &-list {
+                  font-size: 0.85rem;
+            }
+      }
+
+      &__professor {
+      }
+
+      &__data {
+            &-list {
+                  font-size: 0.8rem;
+
+                  span {
+                        font-weight: bold;
+                  }
+            }
+
+            &-item {
+            }
+      }
+
+      &__contents {
+            &-title {
+                  margin-bottom: 10px;
+            }
+
+            &-list {
+            }
+      }
+}

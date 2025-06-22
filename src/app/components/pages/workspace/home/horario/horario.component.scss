@@ -1,0 +1,62 @@
+$font_lexend: lexend, System-UI;
+$color-btnDonwloadHorario: #143ef7;
+$sombra-input: 2px 1px 10px 0 #00065a;
+
+.horario {
+      padding: 15px 40px;
+      &__title {
+            text-align: center;
+      }
+      .table {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 20px 0;
+      }
+
+      .options {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+      }
+
+      &__select {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            margin: 15px 0;
+
+            select-list {
+                  display: block;
+                  width: 200px;
+                  height: 50px;
+            }
+      }
+
+      &__download-button {
+            margin: 30px;
+            width: 200px;
+            height: 50px;
+            font-family: $font_lexend;
+            border: none;
+            background: $color-btnDonwloadHorario;
+            color: white;
+            border-radius: 10px;
+            transition:
+                  background 0.2s,
+                  box-shadow 0.2s;
+            font-size: 15px;
+            cursor: pointer;
+
+            &:hover {
+                  background: #4400ff;
+                  box-shadow: $sombra-input;
+            }
+      }
+
+      &__mensaje {
+            font-family: $font_lexend;
+            text-align: center;
+      }
+}

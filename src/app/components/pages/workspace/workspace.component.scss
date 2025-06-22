@@ -1,0 +1,73 @@
+$content-background: linear-gradient(
+      212deg,
+      #da1d55,
+      #c82460,
+      #24007a,
+      #1e0151,
+      #000441
+);
+// $content-background : linear-gradient(130deg, #ff0080, #ff0080, #000a96, #000768, #000768);
+
+.dashboard {
+      background: $content-background;
+      display: flex;
+      position: relative;
+}
+
+.controller-navegation {
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+
+      .dashboard__perfil {
+            position: relative;
+            top: 86vh;
+            left: 20px;
+            display: block;
+            width: 300px;
+            height: 88px;
+            z-index: 1200;
+      }
+
+      nav-buttons {
+            position: absolute;
+            z-index: 1200;
+      }
+
+      nav-buttons#routesMain {
+            top: 10px;
+            right: 20px;
+      }
+
+      nav-buttons#routesMatricula {
+            top: 10px;
+            left: 20px;
+      }
+}
+
+$sombra: 0 0 20px 0 #00000059;
+.controller-workspace {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+
+      .content {
+            position: relative;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            .panel {
+                  z-index: 1300;
+                  padding: 20px 0px;
+                  box-shadow: $sombra;
+                  border-radius: 20px;
+                  background: #ffffff;
+                  overflow: hidden;
+                  min-width: 45vw;
+                  min-height: 20vh;
+            }
+      }
+}
