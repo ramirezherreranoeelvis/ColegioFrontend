@@ -35,7 +35,7 @@ import { CourseContentComponent } from '../../../../shared/organisms/course-cont
       templateUrl: './cursos.component.html',
       styleUrl: './cursos.component.scss',
 })
-export class CursosComponent implements OnInit {
+export default class CursosComponent implements OnInit {
       //diseño
       protected ver: string = 'cursos';
       protected cursoCodeSelect: string | null = null;

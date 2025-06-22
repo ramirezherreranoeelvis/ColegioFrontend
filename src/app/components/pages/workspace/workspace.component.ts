@@ -17,7 +17,7 @@ import { PerfilComponent } from '../../shared/molecules/perfil/perfil.component'
       templateUrl: './workspace.component.html',
       styleUrl: './workspace.component.scss',
 })
-export class WorkspaceComponent {
+export default class WorkspacePage {
       routesMain: List[] = [
             { id: '/workspace/horario', value: 'horario' },
             { id: '/workspace/reportes-incidentes', value: 'incidentes' },

@@ -14,7 +14,7 @@ import { Report } from '../../../../../infrastructure/interfaces/report';
       templateUrl: './reportes-incidentes.component.html',
       styleUrl: './reportes-incidentes.component.scss',
 })
-export class ReportesIncidentesComponent implements OnInit {
+export default class ReportesIncidentesComponent implements OnInit {
       protected dniParent: string = '99233923';
       protected studentSelectDNI: string = '0';
       protected studentsList: List[] = [];

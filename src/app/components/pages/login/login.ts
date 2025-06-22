@@ -2,23 +2,20 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from './login.service';
 import { firstValueFrom } from 'rxjs';
 import { AuthService } from '../../../infrastructure/services/auth.service';
 
 @Component({
-      selector: 'app-login',
-      standalone: true,
+      selector: 'page-login',
       imports: [CommonModule, FormsModule],
-      templateUrl: './login.component.html',
-      styleUrls: ['./login.component.scss'],
+      templateUrl: './login.html',
+      styleUrl: './login.scss',
 })
-export class LoginComponent {
+export default class LoginPage {
       protected contenedorActivo: number = 0;
 
       constructor(
             private router: Router,
-            private loginService: LoginService,
             private authService: AuthService,
       ) {}
 
@@ -26,7 +23,7 @@ export class LoginComponent {
             const { username, password } = form.value;
             try {
                   const user = await firstValueFrom(
-                        this.loginService.ingresarAlSistema(username, password),
+                        this.authService.login(username, password),
                   );
                   if (user.accessEnabled) {
                         this.authService.setCurrentUser(user);

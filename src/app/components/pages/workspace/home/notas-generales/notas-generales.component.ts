@@ -15,7 +15,7 @@ import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/te
       templateUrl: './notas-generales.component.html',
       styleUrl: './notas-generales.component.scss',
 })
-export class NotasGeneralesComponent implements OnInit {
+export default class NotasGeneralesComponent implements OnInit {
       protected temporadasList: List[] = [];
       protected dniStudent = '21787088';
       protected cursoNotas: Promedios | null = null;

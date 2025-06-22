@@ -21,7 +21,7 @@ import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/te
       templateUrl: './registrar-matricula.component.html',
       styleUrls: ['./registrar-matricula.component.scss'],
 })
-export class RegistrarMatriculaComponent implements OnInit {
+export default class RegistrarMatriculaComponent implements OnInit {
       protected dniParent: string = '99233923';
       protected studentSelectDNI!: string;
       protected studentSelect: Student | null = null;

@@ -17,7 +17,7 @@ import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/te
       templateUrl: './historial.component.html',
       styleUrl: './historial.component.scss',
 })
-export class HistorialComponent implements OnInit {
+export default class HistorialComponent implements OnInit {
       constructor(private historialService: HistorialService) {}
       ngOnInit(): void {
             this.getTemporadas();

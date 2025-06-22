@@ -22,7 +22,7 @@ import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/te
       templateUrl: './horario.component.html',
       styleUrl: './horario.component.scss',
 })
-export class HorarioComponent {
+export default class HorarioComponent {
       protected dniParent: string = '99233923';
       protected studentSelectDNI: string = '0';
       protected studentsList!: List[];

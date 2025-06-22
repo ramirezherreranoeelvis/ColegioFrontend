@@ -1,7 +1,4 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from '../../components/pages/login/login.component';
-import { WorkspaceComponent } from '../../components/pages/workspace/workspace.component';
-import { workspace } from './workspace.routes';
 
 export const routes: Routes = [
       {
@@ -12,12 +9,16 @@ export const routes: Routes = [
       {
             path: 'login',
             title: 'login',
-            component: LoginComponent,
+            loadComponent: () => import('../../components/pages/login/login'),
       },
       {
             path: 'workspace',
             title: 'workspace',
-            component: WorkspaceComponent,
-            children: workspace,
+            loadComponent: () =>
+                  import(
+                        '../../components/pages/workspace/workspace.component'
+                  ),
+            loadChildren: () =>
+                  import('./workspace.routes').then((m) => m.workspace),
       },
 ];
