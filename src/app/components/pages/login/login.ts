@@ -22,11 +22,11 @@ export default class LoginPage {
       public async goToSesion(form: NgForm) {
             const { username, password } = form.value;
             try {
-                  const user = await firstValueFrom(
+                  const userToken = await firstValueFrom(
                         this.authService.login(username, password),
                   );
-                  if (user.accessEnabled) {
-                        this.authService.setCurrentUser(user);
+                  if (userToken) {
+                        this.authService.setCurrentUser(userToken);
                         this.router.navigate(['workspace']);
                   } else {
                         alert('Usted no tiene acceso al sistema');

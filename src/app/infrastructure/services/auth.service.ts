@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../interfaces/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../core/env/environment.development';
 
 @Injectable({
@@ -9,27 +8,28 @@ import { environment } from '../../core/env/environment.development';
 })
 export class AuthService {
       private url: string = `${environment.baseUrl}/login`;
-      private user: BehaviorSubject<User | null>;
+      private userToken: BehaviorSubject<string>;
 
       constructor(private httpClient: HttpClient) {
-            this.user = new BehaviorSubject<User | null>(null);
+            this.userToken = new BehaviorSubject<string>('');
       }
 
-      public login(username: string, password: string): Observable<User> {
-            return this.httpClient.get<User>(
-                  `${this.url}?username=${username}&password=${password}`,
-            );
+      public login(username: string, password: string): Observable<string> {
+            const params = new HttpParams()
+                  .set('username', username)
+                  .set('password', password);
+            return this.httpClient.post<string>(this.url, params, {});
       }
 
-      public get currentUserValue(): User | null {
-            return this.user.value;
+      public get currentUserValue(): string {
+            return this.userToken.value;
       }
 
-      public setCurrentUser(user: User): void {
-            this.user.next(user);
+      public setCurrentUser(token: string): void {
+            this.userToken.next(token);
       }
 
       public clearCurrentUser(): void {
-            this.user.next(null);
+            this.userToken.next('');
       }
 }
