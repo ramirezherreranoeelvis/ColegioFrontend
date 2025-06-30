@@ -6,10 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { ParentService } from '../../parent.service';
 
 import { firstValueFrom } from 'rxjs';
-import { DayHorario } from '../../../../../infrastructure/interfaces/horario/dayHorario';
-import { TurnoHorario } from '../../../../../infrastructure/interfaces/horario/turnoHorario';
-import { Enrollment } from '../../../../../infrastructure/interfaces/registrarMatricula/nextEnrollment';
-import { Student } from '../../../../../infrastructure/interfaces/student';
+import { DayHorario } from '../../../../../application/interfaces/horario/dayHorario';
+import { TurnoHorario } from '../../../../../application/interfaces/horario/turnoHorario';
+import { Enrollment } from '../../../../../application/interfaces/registrarMatricula/nextEnrollment';
+import { Student } from '../../../../../application/interfaces/student';
 import List from '../../../../shared/atoms/select-list/list';
 import { SelectListComponent } from '../../../../shared/atoms/select-list/select-list.component';
 import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/text-gradient.component';

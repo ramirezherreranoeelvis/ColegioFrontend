@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
-import { AuthService } from '../../../infrastructure/services/auth.service';
+import { AuthService } from '../../../application/services/auth.service';
 
 @Component({
       selector: 'page-login',

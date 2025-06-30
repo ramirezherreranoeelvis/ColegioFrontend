@@ -6,7 +6,7 @@ import { firstValueFrom } from 'rxjs';
 import List from '../../../../shared/atoms/select-list/list';
 import { SelectListComponent } from '../../../../shared/atoms/select-list/select-list.component';
 import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/text-gradient.component';
-import { Report } from '../../../../../infrastructure/interfaces/report';
+import { Report } from '../../../../../application/interfaces/report';
 @Component({
       selector: 'app-reportes-incidentes',
       standalone: true,

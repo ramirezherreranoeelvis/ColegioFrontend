@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Promedios } from '../../../../../infrastructure/interfaces/notas/promedios';
+import { Promedios } from '../../../../../application/interfaces/notas/promedios';
 
 @Injectable({
       providedIn: 'root',

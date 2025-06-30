@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Temporada } from '../../../infrastructure/interfaces/Temporada';
+import { Temporada } from '../../../application/interfaces/Temporada';
 
 @Injectable({
       providedIn: 'root',
