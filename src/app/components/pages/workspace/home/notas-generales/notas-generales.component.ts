@@ -3,7 +3,7 @@ import { TemporadaService } from '../../temporada.service';
 import { FormsModule } from '@angular/forms';
 import { NotasService } from './notas.service';
 import { firstValueFrom } from 'rxjs';
-import { Promedios } from '../../../../../application/interfaces/notas/promedios';
+import { Promedios } from '../../../../../infrastructure/interfaces/notas/promedios';
 import List from '../../../../shared/atoms/select-list/list';
 import { SelectListComponent } from '../../../../shared/atoms/select-list/select-list.component';
 import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/text-gradient.component';

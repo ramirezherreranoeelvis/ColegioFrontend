@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TemporadaService } from '../../temporada.service';
 import { firstValueFrom } from 'rxjs';
 import { TableHorarioComponent } from '../../../../shared/atoms/table-horario/table-horario.component';
-import { DayHorario } from '../../../../../application/interfaces/horario/dayHorario';
+import { DayHorario } from '../../../../../infrastructure/interfaces/horario/dayHorario';
 import List from '../../../../shared/atoms/select-list/list';
 import { SelectListComponent } from '../../../../shared/atoms/select-list/select-list.component';
 import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/text-gradient.component';

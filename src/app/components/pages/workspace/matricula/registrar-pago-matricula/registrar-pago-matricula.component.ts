@@ -3,8 +3,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ParentService } from '../../parent.service';
 
 import { firstValueFrom } from 'rxjs';
-import { Pago } from '../../../../../application/interfaces/Pago';
-import { Student } from '../../../../../application/interfaces/student';
+import { Pago } from '../../../../../infrastructure/interfaces/Pago';
+import { Student } from '../../../../../infrastructure/interfaces/student';
 import { PaymentComponent } from '../../../../shared/atoms/payment/payment.component';
 import { PaymentService } from '../../../../shared/atoms/payment/payment.service';
 import List from '../../../../shared/atoms/select-list/list';

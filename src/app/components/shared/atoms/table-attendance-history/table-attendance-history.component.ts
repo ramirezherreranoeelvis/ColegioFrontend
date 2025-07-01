@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SemanaHistorial } from '../../../../application/interfaces/semanaHistorial';
+import { SemanaHistorial } from '../../../../infrastructure/interfaces/semanaHistorial';
 
 @Component({
       selector: 'table-attendance-history',

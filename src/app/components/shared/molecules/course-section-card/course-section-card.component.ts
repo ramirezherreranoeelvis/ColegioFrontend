@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ResourceCourseComponent } from '../../atoms/resource-course/resource-course.component';
 import { LineSeparatorComponent } from '../../atoms/line-separator/line-separator.component';
-import { ContenidoCurso } from '../../../../application/interfaces/cursos/curso';
+import { ContenidoCurso } from '../../../../infrastructure/interfaces/cursos/curso';
 
 @Component({
       selector: 'course-section-card',

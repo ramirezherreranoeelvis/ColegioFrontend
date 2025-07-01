@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Curso } from '../../../../../application/interfaces/cursos/curso';
+import { Curso } from '../../../../../infrastructure/interfaces/cursos/curso';
 
 @Injectable({
       providedIn: 'root',

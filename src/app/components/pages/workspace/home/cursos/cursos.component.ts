@@ -7,9 +7,9 @@ import { firstValueFrom } from 'rxjs';
 import {
       Curso,
       RecursoContenidoCurso,
-} from '../../../../../application/interfaces/cursos/curso';
-import { Temporada } from '../../../../../application/interfaces/Temporada';
-import { TeacherService } from '../../../../../application/services/teacher.service';
+} from '../../../../../infrastructure/interfaces/cursos/curso';
+import { Temporada } from '../../../../../infrastructure/interfaces/Temporada';
+import { TeacherService } from '../../../../../infrastructure/services/teacher.service';
 import { CourseCardComponent } from '../../../../shared/atoms/course-card/course-card.component';
 import { InputTextComponent } from '../../../../shared/atoms/input-text/input-text.component';
 import { MenuExitComponent } from '../../../../shared/atoms/menu-exit/menu-exit.component';
