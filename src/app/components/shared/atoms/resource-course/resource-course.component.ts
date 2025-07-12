@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RecursoContenidoCurso } from '../../../pages/workspace/infrastructure/interfaces/cursos/curso';
+import { RecursoContenidoCurso } from '../../../pages/workspace/infrastructura/interfaces/cursos/curso';
 
 @Component({
       selector: 'resource-course',

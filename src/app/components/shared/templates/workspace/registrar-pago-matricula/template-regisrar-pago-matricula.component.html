@@ -1,0 +1,53 @@
+<section class="registrar-pago-matricula">
+    <h2 class="registrar-pago-matricula__title">
+        <text-gradient text="Pago de Matricula" />
+    </h2>
+    <section class="registrar-matricula__datos">
+        <select-list
+            default="Escoge a tu hijo"
+            [items]="stutentList"
+            (changeElement)="updateDataStudentSelect($event)"
+            styleSelect="bg-blue white"
+            styleOption="bg-dark-blue"
+        />
+    </section>
+    <section class="pago">
+        @if (studentSelect) {
+            <div class="data">
+                <div class="attribute">
+                    <span class="name">DNI: </span><span class="data">{{ studentSelect.dni }}</span>
+                </div>
+                <div class="attribute">
+                    <span class="name">Alumno: </span>
+                    <span class="data">
+                        {{
+                            studentSelect.name +
+                                " " +
+                                studentSelect.surnamePaternal +
+                                " " +
+                                studentSelect.surnameMaternal
+                        }}
+                    </span>
+                </div>
+                <div class="attribute">
+                    <span class="name">Grado: </span>
+                    <span class="data">
+                        {{ studentSelect.grade }}
+                    </span>
+                </div>
+                <div class="attribute">
+                    <span class="name">Costo: </span>
+                    <span class="data"> S/{{ matriculaPendiente!.pay }}</span>
+                </div>
+            </div>
+            <div class="options">
+                <button-payment
+                    [dinero]="matriculaPendiente?.pay || 0"
+                    [idPay]="matriculaPendiente?.idPago || 0"
+                />
+            </div>
+        } @else {
+            Usted no ah seleccionado a ningun crio
+        }
+    </section>
+</section>

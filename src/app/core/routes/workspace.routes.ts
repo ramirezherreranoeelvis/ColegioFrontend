@@ -11,7 +11,7 @@ export const workspace: Routes = [
             title: 'cursos',
             loadComponent: () =>
                   import(
-                        `../../components/pages/workspace/sub-pages/cursos/cursos.component`
+                        `../../components/pages/workspace/sub-pages/cursos/page-cursos`
                   ),
       },
       {
@@ -19,7 +19,7 @@ export const workspace: Routes = [
             title: 'historial',
             loadComponent: () =>
                   import(
-                        `../../components/pages/workspace/sub-pages/historial/historial.component`
+                        `../../components/pages/workspace/sub-pages/historial/page-historial`
                   ),
       },
       {
@@ -27,7 +27,7 @@ export const workspace: Routes = [
             title: 'horario',
             loadComponent: () =>
                   import(
-                        `../../components/pages/workspace/sub-pages/horario/horario.component`
+                        `../../components/pages/workspace/sub-pages/horario/page-horario`
                   ),
       },
       {
@@ -35,7 +35,7 @@ export const workspace: Routes = [
             title: 'notas generales',
             loadComponent: () =>
                   import(
-                        `../../components/pages/workspace/sub-pages/notas-generales/notas-generales.component`
+                        `../../components/pages/workspace/sub-pages/notas-generales/page-notas-generales`
                   ),
       },
       {
@@ -43,7 +43,7 @@ export const workspace: Routes = [
             title: 'reportes incidentes',
             loadComponent: () =>
                   import(
-                        `../../components/pages/workspace/sub-pages/reportes-incidentes/reportes-incidentes.component`
+                        `../../components/pages/workspace/sub-pages/reportes-incidentes/page-reportes-incidentes`
                   ),
       },
       {
@@ -51,7 +51,7 @@ export const workspace: Routes = [
             title: 'registrar-matricula',
             loadComponent: () =>
                   import(
-                        `../../components/pages/workspace/sub-pages/registrar-matricula/registrar-matricula.component`
+                        `../../components/pages/workspace/sub-pages/registrar-matricula/page-registrar-matricula`
                   ),
       },
       {
@@ -59,7 +59,7 @@ export const workspace: Routes = [
             title: 'registrar-pago-matricula',
             loadComponent: () =>
                   import(
-                        `../../components/pages/workspace/sub-pages/registrar-pago-matricula/registrar-pago-matricula.component`
+                        `../../components/pages/workspace/sub-pages/registrar-pago-matricula/page-registrar-pago-matricula`
                   ),
       },
       {
@@ -67,7 +67,7 @@ export const workspace: Routes = [
             title: 'registrar-pago-mensual',
             loadComponent: () =>
                   import(
-                        `../../components/pages/workspace/sub-pages/registrar-pago-mensual/registrar-pago-mensual.component`
+                        `../../components/pages/workspace/sub-pages/registrar-pago-mensual/pageregistrar-pago-mensual`
                   ),
       },
 ];

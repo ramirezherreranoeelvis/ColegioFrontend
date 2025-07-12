@@ -1,0 +1,116 @@
+<section class="registrar-matricula">
+    <h2 class="registrar-matricula__title"><text-gradient text="Registrar Matricula" /></h2>
+    <section class="registrar-matricula__datos">
+        <select-list
+            default="Escoge a tu hijo"
+            [items]="stutentList"
+            (changeElement)="updateDataStudentSelect($event)"
+            styleSelect="bg-blue white"
+            styleOption="bg-dark-blue"
+        />
+    </section>
+    <section class="registrar-matricula__hijo">
+        @if (studentSelect) {
+            <h2 class="registrar-matricula__subtitle">Datos personales del Hijo:</h2>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">DNI: </span
+                ><span class="registrar-matricula__data">{{ studentSelect.dni }}</span>
+            </article>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Alumno: </span
+                ><span class="registrar-matricula__data">{{
+                    studentSelect.name +
+                        " " +
+                        studentSelect.surnamePaternal +
+                        " " +
+                        studentSelect.surnameMaternal
+                }}</span>
+            </article>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Grado: </span
+                ><span class="registrar-matricula__data">{{ studentSelect.grade }}</span>
+            </article>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Password: </span
+                ><span class="registrar-matricula__data">{{ studentSelect.password }}</span>
+            </article>
+        } @else {
+            <h2 class="registrar-matricula__subtitle">No tienes hijos escojidos</h2>
+        }
+    </section>
+    <section class="registrar-matricula__detalles">
+        @if (matricula) {
+            <h2 class="registrar-matricula__subtitle">Detalles de Matrícula:</h2>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Grado: </span
+                ><span class="registrar-matricula__data">{{ matricula.nameGrade }}</span>
+            </article>
+            <article class="registrar-matricula__horario">
+                <span class="registrar-matricula__attribute">Horario: </span>
+                <div class="registrar-matricula__horario-content">
+                    <table class="registrar-matricula__horario-table" border="1">
+                        <thead class="registrar-matricula__horario-header">
+                            <tr class="registrar-matricula__horario-header-row">
+                                <th class="registrar-matricula__horario-header-item" colspan="6">
+                                    Horario
+                                </th>
+                            </tr>
+                            <tr class="registrar-matricula__horario-header-row">
+                                <th class="registrar-matricula__horario-header-item">Hora</th>
+                                @for (day of days; track $index) {
+                                    <th class="registrar-matricula__horario-header-item">
+                                        {{ day }}
+                                    </th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody class="registrar-matricula__horario-body">
+                            @for (day of horario; track $index) {
+                                <tr class="registrar-matricula__horario-body-row">
+                                    <td class="registrar-matricula__horario-body-item">
+                                        {{ day.startTime }} - {{ day.endTime }}
+                                    </td>
+                                    @for (curso of day.cursos; track $index) {
+                                        <td class="registrar-matricula__horario-body-item">
+                                            {{ curso }}
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Inicio de clases: </span
+                ><span class="registrar-matricula__data">{{ matricula.startDate }}</span>
+            </article>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Costo de matrícula: </span
+                ><span class="registrar-matricula__data">S/{{ matricula.cost }}</span>
+            </article>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Costo de mensualidad: </span
+                ><span class="registrar-matricula__data">S/{{ matricula.monthlyFee }}</span>
+            </article>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Vacantes: </span
+                ><span class="registrar-matricula__data">{{ matricula.vacancies }}</span>
+            </article>
+            <article class="registrar-matricula__article">
+                <span class="registrar-matricula__attribute">Matriculados: </span
+                ><span class="registrar-matricula__data">{{ matricula.enrolled }}</span>
+            </article>
+        } @else {
+            <h2 class="registrar-matricula__subtitle">No tienes matricula seleccionada</h2>
+        }
+    </section>
+    <section class="registrar-matricula__opciones">
+        <input
+            type="button"
+            class="registrar-matricula__button"
+            value="Registrar matrícula"
+            (click)="registrarMatricula()"
+        />
+    </section>
+</section>
