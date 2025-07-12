@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CursoService } from './cursos.service';
-import { TemporadaService } from '../../temporada.service';
+import { CursoService } from '../../infrastructure/api/cursos.service';
+import { TemporadaService } from '../../infrastructure/api/temporada.service';
 
 import { firstValueFrom } from 'rxjs';
 import {
       Curso,
       RecursoContenidoCurso,
-} from '../../../../../infrastructure/interfaces/cursos/curso';
-import { Temporada } from '../../../../../infrastructure/interfaces/Temporada';
-import { TeacherService } from '../../../../../infrastructure/services/teacher.service';
+} from '../../infrastructure/interfaces/cursos/curso';
+import { Temporada } from '../../infrastructure/interfaces/Temporada';
+import { TeacherService } from '../../infrastructure/api/teacher.service';
 import { CourseCardComponent } from '../../../../shared/atoms/course-card/course-card.component';
 import { InputTextComponent } from '../../../../shared/atoms/input-text/input-text.component';
 import { MenuExitComponent } from '../../../../shared/atoms/menu-exit/menu-exit.component';

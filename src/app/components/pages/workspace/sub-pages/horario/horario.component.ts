@@ -1,11 +1,11 @@
 import { Component, Renderer2 } from '@angular/core';
-import { ParentService } from '../../parent.service';
-import { HorarioService } from './horario.service';
+import { ParentService } from '../../infrastructure/api/parent.service';
+import { HorarioService } from '../../infrastructure/api/horario.service';
 import { FormsModule } from '@angular/forms';
-import { TemporadaService } from '../../temporada.service';
+import { TemporadaService } from '../../infrastructure/api/temporada.service';
 import { firstValueFrom } from 'rxjs';
 import { TableHorarioComponent } from '../../../../shared/atoms/table-horario/table-horario.component';
-import { DayHorario } from '../../../../../infrastructure/interfaces/horario/dayHorario';
+import { DayHorario } from '../../infrastructure/interfaces/horario/dayHorario';
 import List from '../../../../shared/atoms/select-list/list';
 import { SelectListComponent } from '../../../../shared/atoms/select-list/select-list.component';
 import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/text-gradient.component';

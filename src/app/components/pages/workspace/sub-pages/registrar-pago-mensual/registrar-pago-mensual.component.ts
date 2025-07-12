@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ParentService } from '../../parent.service';
+import { ParentService } from '../../infrastructure/api/parent.service';
 import { firstValueFrom } from 'rxjs';
-import { Pago } from '../../../../../infrastructure/interfaces/Pago';
-import { Student } from '../../../../../infrastructure/interfaces/student';
+import { Pago } from '../../infrastructure/interfaces/Pago';
+import { Student } from '../../infrastructure/interfaces/student';
 import { PaymentComponent } from '../../../../shared/atoms/payment/payment.component';
 import { PaymentService } from '../../../../shared/atoms/payment/payment.service';
 import List from '../../../../shared/atoms/select-list/list';

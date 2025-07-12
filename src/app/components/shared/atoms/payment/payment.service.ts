@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, ElementRef } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Pago } from '../../../../infrastructure/interfaces/Pago';
+import { Pago } from '../../../pages/workspace/infrastructure/interfaces/Pago';
 
 declare var paypal:any;
 

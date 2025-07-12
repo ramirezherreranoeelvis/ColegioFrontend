@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IncidentesService } from './incidentes.service';
+import { IncidentesService } from '../../infrastructure/api/incidentes.service';
 import { FormsModule } from '@angular/forms';
-import { ParentService } from '../../parent.service';
+import { ParentService } from '../../infrastructure/api/parent.service';
 import { firstValueFrom } from 'rxjs';
 import List from '../../../../shared/atoms/select-list/list';
 import { SelectListComponent } from '../../../../shared/atoms/select-list/select-list.component';
 import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/text-gradient.component';
-import { Report } from '../../../../../infrastructure/interfaces/report';
+import { Report } from '../../infrastructure/interfaces/report';
 @Component({
       selector: 'app-reportes-incidentes',
       standalone: true,

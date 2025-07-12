@@ -1,15 +1,15 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import { RegistrarMatriculaService } from './registrar-matricula.service';
+import { RegistrarMatriculaService } from '../../infrastructure/api/registrar-matricula.service';
 
 import { FormsModule } from '@angular/forms';
 
-import { ParentService } from '../../parent.service';
+import { ParentService } from '../../infrastructure/api/parent.service';
 
 import { firstValueFrom } from 'rxjs';
-import { DayHorario } from '../../../../../infrastructure/interfaces/horario/dayHorario';
-import { TurnoHorario } from '../../../../../infrastructure/interfaces/horario/turnoHorario';
-import { Enrollment } from '../../../../../infrastructure/interfaces/registrarMatricula/nextEnrollment';
-import { Student } from '../../../../../infrastructure/interfaces/student';
+import { DayHorario } from '../../infrastructure/interfaces/horario/dayHorario';
+import { TurnoHorario } from '../../infrastructure/interfaces/horario/turnoHorario';
+import { Enrollment } from '../../infrastructure/interfaces/registrarMatricula/nextEnrollment';
+import { Student } from '../../infrastructure/interfaces/student';
 import List from '../../../../shared/atoms/select-list/list';
 import { SelectListComponent } from '../../../../shared/atoms/select-list/select-list.component';
 import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/text-gradient.component';

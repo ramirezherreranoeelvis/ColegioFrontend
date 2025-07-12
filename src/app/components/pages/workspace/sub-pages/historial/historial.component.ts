@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HistorialService } from './historial.service';
+import { HistorialService } from '../../infrastructure/api/historial.service';
 import { firstValueFrom } from 'rxjs';
-import { SemanaHistorial } from '../../../../../infrastructure/interfaces/semanaHistorial';
+import { SemanaHistorial } from '../../infrastructure/interfaces/semanaHistorial';
 import { SelectListComponent } from '../../../../shared/atoms/select-list/select-list.component';
 import { TableAttendanceHistoryComponent } from '../../../../shared/atoms/table-attendance-history/table-attendance-history.component';
 import { TextGradientComponent } from '../../../../shared/atoms/text-gradient/text-gradient.component';

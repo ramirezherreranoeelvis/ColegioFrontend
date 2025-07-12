@@ -2,7 +2,7 @@ import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { CourseSectionCardComponent } from '../../molecules/course-section-card/course-section-card.component';
 import { LineSeparatorComponent } from '../../atoms/line-separator/line-separator.component';
 import { TextGradientComponent } from '../../atoms/text-gradient/text-gradient.component';
-import { Curso } from '../../../../infrastructure/interfaces/cursos/curso';
+import { Curso } from '../../../pages/workspace/infrastructure/interfaces/cursos/curso';
 
 @Component({
       selector: 'course-content',

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RecursoContenidoCurso } from '../../../../infrastructure/interfaces/cursos/curso';
+import { RecursoContenidoCurso } from '../../../pages/workspace/infrastructure/interfaces/cursos/curso';
 
 @Component({
       selector: 'recurso',
