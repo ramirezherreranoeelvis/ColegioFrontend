@@ -1,21 +1,28 @@
 $text-gradient: (
-    -webkit-background-clip: text,
-    background-clip: text,
-    -webkit-text-fill-color: transparent
+      -webkit-background-clip: text,
+      background-clip: text,
+      -webkit-text-fill-color: transparent
 );
 
-.text{
-        &::first-letter {
-                text-transform: uppercase;
-            }
-    
-            font-family: "Rubik Dirt";
-            font-weight: 600;
-            letter-spacing: 1px;
-            font-size: 2.5rem;
-            background: linear-gradient(45deg, #E31C48, #E31C48, #000980, #8400ffde, #8400ffde);
-    
-            @each $property, $value in $text-gradient {
-                #{$property}: $value;
-            }
+.text {
+      &::first-letter {
+            text-transform: uppercase;
+      }
+
+      font-family: "Rubik Dirt";
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-size: 2.5rem;
+      background: linear-gradient(
+            45deg,
+            #e31c48,
+            #e31c48,
+            #000980,
+            #8400ffde,
+            #8400ffde
+      );
+
+      @each $property, $value in $text-gradient {
+            #{$property}: $value;
+      }
 }

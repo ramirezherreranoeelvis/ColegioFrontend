@@ -1,5 +1,5 @@
 import { Component, EventEmitter, input, Input, Output } from '@angular/core';
-import { CourseSectionCardComponent } from '../../molecules/course-section-card/course-section-card.component';
+import { CourseSectionCardComponent } from '../../molecules/cards/course-section-card/course-section-card.component';
 import { LineSeparatorComponent } from '../../atoms/line-separator/line-separator.component';
 import { TextGradientComponent } from '../../atoms/text-gradient/text-gradient.component';
 import { Curso } from '../../../pages/workspace/infrastructura/interfaces/cursos/curso';

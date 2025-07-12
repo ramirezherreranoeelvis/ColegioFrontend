@@ -4,10 +4,11 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { AuthService } from '../../../pages/login/infrastructure/api/auth.service';
+import { AtomButton } from '../../atoms/button/button';
 
 @Component({
       selector: 'template-login',
-      imports: [CommonModule, FormsModule],
+      imports: [CommonModule, FormsModule, AtomButton],
       templateUrl: './template-login.html',
       styleUrl: './template-login.scss',
 })

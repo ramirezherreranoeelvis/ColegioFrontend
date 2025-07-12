@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TemplateCursos } from '../../../../shared/templates/workspace/cursos/templtate-cursos';
+import { TemplateCursos } from '../../../../shared/templates/workspace/cursos/template-cursos';
 
 @Component({
       selector: 'page-cursos',

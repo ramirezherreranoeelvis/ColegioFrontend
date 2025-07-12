@@ -1,0 +1,23 @@
+<table class="horario__table" border="1">
+    <thead class="horario__header">
+        <tr class="horario__header-row">
+            <th class="horario__header-item" colspan="6">Horario</th>
+        </tr>
+        <tr class="horario__header-row">
+            <th class="horario__header-item">Hora</th>
+            @for (day of days; track $index) {
+                <th class="horario__header-item">{{ day }}</th>
+            }
+        </tr>
+    </thead>
+    <tbody class="horario__body">
+        @for (day of horario; track $index) {
+            <tr class="horario__body-row horario__body-clase">
+                <td class="horario__body-item">{{ day.startTime }} - {{ day.endTime }}</td>
+                @for (curso of day.cursos; track $index) {
+                    <td class="horario__body-item">{{ curso }}</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

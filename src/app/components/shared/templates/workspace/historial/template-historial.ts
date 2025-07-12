@@ -4,7 +4,7 @@ import { HistorialService } from '../../../../pages/workspace/infrastructura/api
 import { SemanaHistorial } from '../../../../pages/workspace/infrastructura/interfaces/semanaHistorial';
 import { TextGradientComponent } from '../../../atoms/text-gradient/text-gradient.component';
 import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
-import { TableAttendanceHistoryComponent } from '../../../atoms/table-attendance-history/table-attendance-history.component';
+import { TableAttendanceHistoryComponent } from '../../../organisms/tables/table-attendance-history/table-attendance-history.component';
 
 @Component({
       selector: 'template-historial',

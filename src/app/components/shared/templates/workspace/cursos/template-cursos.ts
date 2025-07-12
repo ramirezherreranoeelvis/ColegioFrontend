@@ -10,7 +10,7 @@ import {
 import { Temporada } from '../../../../pages/workspace/infrastructura/interfaces/Temporada';
 import List from '../../../atoms/select-list/list';
 import { FormsModule } from '@angular/forms';
-import { CourseCardComponent } from '../../../atoms/course-card/course-card.component';
+import { CourseCardComponent } from '../../../molecules/cards/course-card/course-card.component';
 import { InputTextComponent } from '../../../atoms/input-text/input-text.component';
 import { MenuExitComponent } from '../../../atoms/menu-exit/menu-exit.component';
 import { SelectListComponent } from '../../../atoms/select-list/select-list.component';

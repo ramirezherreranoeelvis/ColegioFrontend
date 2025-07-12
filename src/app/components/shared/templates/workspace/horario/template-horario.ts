@@ -7,7 +7,7 @@ import { DayHorario } from '../../../../pages/workspace/infrastructura/interface
 import List from '../../../atoms/select-list/list';
 import { FormsModule } from '@angular/forms';
 import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
-import { TableHorarioComponent } from '../../../atoms/table-horario/table-horario.component';
+import { TableHorarioComponent } from '../../../organisms/tables/table-horario/table-horario.component';
 import { TextGradientComponent } from '../../../atoms/text-gradient/text-gradient.component';
 
 @Component({
