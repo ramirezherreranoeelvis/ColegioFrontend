@@ -1,0 +1,23 @@
+:host {
+      @apply relative;
+      &::before {
+            content: attr(message);
+            @apply absolute bottom-1 right-2 z-10 block text-sm;
+      }
+      .button {
+            @apply absolute h-full right-0 top-0 flex items-center;
+      }
+      atom-button{
+            @apply rounded-full size-[24px]
+      }
+}
+
+input.purple {
+      @apply bg-[#b7bdff8a] text-white outline-none box-content;
+}
+atom-button.purple {
+      @apply bg-[#C0DBEA] ;
+      mat-icon {
+            @apply text-[#D885A3];
+      }
+}

@@ -20,7 +20,7 @@ import { TFontStyle } from '../../../../core/types/TFontStyle';
  * @param {EventEmitter<void>} evtClick    Event emitted when the button is clicked.
  */
 @Component({
-      selector: 'a-button',
+      selector: 'atom-button',
       template: `
             <button
                   [class]="themeStyle() + ' ' + className()"
@@ -38,13 +38,13 @@ import { TFontStyle } from '../../../../core/types/TFontStyle';
       styleUrl: './button.scss',
 })
 export class AtomButton {
-      public text = input<string>('');
-      public type = input<ButtonType>('button');
-      public themeStyle = input<styleTheme>('');
-      public className = input<string>('');
-      public fontStyle = input<TFontStyle>('normal');
+      text = input<string>('');
+      type = input<ButtonType>('button');
+      themeStyle = input<styleTheme>('');
+      className = input<string>('');
+      fontStyle = input<TFontStyle>('normal');
 
-      public evtClick = output();
+      evtClick = output();
 }
 export type ButtonType = 'button' | 'submit' | 'reset';
 export type styleTheme = 'white-skyblue' | 'skyblue' | '';

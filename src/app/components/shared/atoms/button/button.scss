@@ -1,16 +1,13 @@
-$white: #fff;
-$skyblue: #0dcaf0;
 button {
+      @apply cursor-pointer overflow-hidden;
       transition:
             0.3s box-shadow,
             0.2s background;
-      &:hover {
-            box-shadow: 2px 1px 10px 0 #0000004d;
-      }
 }
 .white-skyblue {
-      background: #fff;
-      &:hover{
-            background: $skyblue;
+      background: #ffffff;
+      &:hover {
+            box-shadow: 2px 1px 10px 0 #0000004d;
+            background: #0dcaf0;
       }
 }

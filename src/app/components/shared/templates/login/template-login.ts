@@ -5,16 +5,17 @@ import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { AuthService } from '../../../pages/login/infrastructure/api/auth.service';
 import { AtomButton } from '../../atoms/button/button';
+import { AtomLabel } from '../../atoms/label/label';
+import { AtomInput } from "../../atoms/form-inputs/input/input";
+import { AtomPassword } from "../../atoms/form-inputs/password/password";
 
 @Component({
       selector: 'template-login',
-      imports: [CommonModule, FormsModule, AtomButton],
+      imports: [CommonModule, FormsModule, AtomButton, AtomLabel, AtomInput, AtomPassword],
       templateUrl: './template-login.html',
       styleUrl: './template-login.scss',
 })
 export class TemplateLogin {
-      protected contenedorActivo: number = 0;
-
       constructor(
             private router: Router,
             private authService: AuthService,
@@ -39,9 +40,5 @@ export class TemplateLogin {
                         error,
                   );
             }
-      }
-
-      protected selectInputText(contenedor: number) {
-            this.contenedorActivo = contenedor;
       }
 }
