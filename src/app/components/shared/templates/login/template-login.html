@@ -7,29 +7,37 @@
         />
     </section>
     <section class="login__right">
-        <form #myform="ngForm" (ngSubmit)="goToSesion(myform)" class="login__form">
+        <form [formGroup]="profile()" (submit)="submitForm.emit()" class="login__form">
             <div class="login__data">
                 <atom-label
-                    forId="username"
                     text="Usuario:"
-                    class="font-lexend text-[25px] text-[#ecfffe]"
+                    forId="username"
+                    [class]="'font-lexend text-[25px] text-[#ecfffe]'"
                 />
                 <atom-input
-                    [class]="`w-full m-auto`"
+                    [control]="formUtil.getFormControl('username')"
+                    [message]="getMessage('username', 'El usuario es obligatorio', '', 'Correcto')"
+                    [valid]="{isValid:formUtil.getValid('username')}"
+                    placeholder="Ingrese usuario"
                     forId="username"
+                    [class]="`w-full m-auto`"
                     styleTheme="purple"
                     [className]="`font-geologica rounded-[10px] 
                                 size-full px-[13px] h-[35px] py-[5px] text-[15px]`
                     "
                 />
                 <atom-label
-                    forId="password"
                     text="Contraseña:"
-                    class="font-lexend text-[25px] text-[#ecfffe]"
+                    forId="password"
+                    [class]="'font-lexend text-[25px] text-[#ecfffe]'"
                 />
                 <atom-password
-                    [class]="`w-full m-auto`"
+                    [control]="formUtil.getFormControl('password')"
+                    [message]="getMessage('password', 'El password es obligatorio', 'El password necesita 8 digitos', 'Correcto')"
+                    [valid]="{isValid:formUtil.getValid('password')}"
+                    placeholder="Ingrese contraseña"
                     forId="password"
+                    [class]="`w-full m-auto`"
                     styleTheme="purple"
                     [className]="`font-geologica rounded-[10px] 
                                 size-full pl-[13px] h-[35px] pr-0 py-[5px] text-[15px]`

@@ -4,7 +4,7 @@ import { AtomInput } from "./components/shared/atoms/form-inputs/input/input";
 
 @Component({
       selector: 'app-root',
-      imports: [RouterOutlet, AtomInput],
+      imports: [RouterOutlet],
       template: `<router-outlet /> `,
       // templateUrl: 'app.html',
 })

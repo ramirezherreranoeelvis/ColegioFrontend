@@ -37,7 +37,7 @@ import { TFontStyle } from '../../../../../core/types/TFontStyle';
             <input
                   [id]="forId()"
                   [type]="getType()"
-                  [formControl]="formControl()"
+                  [formControl]="control()"
                   [placeholder]="placeholder()"
                   [style.fontStyle]="fontStyle()"
                   [class]="
@@ -72,7 +72,7 @@ import { TFontStyle } from '../../../../../core/types/TFontStyle';
 export class AtomPassword {
       placeholder = input<string>('');
       forId = input<string>('');
-      formControl = input<FormControl>(new FormControl(''));
+      control = input<FormControl>(new FormControl(''));
       valid = input<IValid | null>();
       message = input<string>('');
       styleTheme = input<StyleTheme>('');

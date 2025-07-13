@@ -1,44 +1,55 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { firstValueFrom } from 'rxjs';
-import { AuthService } from '../../../pages/login/infrastructure/api/auth.service';
+import { Component, input, OnInit, output } from '@angular/core';
+import {
+      AbstractControl,
+      FormGroup,
+      FormsModule,
+      ReactiveFormsModule,
+} from '@angular/forms';
 import { AtomButton } from '../../atoms/button/button';
 import { AtomLabel } from '../../atoms/label/label';
-import { AtomInput } from "../../atoms/form-inputs/input/input";
-import { AtomPassword } from "../../atoms/form-inputs/password/password";
+import { AtomInput } from '../../atoms/form-inputs/input/input';
+import { AtomPassword } from '../../atoms/form-inputs/password/password';
+import { IProfileSignIn } from '../../../pages/login/page-login';
+import FormControlUtil from '../../../../core/utils/FormControlUtil';
 
 @Component({
       selector: 'template-login',
-      imports: [CommonModule, FormsModule, AtomButton, AtomLabel, AtomInput, AtomPassword],
+      imports: [
+            FormsModule,
+            AtomButton,
+            AtomLabel,
+            AtomInput,
+            AtomPassword,
+            ReactiveFormsModule,
+      ],
       templateUrl: './template-login.html',
       styleUrl: './template-login.scss',
 })
-export class TemplateLogin {
-      constructor(
-            private router: Router,
-            private authService: AuthService,
-      ) {}
+export class TemplateLogin implements OnInit {
+      profile = input.required<FormGroup<IProfileSignIn>>();
+      submitForm = output();
 
-      public async goToSesion(form: NgForm) {
-            const { username, password } = form.value;
-            try {
-                  const userToken = await firstValueFrom(
-                        this.authService.login(username, password),
-                  );
-                  if (userToken) {
-                        this.authService.setCurrentUser(userToken);
-                        this.router.navigate(['workspace']);
-                  } else {
-                        alert('Usted no tiene acceso al sistema');
-                  }
-            } catch (error) {
-                  alert('No se pudo ingresar');
-                  console.error(
-                        'Error al obtener los datos del usuario:',
-                        error,
-                  );
+      constructor(protected formUtil: FormControlUtil) {}
+      ngOnInit(): void {
+            this.formUtil.formGroup = this.profile();
+      }
+
+      public getMessage(
+            controlName: string,
+            require: string,
+            invalid: string,
+            correct: string,
+      ): string {
+            let control = this.formUtil.getControl(controlName);
+            if (!control) {
+                  return '';
             }
+            if (control.hasError('required')) {
+                  return require;
+            }
+            if (control.invalid) {
+                  return invalid;
+            }
+            return correct;
       }
 }

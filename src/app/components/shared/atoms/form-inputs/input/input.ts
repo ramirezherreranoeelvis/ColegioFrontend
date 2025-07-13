@@ -40,7 +40,7 @@ import { StyleTheme } from '../TFontStyle';
             <input
                   [id]="forId()"
                   [type]="type()"
-                  [formControl]="formControl()"
+                  [formControl]="control()"
                   [placeholder]="placeholder()"
                   [style.fontStyle]="fontStyle()"
                   [class]="
@@ -61,7 +61,7 @@ import { StyleTheme } from '../TFontStyle';
 export class AtomInput {
       placeholder = input<string>('');
       forId = input<string>('');
-      formControl = input<FormControl>(new FormControl(''));
+      control = input<FormControl>(new FormControl(''));
       type = input<InputType>('text');
       valid = input<IValid | null>();
       message = input<string>('');
