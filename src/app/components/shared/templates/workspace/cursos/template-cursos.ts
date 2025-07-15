@@ -10,25 +10,25 @@ import {
 import { Temporada } from '../../../../pages/workspace/infrastructura/interfaces/Temporada';
 import List from '../../../atoms/select-list/list';
 import { FormsModule } from '@angular/forms';
-import { CourseCardComponent } from '../../../molecules/cards/course-card/course-card.component';
+import { CardCourse } from '../../../molecules/cards/card-course/course-card';
 import { InputTextComponent } from '../../../atoms/input-text/input-text.component';
 import { MenuExitComponent } from '../../../molecules/menu-exit/menu-exit.component';
 import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
-import { TextGradientComponent } from '../../../atoms/text-gradient/text-gradient.component';
 import { RecursoComponent } from '../../../molecules/recurso/recurso.component';
 import { CourseContentComponent } from '../../../organisms/course-content/course-content.component';
+import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-cursos',
       imports: [
             FormsModule,
             RecursoComponent,
-            CourseCardComponent,
+            CardCourse,
             CourseContentComponent,
             MenuExitComponent,
-            TextGradientComponent,
             SelectListComponent,
             InputTextComponent,
+            AtomLabel,
       ],
       templateUrl: './template-cursos.component.html',
       styleUrl: './template-cursos.scss',

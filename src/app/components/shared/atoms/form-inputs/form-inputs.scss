@@ -18,9 +18,9 @@ atom-button.purple {
       }
 }
 input.correct {
-      @apply outline-[#28971e] bg-[#2d552856] focus:outline-[#1be24d];
+      @apply outline-[#28971e] bg-[#89c58156] focus:outline-[#1be24d];
 }
 
 input.incorrect {
-      @apply outline-[#971e42] bg-[#55282856] focus:outline-[#e21b57];
+      @apply outline-[#da3365] bg-[#cc8c8c56] focus:outline-[#ff2466];
 }

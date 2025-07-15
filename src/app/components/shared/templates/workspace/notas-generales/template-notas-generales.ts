@@ -5,12 +5,12 @@ import { NotasService } from '../../../../pages/workspace/infrastructura/api/not
 import { TemporadaService } from '../../../../pages/workspace/infrastructura/api/temporada.service';
 import { Promedios } from '../../../../pages/workspace/infrastructura/interfaces/notas/promedios';
 import List from '../../../atoms/select-list/list';
-import { TextGradientComponent } from '../../../atoms/text-gradient/text-gradient.component';
 import { FormsModule } from '@angular/forms';
+import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-notas-generales',
-      imports: [FormsModule, SelectListComponent, TextGradientComponent],
+      imports: [FormsModule, SelectListComponent, AtomLabel],
       templateUrl: './template-notas-generales.component.html',
       styleUrl: './template-notas-generales.scss',
 })

@@ -3,7 +3,7 @@ import { Injectable, ElementRef } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Pago } from '../../../pages/workspace/infrastructura/interfaces/Pago';
 
-declare var paypal:any;
+declare var paypal: any;
 
 @Injectable({
       providedIn: 'root',

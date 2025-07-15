@@ -8,11 +8,11 @@ import { Enrollment } from '../../../../pages/workspace/infrastructura/interface
 import { Student } from '../../../../pages/workspace/infrastructura/interfaces/student';
 import List from '../../../atoms/select-list/list';
 import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
-import { TextGradientComponent } from "../../../atoms/text-gradient/text-gradient.component";
+import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-registrar-matricula',
-      imports: [SelectListComponent, TextGradientComponent],
+      imports: [SelectListComponent, AtomLabel],
       templateUrl: './template-registrar-matricula.component.html',
       styleUrl: './template-registrar-matricula.scss',
 })

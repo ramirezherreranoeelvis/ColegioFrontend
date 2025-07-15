@@ -9,7 +9,7 @@ trim_trailing_whitespace = true
 
 
 [*.html]
-max_line_length = 100
+max_line_length = 90
 indent_size = 4
 
 [*.{css,scss}]

@@ -1,6 +1,12 @@
 <div class="course">
     @if (ver == "cursos") {
-        <h2 class="course__title"><text-gradient text="Cursos" /></h2>
+        <h2 class="course__title">
+            <atom-label
+                [class]="'font-rubik_dirt font-600 text-4xl leading-[1px]'"
+                text="Cursos"
+                themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+            />
+        </h2>
         <div class="course__filters">
             <!-- filtro por hijos -->
             <select-list
@@ -29,12 +35,12 @@
         <!-- Lista de cursos -->
         <div class="course__list">
             @for (curso of cursos; track $index) {
-                <course-card
+                <card-course
                     [portada]="curso.portada"
                     [name]="curso.nombre"
                     [code]="curso.codigo"
                     [profesores]="['Juan Perez']"
-                    (selectedCourse)="verSeleccionado('curso', curso.codigo)"
+                    (eventClick)="verSeleccionado($event.contenido, $event.codigo)"
                 />
             } @empty {
                 <p class="course__empty">No se encontraron cursos</p>
@@ -52,6 +58,9 @@
         <recurso [recurso]="recursoSelect" />
     } @else if (ver == "curso" && rol == "teacher") {
         <menu-exit (exit)="verSeleccionado('cursos', null)" />
-        <course-content [course]="cursoSelect" (selectedResource)="viewResource($event)" />
+        <course-content
+            [course]="cursoSelect"
+            (selectedResource)="viewResource($event)"
+        />
     }
 </div>

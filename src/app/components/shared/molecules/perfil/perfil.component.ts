@@ -4,7 +4,6 @@ import { Component, Input } from '@angular/core';
       selector: 'perfil',
       imports: [],
       templateUrl: './perfil.component.html',
-      styleUrl: './perfil.component.scss',
 })
 export class PerfilComponent {
       @Input() user: User = new User(

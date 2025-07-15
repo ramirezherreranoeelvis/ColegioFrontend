@@ -5,13 +5,13 @@ import { Pago } from '../../../../pages/workspace/infrastructura/interfaces/Pago
 import { Student } from '../../../../pages/workspace/infrastructura/interfaces/student';
 import { PaymentService } from '../../../atoms/payment/payment.service';
 import List from '../../../atoms/select-list/list';
-import { PaymentComponent } from '../../../atoms/payment/payment.component';
+import { AtomButtonPayment } from '../../../atoms/payment/payment';
 import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
-import { TextGradientComponent } from '../../../atoms/text-gradient/text-gradient.component';
+import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-registrar-pago-mensual',
-      imports: [PaymentComponent, SelectListComponent, TextGradientComponent],
+      imports: [AtomButtonPayment, SelectListComponent, AtomLabel],
       templateUrl: './template-registrar-pago-mensual.component.html',
       styleUrl: './template-registrar-pago-mensual.scss',
 })

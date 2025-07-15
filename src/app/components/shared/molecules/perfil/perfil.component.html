@@ -1,7 +1,41 @@
-<div class="perfil">
-      <div class="perfil__data">
-            <label class="perfil__label">Alumno: {{ user.name }}</label>
-            <label class="perfil__label">DNI: {{ user.dni }}</label>
-            <label class="perfil__label">Usuario: {{ user.user }}</label>
-      </div>
-</div>
+<article class="relative p-2.5 bg-white size-full rounded-[10px] font-lexend">
+    <div class="flex flex-col m-[10px] text-xs *:my-[3px] *:mx-0">
+        <label>Alumno: {{ user.name }}</label>
+        <label>DNI: {{ user.dni }}</label>
+        <label>Usuario: {{ user.user }}</label>
+    </div>
+</article>
+<style>
+    article::before {
+        @apply absolute rounded-[10px] size-full -z-[1] -left-[1px] -top-[1px] p-[2px] blur-[6px];
+        content: "";
+        background-position: 800% 0;
+        background: linear-gradient(
+            45deg,
+            #4032ff93,
+            #913dff93,
+            #ff2f9e93,
+            #4032ff93,
+            #4032ff93,
+            #913dff93,
+            #ff2f9e93,
+            #4032ff93
+        );
+        background-size: 800%;
+        box-shadow: 0 0 3px 2px #0000004d;
+        animation: background_animation 20s linear infinite;
+    }
+    @keyframes background_animation {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 800% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+</style>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import List from '../../atoms/select-list/list';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { NavButtonsComponent } from '../../molecules/nav-buttons/nav-buttons.component';
+import { NavButtonsComponent } from '../../molecules/nav-buttons/nav-buttons';
 import { PerfilComponent } from '../../molecules/perfil/perfil.component';
 
 @Component({
@@ -14,7 +14,6 @@ import { PerfilComponent } from '../../molecules/perfil/perfil.component';
             NavButtonsComponent,
       ],
       templateUrl: './template-workspace.html',
-      styleUrl: './template-workspace.scss',
 })
 export class TemplateWorkspace {
       routesMain: List[] = [
@@ -25,20 +24,6 @@ export class TemplateWorkspace {
             { id: '/workspace/notas-generales', value: 'Notas Generales' },
       ];
       routesMatricula: List[] = [
-            {
-                  id: '/workspace/registrar-matricula',
-                  value: 'registrar matricula',
-            },
-            {
-                  id: '/workspace/registrar-pago-matricula',
-                  value: 'pago matricula',
-            },
-            {
-                  id: '/workspace/registrar-pago-mensual',
-                  value: 'pago mensualidad',
-            },
-      ];
-      routesTeacher: List[] = [
             {
                   id: '/workspace/registrar-matricula',
                   value: 'registrar matricula',

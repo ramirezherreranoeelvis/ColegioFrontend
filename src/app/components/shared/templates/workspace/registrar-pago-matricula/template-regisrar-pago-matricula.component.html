@@ -1,6 +1,10 @@
 <section class="registrar-pago-matricula">
     <h2 class="registrar-pago-matricula__title">
-        <text-gradient text="Pago de Matricula" />
+        <atom-label
+            [class]="'font-rubik_dirt font-600 text-4xl leading-[1px]'"
+            text="Pago de Matricula"
+            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+        />
     </h2>
     <section class="registrar-matricula__datos">
         <select-list
@@ -15,7 +19,8 @@
         @if (studentSelect) {
             <div class="data">
                 <div class="attribute">
-                    <span class="name">DNI: </span><span class="data">{{ studentSelect.dni }}</span>
+                    <span class="name">DNI: </span
+                    ><span class="data">{{ studentSelect.dni }}</span>
                 </div>
                 <div class="attribute">
                     <span class="name">Alumno: </span>
@@ -41,7 +46,7 @@
                 </div>
             </div>
             <div class="options">
-                <button-payment
+                <atom-button-payment
                     [dinero]="matriculaPendiente?.pay || 0"
                     [idPay]="matriculaPendiente?.idPago || 0"
                 />

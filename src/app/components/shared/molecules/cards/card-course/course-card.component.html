@@ -1,0 +1,35 @@
+<article (click)="handleClick()">
+    <header class="*:h-[100px]">
+        <div class="absolute bg-black w-[300px]"></div>
+        <img [src]="portada()" alt="Portada del curso" class="w-[380px]" />
+    </header>
+    <main>
+        <div>{{ name() }}</div>
+        <div class="code">{{ code() }}</div>
+        <div>{{ profesores()[0] }}</div>
+    </main>
+</article>
+
+<style>
+    article {
+        @apply relative cursor-pointer font-lexend bg-white text-[15px] top-0 duration-300 rounded-[10px] overflow-hidden text-black;
+        border: 1px solid rgb(179, 179, 179);
+        box-shadow: 0 0 10px 2px #0000004d;
+
+        &:hover {
+            @apply -top-[10px];
+            box-shadow: 3px 10px 16px 0px #0000005e;
+        }
+    }
+    main > div {
+        @apply m-10;
+
+        &::selection {
+            @apply text-white bg-[#240079];
+        }
+
+        .code {
+            @apply bg-white;
+        }
+    }
+</style>

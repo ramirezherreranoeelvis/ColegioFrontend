@@ -10,15 +10,14 @@ import {
 import { PaymentService } from './payment.service';
 
 @Component({
-      selector: 'button-payment',
+      selector: 'atom-button-payment',
       template: `
-            <div class="options">
+            <div>
                   <div #paypal></div>
             </div>
       `,
-      styleUrl: './payment.component.scss',
 })
-export class PaymentComponent implements OnInit, OnChanges {
+export class AtomButtonPayment implements OnInit, OnChanges {
       protected pagosRealizados: any[] = [];
       @Input() dinero: any;
       @Input() idPay!: number;

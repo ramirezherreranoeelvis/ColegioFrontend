@@ -1,5 +1,11 @@
 <div class="history">
-    <h2 class="history__title"><text-gradient text="Historial de Ingreso" /></h2>
+    <h2 class="history__title">
+        <atom-label
+            [class]="'font-rubik_dirt font-600 text-4xl leading-[1px]'"
+            text="Historial de Ingreso"
+            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+        />
+    </h2>
     <!-- para seleccionar algunos datos que pueden filtrar -->
     <div class="history__filter">
         <select-list
@@ -13,7 +19,9 @@
         @if (historial) {
             <table-attendance-history [historial]="historial" />
         } @else {
-            <span class="history__table-nofound">No tiene un historial de ingreso para ver</span>
+            <span class="history__table-nofound"
+                >No tiene un historial de ingreso para ver</span
+            >
         }
     </div>
 </div>

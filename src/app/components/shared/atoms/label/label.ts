@@ -13,6 +13,7 @@ import { TFontStyle } from '../../../../core/types/TFontStyle';
  *                                   - 'gradient-light-purple-fuxea-rose'
  *                                   - 'gradient-rose-purple'
  *                                   - 'gradient-red-darkblue-purple'
+ *                                   - 'gradient-45deg-red-red-darkblue-purple-purple'
  *                                   - '' (default)
  *
  * @param {string} className       - Additional Tailwind CSS classes for styling.
@@ -51,4 +52,5 @@ export type styleTheme =
       | 'gradient-light-purple-fuxea-rose'
       | 'gradient-rose-purple'
       | 'gradient-red-darkblue-purple'
+      | 'gradient-45deg-red-red-darkblue-purple-purple'
       | '';

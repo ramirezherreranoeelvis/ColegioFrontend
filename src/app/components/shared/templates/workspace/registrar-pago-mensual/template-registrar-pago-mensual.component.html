@@ -1,5 +1,11 @@
 <section class="registrar-pago-mensual">
-    <h2 class="registrar-pago-mensual__title"><text-gradient text="Pago Mensual" /></h2>
+    <h2 class="registrar-pago-mensual__title">
+        <atom-label
+            [class]="'font-rubik_dirt font-600 text-4xl leading-[1px]'"
+            text="Pago Mensual"
+            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+        />
+    </h2>
     <section class="registrar-pago-mensual__selector">
         <select-list
             default="Escoge a tu hijo"
@@ -10,7 +16,9 @@
         />
     </section>
     @if (studentSelect) {
-        <h3 class="registrar-pago-mensual__pending-title">Pagos pendientes mensuales</h3>
+        <h3 class="registrar-pago-mensual__pending-title">
+            Pagos pendientes mensuales
+        </h3>
         <table class="registrar-pago-mensual__table">
             <thead class="registrar-pago-mensual__thead">
                 <tr class="registrar-pago-mensual__tr">
@@ -22,8 +30,12 @@
             <tbody class="registrar-pago-mensual__tbody">
                 @for (Pago of mensualidadesPendientes; track $index) {
                     <tr class="registrar-pago-mensual__tr">
-                        <td class="registrar-pago-mensual__td">{{ $index + 1 }}</td>
-                        <td class="registrar-pago-mensual__td">{{ Pago.pay }}</td>
+                        <td class="registrar-pago-mensual__td">
+                            {{ $index + 1 }}
+                        </td>
+                        <td class="registrar-pago-mensual__td">
+                            {{ Pago.pay }}
+                        </td>
                         <td class="registrar-pago-mensual__td">
                             <input
                                 type="button"
@@ -39,14 +51,16 @@
         @if (isDetalles) {
             <h3 class="registrar-pago-mensual__details-title">Ver detalles</h3>
             <div class="options">
-                <button-payment
+                <atom-button-payment
                     class="registrar-pago-mensual__payment"
                     [dinero]="pagoSelect?.pay || 0"
                     [idPay]="pagoSelect?.idPago || 0"
-                ></button-payment>
+                ></atom-button-payment>
             </div>
         } @else {
-            <span class="registrar-pago-mensual__message">Haga clic en "Ver detalles" en uno</span>
+            <span class="registrar-pago-mensual__message"
+                >Haga clic en "Ver detalles" en uno</span
+            >
         }
     } @else {
         <span class="registrar-pago-mensual__message">Seleccione un hijo</span>

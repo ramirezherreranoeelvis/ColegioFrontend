@@ -28,10 +28,22 @@ $text-gradient: (
       &-red-darkblue-purple {
             background: linear-gradient(45deg, #e31c48, #000980, #8400ffde);
       }
+
+      &-45deg-red-red-darkblue-purple-purple {
+            background: linear-gradient(
+                  45deg,
+                  #e31c48,
+                  #e31c48,
+                  #000980,
+                  #8400ffde,
+                  #8400ffde
+            );
+      }
       &-purple-fuxea-rose,
       &-light-purple-fuxea-rose,
       &-rose-purple,
-      &-red-darkblue-purple {
+      &-red-darkblue-purple,
+      &-45deg-red-red-darkblue-purple-purple {
             @each $property, $value in $text-gradient {
                   #{$property}: $value;
             }

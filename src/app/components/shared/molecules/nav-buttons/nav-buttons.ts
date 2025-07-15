@@ -6,7 +6,6 @@ import { RouterLink } from '@angular/router';
       selector: 'nav-buttons',
       imports: [RouterLink],
       templateUrl: './nav-buttons.component.html',
-      styleUrl: './nav-buttons.component.scss',
 })
 export class NavButtonsComponent {
       @Input() routes!: List[];

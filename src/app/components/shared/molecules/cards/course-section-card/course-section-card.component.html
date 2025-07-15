@@ -1,44 +1,26 @@
 <details open class="course__content-item">
-      <summary class="course__content-title">
-            @if (content.tipo == "session") {
-                  <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 64 64"
-                        class="book-icon"
-                  >
-                        <rect
-                              x="10"
-                              y="10"
-                              width="44"
-                              height="50"
-                              rx="4"
-                              ry="4"
-                              class="cover"
-                        />
-                        <path d="M14 10v50h36V10H14z" class="page" />
-                        <path d="M18 14h28v42H18z" class="inner-page" />
-                        <rect
-                              x="14"
-                              y="10"
-                              width="4"
-                              height="50"
-                              class="spine"
-                        />
-                  </svg>
-                  Sesión N°{{ content.numero }}: {{ content.nombre }}
-            } @else {
-                  {{ content.nombre }}
+    <summary class="course__content-title">
+        @if (content.tipo == "session") {
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="book-icon">
+                <rect x="10" y="10" width="44" height="50" rx="4" ry="4" class="cover" />
+                <path d="M14 10v50h36V10H14z" class="page" />
+                <path d="M18 14h28v42H18z" class="inner-page" />
+                <rect x="14" y="10" width="4" height="50" class="spine" />
+            </svg>
+            Sesión N°{{ content.numero }}: {{ content.nombre }}
+        } @else {
+            {{ content.nombre }}
+        }
+    </summary>
+    <div class="course__resources">
+        @for (recurso of content.recursos; track $index) {
+            <resource-course
+                [resource]="recurso"
+                (selectedContent)="handleClick('recurso', recurso)"
+            />
+            @if (content.recursos.length != $index + 1) {
+                <atom-line-separator />
             }
-      </summary>
-      <div class="course__resources">
-            @for (recurso of content.recursos; track $index) {
-                  <resource-course
-                        [resource]="recurso"
-                        (selectedContent)="handleClick('recurso', recurso)"
-                  />
-                  @if (content.recursos.length != $index + 1) {
-                        <line-separator />
-                  }
-            }
-      </div>
+        }
+    </div>
 </details>

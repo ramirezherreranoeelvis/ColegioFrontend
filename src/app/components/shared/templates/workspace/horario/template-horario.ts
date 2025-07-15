@@ -8,7 +8,7 @@ import List from '../../../atoms/select-list/list';
 import { FormsModule } from '@angular/forms';
 import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
 import { TableHorarioComponent } from '../../../organisms/tables/table-horario/table-horario.component';
-import { TextGradientComponent } from '../../../atoms/text-gradient/text-gradient.component';
+import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-horario',
@@ -16,7 +16,7 @@ import { TextGradientComponent } from '../../../atoms/text-gradient/text-gradien
             FormsModule,
             SelectListComponent,
             TableHorarioComponent,
-            TextGradientComponent,
+            AtomLabel,
       ],
       templateUrl: './template-horario.component.html',
       styleUrl: './template-horario.scss',
