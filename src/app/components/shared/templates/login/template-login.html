@@ -1,59 +1,148 @@
-<div class="container">
-    <section class="login__left">
-        <atom-label
-            text="Colegio"
-            themeStyle="gradient-red-darkblue-purple"
-            className="text-[60px] font-600 leading-[1px] font-rubik_dirt"
-        />
-    </section>
-    <section class="login__right">
-        <form [formGroup]="profile()" (submit)="submitForm.emit()" class="login__form">
-            <div class="login__data">
-                <atom-label
-                    text="Usuario:"
-                    forId="username"
-                    [class]="'font-lexend text-[25px] text-[#ecfffe]'"
-                />
-                <atom-input
-                    [control]="formUtil.getFormControl('username')"
-                    [message]="getMessage('username', 'El usuario es obligatorio', '', 'Correcto')"
-                    [valid]="{isValid:formUtil.getValid('username')}"
-                    placeholder="Ingrese usuario"
-                    forId="username"
-                    [class]="`w-full m-auto`"
-                    styleTheme="purple"
-                    [className]="`font-geologica rounded-[10px] 
-                                size-full px-[13px] h-[35px] py-[5px] text-[15px]`
-                    "
-                />
-                <atom-label
-                    text="Contraseña:"
-                    forId="password"
-                    [class]="'font-lexend text-[25px] text-[#ecfffe]'"
-                />
-                <atom-password
-                    [control]="formUtil.getFormControl('password')"
-                    [message]="getMessage('password', 'El password es obligatorio', 'El password necesita 8 digitos', 'Correcto')"
-                    [valid]="{isValid:formUtil.getValid('password')}"
-                    placeholder="Ingrese contraseña"
-                    forId="password"
-                    [class]="`w-full m-auto`"
-                    styleTheme="purple"
-                    [className]="`font-geologica rounded-[10px] 
-                                size-full pl-[13px] h-[35px] pr-0 py-[5px] text-[15px]`
-                    "
-                />
+<style>
+    :host {
+        @apply w-[100vw] h-[100vh] flex justify-center items-center;
+        background: linear-gradient(90deg, #531fb3 0%, #6281ff 100%);
+    }
+
+    #template {
+        @apply relative w-3/4 h-4/5 bg-white rounded-[40px] flex-col flex overflow-hidden pl-12;
+        box-shadow: 4px 4px 70px #0000001a;
+    }
+    .content {
+        @apply flex flex-col h-full z-30;
+
+        img {
+            @apply w-[200px];
+        }
+        @media (height < 780px) {
+            img {
+                @apply w-[100px];
+            }
+        }
+        .title {
+            @apply mb-[41px] ml-[18px] text-[64px] font-regular font-potta_one max-[460px]:text-[40px];
+        }
+        @media (height <= 600px) {
+            .title {
+                @apply text-[38px] mb-[11px];
+            }
+        }
+    }
+
+    form {
+        @apply flex flex-col gap-9 w-[35%] min-w-[350px];
+
+        atom-label {
+            @apply font-poppins text-[16px] text-black font-light;
+        }
+
+        div {
+            @apply flex flex-col;
+        }
+
+        atom-input,
+        atom-password {
+            @apply h-[46px] w-full mr-auto font-poppins font-regular text-[15px] text-black;
+        }
+
+        atom-button {
+            @apply mx-auto font-poppins text-[16px] text-white font-semibold w-[150px] h-[46px];
+        }
+    }
+    .images {
+        @apply absolute h-full z-10 self-end;
+        div {
+            @apply relative size-full flex;
+            .person-laptop {
+                @apply h-[703px] mr-28 mt-auto z-20;
+            }
+            .cactus {
+                @apply absolute bottom-10 right-28;
+            }
+        }
+        @media (width<1200px) {
+            div {
+                .person-laptop {
+                    @apply h-[603px] mr-0 mt-auto z-20;
+                }
+                .cactus {
+                    @apply absolute bottom-10 right-10 h-[500px];
+                }
+            }
+        }
+        @media (width<1060px) {
+            div {
+                .person-laptop {
+                    @apply h-[403px] mr-0 mt-auto z-20;
+                }
+                .cactus {
+                    @apply absolute bottom-10 right-10 h-[400px];
+                }
+            }
+        }
+    }
+
+    @media (width<750px) {
+        #template {
+            @apply pl-5;
+        }
+        form {
+            @apply flex flex-col gap-9 w-[calc(100%-30px)] min-w-[auto];
+        }
+        .images {
+            display: none;
+        }
+    }
+</style>
+<div id="template">
+    <!-- panel skyblue -->
+    <div class="absolute w-[35.8%] h-full rounded-[40px] bg-[#ffe8b9] self-end"></div>
+    <!-- para el formulario -->
+    <div class="content">
+        <div class="mt-8">
+            <img src="logo/sin-fondo.png" alt="logo-colegio" />
+            <atom-label text="Welcome Colegio" />
+        </div>
+        <atom-label text="Colegio" class="title" />
+        <form [formGroup]="profile()" (submit)="submitForm.emit()">
+            <div class="gap-5">
+                <div class="gap-[7px]">
+                    <atom-label text="Usuario:" forId="username" />
+                    <atom-input
+                        [control]="formUtil.getFormControl('username')"
+                        [message]="getMessage('username', 'El usuario es obligatorio', '', 'Correcto')"
+                        [valid]="{isValid:formUtil.getValid('username')}"
+                        placeholder="Ingrese usuario"
+                        forId="username"
+                        styleTheme="purple"
+                        [className]="`rounded-[10px] size-full pl-[13px]`"
+                    />
+                </div>
+                <div class="gap-[7px]">
+                    <atom-label text="Contraseña:" forId="password" />
+                    <atom-password
+                        [control]="formUtil.getFormControl('password')"
+                        [message]="getMessage('password', 'La contraseña es obligatorio', 'La contraseña necesita 8 digitos', 'Correcto')"
+                        [valid]="{isValid:formUtil.getValid('password')}"
+                        placeholder="Ingrese contraseña"
+                        forId="password"
+                        styleTheme="purple"
+                        [className]="`rounded-[10px] size-full pl-[13px]`"
+                    />
+                </div>
             </div>
-            <div class="login__options">
-                <atom-button
-                    text="Iniciar Sesión"
-                    type="submit"
-                    themeStyle="white-skyblue"
-                    [className]="`text-[#000141] text-[17px] font-geologica 
-                                rounded-[15px] size-full`
-                    "
-                />
-            </div>
+            <atom-button
+                text="Iniciar Sesión"
+                type="submit"
+                themeStyle="blue-purple"
+                className="size-full rounded-[23px]"
+            />
         </form>
+    </div>
+    <section class="images">
+        <div>
+            <img src="student-laptop.png" alt="student-laptop" class="person-laptop" />
+            <img src="cactus.svg" alt="cactus" class="cactus" />
+        </div>
     </section>
 </div>

@@ -4,6 +4,7 @@ import { AtomButton } from '../../button/button';
 import { MatIconModule } from '@angular/material/icon';
 import { StyleTheme } from '../TFontStyle';
 import { TFontStyle } from '../../../../../core/types/TFontStyle';
+import { NgClass } from '@angular/common';
 
 /**
  * Reusable password input component with visibility toggle.
@@ -31,25 +32,23 @@ import { TFontStyle } from '../../../../../core/types/TFontStyle';
  */
 @Component({
       selector: 'atom-password',
-      imports: [ReactiveFormsModule, AtomButton, MatIconModule],
+      imports: [NgClass, ReactiveFormsModule, AtomButton, MatIconModule],
       template: `
             @let validAndPress = keyPress && valid();
+            @if (keyPress) {
+                  <div class="text-sm absolute bottom-1 right-8">{{ message() }}</div>
+            }
             <input
+                  [class]="className() + ' ' + styleTheme()"
                   [id]="forId()"
                   [type]="getType()"
                   [formControl]="control()"
                   [placeholder]="placeholder()"
                   [style.fontStyle]="fontStyle()"
-                  [class]="
-                        className() +
-                        ' ' +
-                        styleTheme() +
-                        ' ' +
-                        {
-                              incorrect: validAndPress && !valid()?.isValid,
-                              correct: validAndPress && valid()?.isValid,
-                        }
-                  "
+                  [ngClass]="{
+                        ' incorrect': validAndPress && !valid()?.isValid,
+                        ' correct': validAndPress && valid()?.isValid,
+                  }"
                   (keydown)="keyPress = true"
             />
             <div class="button">

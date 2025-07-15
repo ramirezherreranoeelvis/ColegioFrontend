@@ -1,23 +1,26 @@
 :host {
       @apply relative;
-      &::before {
-            content: attr(message);
-            @apply absolute bottom-1 right-2 z-10 block text-sm;
-      }
       .button {
             @apply absolute h-full right-0 top-0 flex items-center;
       }
-      atom-button{
-            @apply rounded-full size-[24px]
+      atom-button {
+            @apply rounded-full size-[24px];
       }
 }
 
 input.purple {
-      @apply bg-[#b7bdff8a] text-white outline-none box-content;
+      @apply bg-[#b7bdff8a] outline-none box-content;
 }
 atom-button.purple {
-      @apply bg-[#C0DBEA] ;
+      @apply bg-[#C0DBEA];
       mat-icon {
             @apply text-[#D885A3];
       }
+}
+input.correct {
+      @apply outline-[#28971e] bg-[#2d552856] focus:outline-[#1be24d];
+}
+
+input.incorrect {
+      @apply outline-[#971e42] bg-[#55282856] focus:outline-[#e21b57];
 }

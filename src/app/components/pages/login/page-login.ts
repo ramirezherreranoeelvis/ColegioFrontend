@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TemplateLogin } from '../../shared/templates/login/template-login';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthApi } from './infrastructure/api/authApi';
 import { AuthTokenManager } from '../../../core/utils/AuthTokenManager';
+import { TemplateLogin } from '../../shared/templates/login/template-login';
 
 @Component({
       selector: 'page-login',

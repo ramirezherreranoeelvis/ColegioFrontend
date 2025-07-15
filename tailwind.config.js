@@ -10,6 +10,8 @@ module.exports = {
         lexend: ["Lexend", "sans-serif"],
         rubik_dirt: ["Rubik Dirt", "sans-serif"],
         work_sans: ["Work Sans", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        potta_one: ["Potta One", "sans-serif"],
       },
       fontWeight: {
         100: 100,
@@ -21,6 +23,7 @@ module.exports = {
         700: 700,
         800: 800,
         900: 900,
+        regular: 400,
       },
     },
   },

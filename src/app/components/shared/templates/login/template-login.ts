@@ -1,10 +1,5 @@
 import { Component, input, OnInit, output } from '@angular/core';
-import {
-      AbstractControl,
-      FormGroup,
-      FormsModule,
-      ReactiveFormsModule,
-} from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AtomButton } from '../../atoms/button/button';
 import { AtomLabel } from '../../atoms/label/label';
 import { AtomInput } from '../../atoms/form-inputs/input/input';
@@ -23,7 +18,6 @@ import FormControlUtil from '../../../../core/utils/FormControlUtil';
             ReactiveFormsModule,
       ],
       templateUrl: './template-login.html',
-      styleUrl: './template-login.scss',
 })
 export class TemplateLogin implements OnInit {
       profile = input.required<FormGroup<IProfileSignIn>>();

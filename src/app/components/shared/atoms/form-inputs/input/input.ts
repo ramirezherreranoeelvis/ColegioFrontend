@@ -2,6 +2,7 @@ import { Component, input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TFontStyle } from '../../../../../core/types/TFontStyle';
 import { StyleTheme } from '../TFontStyle';
+import { NgClass } from '@angular/common';
 
 /**
  * Reusable input component for forms with validation styling.
@@ -34,25 +35,23 @@ import { StyleTheme } from '../TFontStyle';
  */
 @Component({
       selector: 'atom-input',
-      imports: [ReactiveFormsModule],
+      imports: [NgClass, ReactiveFormsModule],
       template: `
             @let validAndPress = keyPress && valid();
+             @if (keyPress) {
+                  <div class="text-sm absolute bottom-1 right-2">{{ message() }}</div>
+            }
             <input
+                  [class]="className() + ' ' + styleTheme()"
                   [id]="forId()"
                   [type]="type()"
                   [formControl]="control()"
                   [placeholder]="placeholder()"
                   [style.fontStyle]="fontStyle()"
-                  [class]="
-                        className() +
-                        ' ' +
-                        styleTheme() +
-                        ' ' +
-                        {
-                              incorrect: validAndPress && !valid()?.isValid,
-                              correct: validAndPress && valid()?.isValid,
-                        }
-                  "
+                  [ngClass]="{
+                        ' incorrect': validAndPress && !valid()?.isValid,
+                        ' correct': validAndPress && valid()?.isValid
+                  }"
                   (keydown)="keyPress = true"
             />
       `,
