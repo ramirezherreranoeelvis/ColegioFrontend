@@ -1,39 +1,47 @@
-<table class="history__table">
-    <thead class="history__head">
-        <tr class="history__head-row">
-            <th class="history__head-item">Fecha</th>
-            <th class="history__head-item"></th>
-            @for (dia of historial[1].dias; track $index) {
-                <th class="history__head-item">{{ dia.name }}</th>
+<table class="font-lexend font-500 h-full">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th></th>
+            @for (dia of historial()[0].dias; track $index) {
+                <th>{{ dia.name }}</th>
             }
         </tr>
     </thead>
-    <tbody class="history__body">
-        @for (semana of historial; track $index) {
-            <tr class="history__row-space">
-                <td></td>
+    <tbody>
+        @for (semana of historial(); track $index) {
+            <tr>
+                <td class="h-5 min-w-[1px] border-none"></td>
             </tr>
-            <tr class="history__body-row">
-                <td class="history__body-item history__body-item--semana" rowspan="2">
+            <tr class="row">
+                <td class="semana" rowspan="2">
                     {{ semana.name }}
                 </td>
-                <td class="history__body-item history__body-item--entrada">Entrada</td>
+                <td class="entrada">Entrada</td>
                 @for (day of semana.dias; track $index) {
                     <td
                         [class]="
-                            getClasesEntradaSalida(day.entrada.status, day.elementoFinal, 'entrada')
+                            getClasesEntradaSalida(
+                                day.entrada.status,
+                                day.elementoFinal,
+                                'entrada'
+                            )
                         "
                     >
                         {{ day.entrada.content }}
                     </td>
                 }
             </tr>
-            <tr class="history__body-row">
-                <td class="history__body-item history__body-item--salida">Salida</td>
+            <tr class="row">
+                <td class="salida">Salida</td>
                 @for (day of semana.dias; track $index) {
                     <td
                         [class]="
-                            getClasesEntradaSalida(day.salida.status, day.elementoFinal, 'salida')
+                            getClasesEntradaSalida(
+                                day.salida.status,
+                                day.elementoFinal,
+                                'salida'
+                            )
                         "
                     >
                         {{ day.salida.content }}

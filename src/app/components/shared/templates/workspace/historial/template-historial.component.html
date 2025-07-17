@@ -7,21 +7,21 @@
         />
     </h2>
     <!-- para seleccionar algunos datos que pueden filtrar -->
-    <div class="history__filter">
+    <nav class="history__filter">
         <atom-select
             default="Selecciona a tu hijo"
             styleSelect="bg-blue white"
             styleOption="bg-dark-blue"
         />
-    </div>
+    </nav>
     <!-- tabla para mostrar datos -->
-    <div class="history__table-container">
-        @if (historial) {
-            <table-attendance-history [historial]="historial" />
+    <main class="history__table-container">
+        @if (historial()) {
+            <table-attendance-history [historial]="historial()" />
         } @else {
             <span class="history__table-nofound"
                 >No tiene un historial de ingreso para ver</span
             >
         }
-    </div>
+    </main>
 </div>
