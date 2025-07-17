@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { HistorialService } from '../../../../pages/workspace/infrastructura/api/historial.service';
 import { SemanaHistorial } from '../../../../pages/workspace/infrastructura/interfaces/semanaHistorial';
-import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
+import { AtomSelect } from '../../../atoms/select/select';
 import { TableAttendanceHistoryComponent } from '../../../organisms/tables/table-attendance-history/table-attendance-history.component';
 import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-historial',
       imports: [
-            SelectListComponent,
+            AtomSelect,
             TableAttendanceHistoryComponent,
             AtomLabel,
       ],

@@ -9,16 +9,17 @@ export const routes: Routes = [
       {
             path: 'login',
             title: 'login',
-            loadComponent: () => import('../../components/pages/login/page-login'),
+            loadComponent: () =>
+                  import('../../components/pages/login/page-login'),
       },
       {
             path: 'workspace',
             title: 'workspace',
             loadComponent: () =>
-                  import(
-                        '../../components/pages/workspace/page-workspace'
-                  ),
+                  import('../../components/pages/workspace/page-workspace'),
             loadChildren: () =>
-                  import('./workspace.routes').then((m) => m.workspace),
+                  import(
+                        '../../components/pages/workspace/infrastructura/routes/workspace.routes'
+                  ).then((m) => m.workspace),
       },
 ];

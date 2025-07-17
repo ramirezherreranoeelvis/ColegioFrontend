@@ -6,13 +6,13 @@ import { DayHorario } from '../../../../pages/workspace/infrastructura/interface
 import { TurnoHorario } from '../../../../pages/workspace/infrastructura/interfaces/horario/turnoHorario';
 import { Enrollment } from '../../../../pages/workspace/infrastructura/interfaces/registrarMatricula/nextEnrollment';
 import { Student } from '../../../../pages/workspace/infrastructura/interfaces/student';
-import List from '../../../atoms/select-list/list';
-import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
+import List from '../../../atoms/select/list';
+import { AtomSelect } from '../../../atoms/select/select';
 import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-registrar-matricula',
-      imports: [SelectListComponent, AtomLabel],
+      imports: [AtomSelect, AtomLabel],
       templateUrl: './template-registrar-matricula.component.html',
       styleUrl: './template-registrar-matricula.scss',
 })

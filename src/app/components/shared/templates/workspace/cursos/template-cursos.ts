@@ -8,12 +8,12 @@ import {
       RecursoContenidoCurso,
 } from '../../../../pages/workspace/infrastructura/interfaces/cursos/curso';
 import { Temporada } from '../../../../pages/workspace/infrastructura/interfaces/Temporada';
-import List from '../../../atoms/select-list/list';
+import List from '../../../atoms/select/list';
 import { FormsModule } from '@angular/forms';
 import { CardCourse } from '../../../molecules/cards/card-course/course-card';
 import { InputTextComponent } from '../../../atoms/input-text/input-text.component';
 import { MenuExitComponent } from '../../../molecules/menu-exit/menu-exit.component';
-import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
+import { AtomSelect } from '../../../atoms/select/select';
 import { RecursoComponent } from '../../../molecules/recurso/recurso.component';
 import { CourseContentComponent } from '../../../organisms/course-content/course-content.component';
 import { AtomLabel } from '../../../atoms/label/label';
@@ -26,7 +26,7 @@ import { AtomLabel } from '../../../atoms/label/label';
             CardCourse,
             CourseContentComponent,
             MenuExitComponent,
-            SelectListComponent,
+            AtomSelect,
             InputTextComponent,
             AtomLabel,
       ],

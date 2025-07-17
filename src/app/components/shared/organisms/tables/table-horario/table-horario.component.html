@@ -1,23 +1,54 @@
-<table class="horario__table" border="1">
-    <thead class="horario__header">
-        <tr class="horario__header-row">
-            <th class="horario__header-item" colspan="6">Horario</th>
+<table border="1">
+    <thead>
+        <tr>
+            <th colspan="6">Horario</th>
         </tr>
-        <tr class="horario__header-row">
-            <th class="horario__header-item">Hora</th>
-            @for (day of days; track $index) {
-                <th class="horario__header-item">{{ day }}</th>
+        <tr>
+            <th>Hora</th>
+            @for (day of days(); track $index) {
+                <th>{{ day }}</th>
             }
         </tr>
     </thead>
-    <tbody class="horario__body">
-        @for (day of horario; track $index) {
-            <tr class="horario__body-row horario__body-clase">
-                <td class="horario__body-item">{{ day.startTime }} - {{ day.endTime }}</td>
+    <tbody>
+        @for (day of horario(); track $index) {
+            <tr>
+                <td>{{ day.startTime }} - {{ day.endTime }}</td>
                 @for (curso of day.cursos; track $index) {
-                    <td class="horario__body-item">{{ curso }}</td>
+                    <td>{{ curso }}</td>
                 }
             </tr>
         }
     </tbody>
 </table>
+<style>
+    table {
+        box-shadow: 2px 1px 10px 0 #0000004d;
+        border-collapse: collapse;
+        border-color: #0044ff;
+        border-style: solid;
+        font-family: lexend;
+        border-width: 3px;
+    }
+
+    th {
+        border-width: 4px;
+        border-style: solid;
+        background-color: #00b7ff;
+        color: #000;
+        padding: 10px;
+
+        &:first-child {
+            padding: 25px 0;
+        }
+    }
+
+    td {
+        border-width: 4px;
+        border-style: solid;
+        text-align: center;
+        padding: 10px;
+        min-width: 100px;
+        text-transform: capitalize;
+    }
+</style>

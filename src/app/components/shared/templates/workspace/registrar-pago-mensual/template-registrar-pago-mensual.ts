@@ -4,14 +4,14 @@ import { ParentService } from '../../../../pages/workspace/infrastructura/api/pa
 import { Pago } from '../../../../pages/workspace/infrastructura/interfaces/Pago';
 import { Student } from '../../../../pages/workspace/infrastructura/interfaces/student';
 import { PaymentService } from '../../../atoms/payment/payment.service';
-import List from '../../../atoms/select-list/list';
+import List from '../../../atoms/select/list';
 import { AtomButtonPayment } from '../../../atoms/payment/payment';
-import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
+import { AtomSelect } from '../../../atoms/select/select';
 import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-registrar-pago-mensual',
-      imports: [AtomButtonPayment, SelectListComponent, AtomLabel],
+      imports: [AtomButtonPayment, AtomSelect, AtomLabel],
       templateUrl: './template-registrar-pago-mensual.component.html',
       styleUrl: './template-registrar-pago-mensual.scss',
 })

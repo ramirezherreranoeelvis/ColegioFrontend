@@ -9,7 +9,7 @@
         </h2>
         <div class="course__filters">
             <!-- filtro por hijos -->
-            <select-list
+        <atom-select
                 default="Selecciona a tu hijo"
                 styleSelect="bg-blue white"
                 styleOption="bg-dark-blue"
@@ -22,7 +22,7 @@
                 [text]="nameFind"
                 (search)="setNameFind($event)"
             />
-            <select-list
+        <atom-select
                 default="Periodos"
                 [items]="temporadasLst"
                 styleSelect="bg-blue white"

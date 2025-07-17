@@ -1,4 +1,4 @@
-:host{
+:host {
       position: relative;
 }
 button {
@@ -15,8 +15,15 @@ button {
       }
 }
 .blue-purple {
-      background: #8B85D8;
+      background: #8b85d8;
       &:hover {
+            background: #4400ff;
+            box-shadow: 2px 1px 10px 0 #00065a;
+      }
+}
+.purple {
+      background: #143ef7;
+      &:hover{
             background: #4400ff;
             box-shadow: 2px 1px 10px 0 #00065a;
       }

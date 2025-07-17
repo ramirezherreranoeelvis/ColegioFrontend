@@ -1,102 +1,198 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
-import { HorarioService } from '../../../../pages/workspace/infrastructura/api/horario.service';
-import { ParentService } from '../../../../pages/workspace/infrastructura/api/parent.service';
-import { TemporadaService } from '../../../../pages/workspace/infrastructura/api/temporada.service';
+import { Component, input, output } from '@angular/core';
 import { DayHorario } from '../../../../pages/workspace/infrastructura/interfaces/horario/dayHorario';
-import List from '../../../atoms/select-list/list';
+import List from '../../../atoms/select/list';
 import { FormsModule } from '@angular/forms';
-import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
-import { TableHorarioComponent } from '../../../organisms/tables/table-horario/table-horario.component';
+import { AtomSelect } from '../../../atoms/select/select';
+import { TableHorario } from '../../../organisms/tables/table-horario/table-horario';
 import { AtomLabel } from '../../../atoms/label/label';
+import { AtomButton } from '../../../atoms/button/button';
 
 @Component({
       selector: 'template-horario',
       imports: [
             FormsModule,
-            SelectListComponent,
-            TableHorarioComponent,
+            AtomSelect,
+            TableHorario,
             AtomLabel,
+            AtomButton,
       ],
       templateUrl: './template-horario.component.html',
-      styleUrl: './template-horario.scss',
 })
-export class TemplateHorario implements OnInit {
-      protected dniParent: string = '99233923';
-      protected studentSelectDNI: string = '0';
-      protected studentsList!: List[];
-      protected temporadasList!: List[];
-      protected horarioView: boolean = false;
-      protected daysHorario!: DayHorario[];
+export class TemplateHorario {
+      studentSelectDNI: string = '0';
 
-      constructor(
-            private renderer: Renderer2,
-            private parentService: ParentService,
-            private horarioService: HorarioService,
-            private temporadaService: TemporadaService,
-      ) {}
+      studentsList = input<List[]>([
+            {
+                  id: '00000001',
+                  value: 'child-1',
+            },
+            {
+                  id: '00000002',
+                  value: 'child-2',
+            },
+      ]);
 
-      public ngOnInit(): void {
-            this.getChildrens();
-      }
+      temporadasList = input<List[]>([
+            {
+                  id: '2024',
+                  value: '2024',
+            },
+            {
+                  id: '2025',
+                  value: '2025',
+            },
+      ]);
 
-      protected async getChildrens() {
-            try {
-                  const students = await firstValueFrom(
-                        this.parentService.getStudent(this.dniParent),
-                  );
-                  this.studentsList = students.map((s) => {
-                        return {
-                              id: s.dni,
-                              value:
-                                    s.name +
-                                    ' ' +
-                                    s.surnamePaternal +
-                                    ' ' +
-                                    s.surnameMaternal,
-                        };
-                  });
-            } catch (error) {
-                  console.error('Error fetching students', error);
-            }
-      }
+      daysHorario = input<DayHorario[]>([
+            {
+                  day: 'Lunes',
+                  cursos: [
+                        {
+                              event: 'química',
+                              startTime: '08:00:00',
+                              endTime: '09:00:00',
+                        },
+                        {
+                              event: 'aritmética',
+                              startTime: '09:10:00',
+                              endTime: '10:10:00',
+                        },
+                        {
+                              event: 'geometría',
+                              startTime: '10:40:00',
+                              endTime: '11:40:00',
+                        },
+                        {
+                              event: 'álgebra',
+                              startTime: '11:50:00',
+                              endTime: '12:50:00',
+                        },
+                  ],
+            },
+            {
+                  day: 'Martes',
+                  cursos: [
+                        {
+                              event: 'razonamiento matemático',
+                              startTime: '08:00:00',
+                              endTime: '09:00:00',
+                        },
+                        {
+                              event: 'razonamiento verbal',
+                              startTime: '09:10:00',
+                              endTime: '10:10:00',
+                        },
+                        {
+                              event: 'literatura',
+                              startTime: '10:40:00',
+                              endTime: '11:40:00',
+                        },
+                        {
+                              event: 'física',
+                              startTime: '11:50:00',
+                              endTime: '12:50:00',
+                        },
+                  ],
+            },
+            {
+                  day: 'Miercoles',
+                  cursos: [
+                        {
+                              event: 'historia universal',
+                              startTime: '08:00:00',
+                              endTime: '09:00:00',
+                        },
+                        {
+                              event: 'cómputo',
+                              startTime: '09:10:00',
+                              endTime: '10:10:00',
+                        },
+                        {
+                              event: 'ingles',
+                              startTime: '10:40:00',
+                              endTime: '11:40:00',
+                        },
+                        {
+                              event: 'biología',
+                              startTime: '11:50:00',
+                              endTime: '12:50:00',
+                        },
+                  ],
+            },
+            {
+                  day: 'Jueves',
+                  cursos: [
+                        {
+                              event: 'economía',
+                              startTime: '08:00:00',
+                              endTime: '09:00:00',
+                        },
+                        {
+                              event: 'educación física',
+                              startTime: '09:10:00',
+                              endTime: '10:10:00',
+                        },
+                        {
+                              event: 'geografía',
+                              startTime: '10:40:00',
+                              endTime: '11:40:00',
+                        },
+                        {
+                              event: 'lenguaje',
+                              startTime: '11:50:00',
+                              endTime: '12:50:00',
+                        },
+                  ],
+            },
+            {
+                  day: 'Viernes',
+                  cursos: [
+                        {
+                              event: 'ortografía',
+                              startTime: '08:00:00',
+                              endTime: '09:00:00',
+                        },
+                        {
+                              event: 'cívica',
+                              startTime: '09:10:00',
+                              endTime: '10:10:00',
+                        },
+                        {
+                              event: 'historia del perú',
+                              startTime: '10:40:00',
+                              endTime: '11:40:00',
+                        },
+                        {
+                              event: 'trigonometría',
+                              startTime: '11:50:00',
+                              endTime: '12:50:00',
+                        },
+                  ],
+            },
+      ]);
 
-      protected async updateDataStudentSelect(dni: string) {
-            //si no se escojio ninguno los datos se borran
+      changeChild = output<string>();
+      changeChildHorario = output<{ year: string; dni: string }>();
+
+      horarioView = false;
+
+      protected changeChildEvent = (dni: string) => {
             this.studentSelectDNI = dni;
             if (dni == '0') {
+                  this.horarioView = false;
                   return;
             }
-            try {
-                  const temporadas = await firstValueFrom(
-                        this.temporadaService.findAllSeasonByStudent(dni),
-                  );
-                  this.temporadasList = temporadas.map((t) => {
-                        return { id: t.year, value: t.year };
-                  });
-            } catch (error) {
-                  console.error('Error fetching temporadas', error);
-            }
-      }
+            this.changeChild.emit(dni);
+      };
 
-      protected async updateHorario(year: string) {
+      protected changeChildHorarioEvent = (year: string, dni: string) => {
             if (year == '0') {
-                  this.daysHorario = [];
                   this.horarioView = false;
                   return;
             }
             this.horarioView = true;
-            try {
-                  const daysHorario = await firstValueFrom(
-                        this.horarioService.obtenerHorarioPorTemporada(
-                              year,
-                              this.studentSelectDNI,
-                        ),
-                  );
-                  this.daysHorario = daysHorario;
-            } catch (error) {
-                  console.error('Error fetching daysHorario', error);
-            }
-      }
-      protected donwloadHorario(): void {}
+            this.changeChildHorario.emit({ year, dni });
+      };
+
+      protected donwloadHorario = () => {};
 }

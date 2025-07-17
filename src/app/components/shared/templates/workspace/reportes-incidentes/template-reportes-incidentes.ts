@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { IncidentesService } from '../../../../pages/workspace/infrastructura/api/incidentes.service';
 import { ParentService } from '../../../../pages/workspace/infrastructura/api/parent.service';
-import List from '../../../atoms/select-list/list';
-import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
+import List from '../../../atoms/select/list';
+import { AtomSelect } from '../../../atoms/select/select';
 import { Report } from '../../../../pages/workspace/infrastructura/interfaces/report';
 import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-reportes-incidentes',
-      imports: [SelectListComponent, AtomLabel],
+      imports: [AtomSelect, AtomLabel],
       templateUrl: './template-reportes-incidentes.component.html',
       styleUrl: './template-reportes-incidentes.scss',
 })

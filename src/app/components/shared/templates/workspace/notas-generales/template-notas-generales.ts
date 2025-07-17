@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectListComponent } from '../../../atoms/select-list/select-list.component';
+import { AtomSelect } from '../../../atoms/select/select';
 import { firstValueFrom } from 'rxjs';
 import { NotasService } from '../../../../pages/workspace/infrastructura/api/notas.service';
 import { TemporadaService } from '../../../../pages/workspace/infrastructura/api/temporada.service';
 import { Promedios } from '../../../../pages/workspace/infrastructura/interfaces/notas/promedios';
-import List from '../../../atoms/select-list/list';
+import List from '../../../atoms/select/list';
 import { FormsModule } from '@angular/forms';
 import { AtomLabel } from '../../../atoms/label/label';
 
 @Component({
       selector: 'template-notas-generales',
-      imports: [FormsModule, SelectListComponent, AtomLabel],
+      imports: [FormsModule, AtomSelect, AtomLabel],
       templateUrl: './template-notas-generales.component.html',
       styleUrl: './template-notas-generales.scss',
 })

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import List from '../../atoms/select-list/list';
+import List from '../../atoms/select/list';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavButtonsComponent } from '../../molecules/nav-buttons/nav-buttons';

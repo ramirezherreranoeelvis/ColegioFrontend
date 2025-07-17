@@ -12,6 +12,7 @@ import { TFontStyle } from '../../../../core/types/TFontStyle';
  * @param {styleTheme}        styleTheme   Theme style of the button:
  *                                         - 'white-skyblue'
  *                                         - 'blue-purple'
+ *                                         - 'purple'
  *                                         - '' (default)
  * @param {string}            className    Additional Tailwind CSS classes.
  * @param {FontStyle}         fontStyle    Font style:
@@ -48,4 +49,9 @@ export class AtomButton {
       evtClick = output();
 }
 export type ButtonType = 'button' | 'submit' | 'reset';
-export type styleTheme = 'white-skyblue' | 'skyblue' | 'blue-purple' | '';
+export type styleTheme =
+      | 'white-skyblue'
+      | 'skyblue'
+      | 'blue-purple'
+      | 'purple'
+      | '';

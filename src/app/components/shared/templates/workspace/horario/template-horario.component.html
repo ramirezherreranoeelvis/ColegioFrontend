@@ -1,46 +1,62 @@
-<div class="horario">
-    <h2 class="horario__title">
+<div class="py-[15px] px-[40px]">
+    <h2 class="text-center">
         <atom-label
             [class]="'font-rubik_dirt font-600 text-4xl leading-[1px]'"
             text="Horario"
             themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
         />
     </h2>
-    <div class="horario__select">
-        <select-list
+    <header class="flex flex-row gap-[15px] my-[15px] mx-0">
+        <atom-select
             default="Selecciona a tu hijo"
-            [items]="studentsList"
+            [class]="'block w-[200px] h-[50px]'"
+            [items]="studentsList()"
             styleSelect="bg-blue white"
             styleOption="bg-dark-blue"
-            (changeElement)="updateDataStudentSelect($event)"
+            (changeElement)="changeChildEvent($event)"
         />
 
         @if (studentSelectDNI != "0") {
-            <select-list
+        <atom-select
                 default="Selecciona un año"
-                [items]="temporadasList"
+                [class]="'block w-[200px] h-[50px]'"
+                [items]="temporadasList()"
                 styleSelect="bg-blue white"
-                (changeElement)="updateHorario($event)"
+                (changeElement)="changeChildHorarioEvent($event, studentSelectDNI)"
             />
         }
-    </div>
-    @if (studentSelectDNI != "0") {
-        @if (horarioView) {
-            <div class="table">
-                <table-horario [dayHorarioList]="daysHorario" />
-            </div>
-            <div class="options">
-                <input
-                    type="button"
-                    value="Descargar horario"
-                    class="horario__download-button"
-                    (click)="donwloadHorario()"
-                />
-            </div>
-        } @else {
-            <p class="horario__mensaje">Usted no tiene un año escojido</p>
-        }
+    </header>
+    @if (studentSelectDNI == "0") {
+        <atom-label
+            class="flex font-lexend justify-center w-full"
+            text="Usted no tiene ningún hijo seleccionado"
+        />
+    } @else if (!horarioView) {
+        <atom-label
+            class="flex font-lexend justify-center w-full"
+            text="Usted no tiene un año escojido"
+        />
     } @else {
-        <p class="horario__mensaje">Usted no tiene ningún hijo seleccionado</p>
+        <main class="flex items-center justify-center flex-col my-[20px] mx-0">
+            <table-horario [dayHorarioList]="daysHorario()" />
+        </main>
+        <footer class="flex items-center justify-center">
+            <atom-button
+                text="Descargar horario"
+                class="download-button"
+                themeStyle="purple"
+                [className]="'size-full rounded-[10px]'"
+                (evtClick)="donwloadHorario()"
+            />
+        </footer>
     }
 </div>
+<style>
+    .download-button {
+        @apply font-lexend m-[30px] w-[200px] h-[50px];
+        @apply text-[15px] text-white;
+        transition:
+            background 0.2s,
+            box-shadow 0.2s;
+    }
+</style>
