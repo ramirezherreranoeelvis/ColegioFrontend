@@ -9,7 +9,11 @@ export const workspace: Routes = [
       {
             path: 'cursos',
             title: 'cursos',
-            loadComponent: () => import(`../../sub-pages/cursos/page-cursos`),
+            loadComponent: () => import(`../../sub-pages/cursos/page-courses-layout`),
+            loadChildren: () =>
+                  import(
+                        '../../sub-pages/cursos/infrastructure/routes/courses.routes'
+                  ).then((m) => m.courses),
       },
       {
             path: 'historial',

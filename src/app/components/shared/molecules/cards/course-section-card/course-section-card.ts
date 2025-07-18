@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ResourceCourseComponent } from '../resource-course/resource-course';
 import { AtomLineSeparator } from '../../../atoms/line-separator/line-separator';
-import { ContenidoCurso } from '../../../../pages/workspace/infrastructura/interfaces/cursos/curso';
+import { ContenidoCurso } from '../../../../pages/workspace/sub-pages/cursos/infrastructure/interfaces/course';
 
 @Component({
-      selector: 'course-section-card',
+      selector: 'card-course-section',
       imports: [ResourceCourseComponent, AtomLineSeparator],
       templateUrl: './course-section-card.component.html',
       styleUrl: './course-section-card.scss',
 })
-export class CourseSectionCardComponent {
+export class CardCourseSection {
       @Input() content!: ContenidoCurso;
       @Output() selectedContent = new EventEmitter<{
             contenido: string;

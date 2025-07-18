@@ -13,7 +13,6 @@ $radius__item: 10px;
       display: flex;
       flex-direction: column;
       overflow: auto;
-      animation: identifier 2s linear infinite;
 
       &::-webkit-scrollbar {
             width: 15px;

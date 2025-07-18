@@ -1,0 +1,24 @@
+<atom-link route="../../">
+    <menu-exit />
+</atom-link>
+<div id="template">
+    <header class="mb-5 text-center font-rubik_dirt font-600 text-4xl">
+        <atom-label
+            text="Resource"
+            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+        />
+    </header>
+</div>
+<style>
+    #template {
+        @apply py-[15px] px-[40px] max-h-[75vh] w-[70vw];
+        @apply flex flex-col overflow-auto;
+
+        &::-webkit-scrollbar {
+            @apply w-[15px] bg-[#ff0080] rounded-[10px];
+        }
+        &::-webkit-scrollbar-thumb {
+            @apply rounded-[10px] bg-[#000980] cursor-pointer;
+        }
+    }
+</style>

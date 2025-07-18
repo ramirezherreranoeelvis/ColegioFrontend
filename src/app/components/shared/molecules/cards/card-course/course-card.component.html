@@ -1,12 +1,18 @@
-<article (click)="handleClick()">
+<article>
     <header class="*:h-[100px]">
-        <div class="absolute bg-black w-[300px]"></div>
         <img [src]="portada()" alt="Portada del curso" class="w-[380px]" />
     </header>
     <main>
         <div>{{ name() }}</div>
         <div class="code">{{ code() }}</div>
-        <div>{{ profesores()[0] }}</div>
+        <div>
+            @for (profesor of profesores(); track $index) {
+                {{ profesor }}
+                @if ($index + 1 != profesores().length) {
+                    ,
+                }
+            }
+        </div>
     </main>
 </article>
 
@@ -22,7 +28,7 @@
         }
     }
     main > div {
-        @apply m-10;
+        @apply m-[10px];
 
         &::selection {
             @apply text-white bg-[#240079];

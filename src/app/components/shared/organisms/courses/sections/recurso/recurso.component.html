@@ -1,0 +1,30 @@
+<div class="resource">
+    <h2 class="resource__title">{{ resource().nombre }}</h2>
+    <div class="resource__content">
+        <div class="resource__description">
+            <div class="resource__description-text">
+                {{ resource().descripcion }}
+            </div>
+        </div>
+        <div class="resource__items">
+            @if (resource().items.length != 0) {
+                @for (item of resource().items; track $index) {
+                    <article class="resource__item">
+                        <a
+                            [href]="item.contenido"
+                            [download]="item.nombreArchivo"
+                            class="resource__item-download-button"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >{{ item.nombreArchivo }}</a
+                        >
+                    </article>
+                }
+            } @else {
+                <article class="resource__item resource__item--empty">
+                    NO HAY RECURSOS
+                </article>
+            }
+        </div>
+    </div>
+</div>

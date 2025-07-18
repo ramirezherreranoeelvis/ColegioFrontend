@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 @Component({
       selector: 'input-text',
@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
             <input
                   type="text"
                   name=""
-                  [class]="styleInput"
+                  [class]="styleInput()"
                   [placeholder]="placeholder"
                   [ngModel]="text"
                   (ngModelChange)="onSearchTermChange($event)"
@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
       styleUrl: './input-text.component.scss',
 })
 export class InputTextComponent {
-      @Input() styleInput!: string;
+      styleInput = input('');
       @Input() placeholder: string = '';
       @Input() text!: string;
       @Output() search = new EventEmitter<string>();

@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
       selector: 'card-course',
@@ -9,14 +9,4 @@ export class CardCourse {
       portada = input('');
       name = input('');
       profesores = input<string[]>(['']);
-      eventClick = output<{
-            contenido: string;
-            codigo: string;
-      }>();
-      handleClick() {
-            this.eventClick.emit({
-                  contenido: 'curso',
-                  codigo: this.code(),
-            });
-      }
 }

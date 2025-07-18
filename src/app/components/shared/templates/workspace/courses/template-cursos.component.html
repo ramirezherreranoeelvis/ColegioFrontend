@@ -1,0 +1,79 @@
+<div id="template">
+    <header class="mb-5 text-center font-rubik_dirt font-600 text-4xl">
+        <atom-label
+            text="Cursos"
+            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+        />
+    </header>
+    <form class="filters">
+        <atom-select
+            default="Selecciona a tu hijo"
+            [items]="studentsList()"
+            styleSelect="bg-blue white"
+            styleOption="bg-dark-blue"
+            id="select-hijo"
+        />
+        <input-text
+            placeholder="Busque sus cursos por nombre"
+            [text]="nameCourseFind()"
+        />
+        <atom-select
+            default="Periodos"
+            [items]="seasonList()"
+            styleSelect="bg-blue white"
+            styleOption="bg-dark-blue"
+            (changeElement)="evtChangeCourse.emit($event)"
+            id="select-periodo"
+        />
+    </form>
+    <main class="flex justify-evenly flex-row flex-wrap z-10 gap-[30px]">
+        @for (curso of courses(); track $index) {
+            <atom-link [route]="`course/${curso.codigo}`">
+                <card-course
+                    [portada]="curso.portada"
+                    [name]="curso.nombre"
+                    [code]="curso.codigo"
+                    [profesores]="curso.profesores"
+                />
+            </atom-link>
+        } @empty {
+            <atom-label text="No se encontraron cursos" class="font-lexend" />
+        }
+    </main>
+</div>
+<style>
+    #template {
+        @apply py-[15px] px-[40px] max-h-[75vh] w-[70vw];
+        @apply flex flex-col overflow-auto;
+
+        &::-webkit-scrollbar {
+            @apply w-[15px] bg-[#ff0080] rounded-[10px];
+        }
+        &::-webkit-scrollbar-thumb {
+            @apply rounded-[10px] bg-[#000980] cursor-pointer;
+        }
+    }
+
+    .filters {
+        display: grid;
+        grid-template-areas:
+            "selectHijo . . "
+            "selectText selectText selectPeriodo";
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-rows: 50px 50px;
+        gap: 20px;
+        margin: 0 0 20px 0;
+
+        atom-select#select-hijo {
+            grid-area: selectHijo;
+        }
+
+        input-text {
+            grid-area: selectText;
+        }
+
+        atom-select#select-periodo {
+            grid-area: selectPeriodo;
+        }
+    }
+</style>
