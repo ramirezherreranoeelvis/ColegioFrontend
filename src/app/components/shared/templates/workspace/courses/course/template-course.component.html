@@ -14,7 +14,7 @@
             <summary class="course__professors-title">Profesores:</summary>
             <div class="course__professors-list">
                 @for (profesor of course().profesores; track $index) {
-                <div class="course__professor">{{ profesor }}</div>
+                    <div class="course__professor">{{ profesor }}</div>
                 }
             </div>
         </details>
@@ -48,10 +48,7 @@
         <summary class="course__contents-title">Contenido:</summary>
         <div class="course__contents-list">
             @for (contenido of course().contenidos; track $index) {
-            <card-course-section
-                [content]="contenido"
-                (selectedContent)="handleClick($event)"
-            />
+                <card-content-course [content]="contenido" />
             }
         </div>
     </details>

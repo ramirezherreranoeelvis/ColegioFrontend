@@ -4,7 +4,7 @@ import { Curso } from '../../../../../pages/workspace/sub-pages/cursos/infrastru
 import { MenuExitComponent } from '../../../../molecules/menu-exit/menu-exit.component';
 import { AtomLink } from '../../../../atoms/link/link';
 import { AtomLineSeparator } from '../../../../atoms/line-separator/line-separator';
-import { CardCourseSection } from '../../../../molecules/cards/course-section-card/course-section-card';
+import { CardContentCourse } from '../../../../molecules/cards/card-content-course/card-content-course';
 
 @Component({
       selector: 'template-course',
@@ -13,9 +13,9 @@ import { CardCourseSection } from '../../../../molecules/cards/course-section-ca
             MenuExitComponent,
             AtomLink,
             AtomLineSeparator,
-            CardCourseSection,
+            CardContentCourse,
       ],
-      templateUrl: './template-course.html',
+      templateUrl: './template-course.component.html',
       styleUrl: './template-course.scss',
 })
 export class TemplateCourse {
@@ -37,9 +37,25 @@ export class TemplateCourse {
                         tipo: 'session',
                         recursos: [
                               {
+                                    code: '1000000',
+                                    nombre: 'foro',
+                                    descripcion: '',
+                                    tipo: 'forum',
+                                    items: [],
+                                    notas: [],
+                              },
+                              {
+                                    code: '1000001',
+                                    nombre: 'contenido',
+                                    descripcion: '',
+                                    tipo: 'data',
+                                    items: [],
+                              },
+                              {
+                                    code: '1000002',
                                     nombre: 'tarea',
-                                    descripcion: 'd',
-                                    tipo: 'tarea',
+                                    descripcion: '',
+                                    tipo: 'homework',
                                     items: [],
                                     notas: [],
                               },

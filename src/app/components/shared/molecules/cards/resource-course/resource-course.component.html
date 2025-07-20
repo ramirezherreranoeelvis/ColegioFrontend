@@ -1,9 +1,9 @@
-<div class="course__resource" (click)="handleClick()">
-    <div class="course__resource-name">{{ resource.nombre }}</div>
-    @if (resource.notas) {
+<div class="course__resource">
+    <div class="course__resource-name">{{ resource().nombre }}</div>
+    @if (resource().notas) {
         <div class="course__resource-nota">
-            @if (resource.notas.length == 1) {
-                {{ resource.notas[0].nota }}
+            @if (singleGrade(); as grade) {
+                {{ grade }}
             } @else {
                 Sin calificar
             }

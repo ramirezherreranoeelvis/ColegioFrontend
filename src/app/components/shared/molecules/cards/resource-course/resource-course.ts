@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RecursoContenidoCurso } from "../../../../pages/workspace/sub-pages/cursos/infrastructure/interfaces/resource-content";
+import { Component, computed, input } from '@angular/core';
+import { RecursoContenidoCurso } from '../../../../pages/workspace/sub-pages/cursos/infrastructure/interfaces/resource-content';
 
 @Component({
       selector: 'resource-course',
@@ -7,9 +7,16 @@ import { RecursoContenidoCurso } from "../../../../pages/workspace/sub-pages/cur
       styleUrl: './resource-course.scss',
 })
 export class ResourceCourseComponent {
-      @Input() resource!: RecursoContenidoCurso;
-      @Output() selectedContent = new EventEmitter<void>();
-      handleClick() {
-            this.selectedContent.emit();
-      }
+      resource = input.required<RecursoContenidoCurso>();
+      
+      protected singleGrade = computed(() => {
+            const notas = this.resource().notas;
+
+            // Verifica si 'notas' existe y NO es un arreglo
+            if (notas && !Array.isArray(notas)) {
+                  return notas.nota;
+            }
+
+            return null; // En cualquier otro caso, no hay nota individual
+      });
 }

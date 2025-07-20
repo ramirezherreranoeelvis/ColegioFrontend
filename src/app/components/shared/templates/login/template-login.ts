@@ -6,6 +6,7 @@ import { AtomInput } from '../../atoms/form-inputs/input/input';
 import { AtomPassword } from '../../atoms/form-inputs/password/password';
 import { IProfileSignIn } from '../../../pages/login/page-login';
 import FormControlUtil from '../../../../infrastructure/utils/FormControlUtil';
+import { IconCactus } from '../../icons/cactus/icon-cactus';
 
 @Component({
       selector: 'template-login',
@@ -16,8 +17,10 @@ import FormControlUtil from '../../../../infrastructure/utils/FormControlUtil';
             AtomInput,
             AtomPassword,
             ReactiveFormsModule,
+            IconCactus,
       ],
       templateUrl: './template-login.html',
+      styleUrl: './template-login.scss',
 })
 export class TemplateLogin implements OnInit {
       profile = input.required<FormGroup<IProfileSignIn>>();

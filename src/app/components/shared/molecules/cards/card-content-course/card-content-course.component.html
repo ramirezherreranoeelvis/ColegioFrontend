@@ -1,0 +1,22 @@
+<details class="card">
+    <summary class="card-title">
+        @if (content().tipo == "session") {
+            <icon-book themeStyle="pink" />
+            Sesión N°{{ content().numero }}: {{ content().nombre }}
+        } @else {
+            {{ content().nombre }}
+        }
+    </summary>
+
+    <main class="course__resources">
+        @for (recurso of content().recursos; track recurso.code) {
+            <atom-link [route]="`../../resource/${recurso.code}`">
+                <resource-course [resource]="recurso" />
+            </atom-link>
+
+            @if (!$last) {
+                <atom-line-separator />
+            }
+        }
+    </main>
+</details>

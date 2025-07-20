@@ -1,99 +1,3 @@
-<style>
-    :host {
-        @apply w-[100vw] h-[100vh] flex justify-center items-center;
-        background: linear-gradient(90deg, #531fb3 0%, #6281ff 100%);
-    }
-
-    #template {
-        @apply relative w-3/4 h-4/5 bg-white rounded-[40px] flex-col flex overflow-hidden pl-12;
-        box-shadow: 4px 4px 70px #0000001a;
-    }
-    .content {
-        @apply flex flex-col h-full z-30;
-
-        img {
-            @apply w-[200px];
-        }
-        @media (height < 780px) {
-            img {
-                @apply w-[100px];
-            }
-        }
-        .title {
-            @apply mb-[41px] ml-[18px] text-[64px] font-regular font-potta_one max-[460px]:text-[40px];
-        }
-        @media (height <= 600px) {
-            .title {
-                @apply text-[38px] mb-[11px];
-            }
-        }
-    }
-
-    form {
-        @apply flex flex-col gap-9 w-[35%] min-w-[350px];
-
-        atom-label {
-            @apply font-poppins text-[16px] text-black font-light;
-        }
-
-        div {
-            @apply flex flex-col;
-        }
-
-        atom-input,
-        atom-password {
-            @apply h-[46px] w-full mr-auto font-poppins font-regular text-[15px] text-black;
-        }
-
-        atom-button {
-            @apply mx-auto font-poppins text-[16px] text-white font-semibold w-[150px] h-[46px];
-        }
-    }
-    .images {
-        @apply absolute h-full z-10 self-end;
-        div {
-            @apply relative size-full flex;
-            .person-laptop {
-                @apply h-[703px] mr-28 mt-auto z-20;
-            }
-            .cactus {
-                @apply absolute bottom-10 right-28;
-            }
-        }
-        @media (width<1200px) {
-            div {
-                .person-laptop {
-                    @apply h-[603px] mr-0 mt-auto z-20;
-                }
-                .cactus {
-                    @apply absolute bottom-10 right-10 h-[500px];
-                }
-            }
-        }
-        @media (width<1060px) {
-            div {
-                .person-laptop {
-                    @apply h-[403px] mr-0 mt-auto z-20;
-                }
-                .cactus {
-                    @apply absolute bottom-10 right-10 h-[400px];
-                }
-            }
-        }
-    }
-
-    @media (width<750px) {
-        #template {
-            @apply pl-5;
-        }
-        form {
-            @apply flex flex-col gap-9 w-[calc(100%-30px)] min-w-[auto];
-        }
-        .images {
-            display: none;
-        }
-    }
-</style>
 <div id="template">
     <!-- panel skyblue -->
     <div class="absolute w-[35.8%] h-full rounded-[40px] bg-[#ffe8b9] self-end"></div>
@@ -139,10 +43,30 @@
             />
         </form>
     </div>
-    <section class="images">
-        <div>
-            <img src="student-laptop.png" alt="student-laptop" class="person-laptop" />
-            <img src="cactus.svg" alt="cactus" class="cactus" />
+    <!-- images -->
+    <section
+        [class]="`
+                absolute h-full z-10 self-end
+                max-[750px]:hidden
+            `"
+    >
+        <div class="relative size-full flex">
+            <img
+                src="student-laptop.png"
+                alt="student-laptop"
+                [class]="`
+                    h-[703px] mr-28 mt-auto z-20
+                    max-[1200px]:h-[603px] max-[1200px]:mr-0
+                    max-[1060px]:h-[403px]
+                `"
+            />
+            <icon-cactus
+                [className]="`
+                    absolute bottom-10 right-28 w-[200px]
+                    max-[1200px]:right-10 max-[1200px]:h-[500px]
+                    max-[1060px]:h-[400px]
+                `"
+            />
         </div>
     </section>
 </div>

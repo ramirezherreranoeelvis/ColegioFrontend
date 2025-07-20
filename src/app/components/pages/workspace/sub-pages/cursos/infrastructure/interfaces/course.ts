@@ -16,6 +16,6 @@ export interface Curso {
 export interface ContenidoCurso {
       nombre: string;
       numero: number;
-      tipo: string;
+      tipo: 'auxiliary' | 'extra' | 'general' | 'session';
       recursos: RecursoContenidoCurso[];
 }
