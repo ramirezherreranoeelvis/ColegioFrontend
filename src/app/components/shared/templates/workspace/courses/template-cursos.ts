@@ -19,7 +19,6 @@ import { CardCourse } from '../../../molecules/cards/card-course/course-card';
             AtomLink,
       ],
       templateUrl: './template-cursos.component.html',
-      styleUrl: './template-cursos.scss',
 })
 export class TemplateCursos {
       // courses

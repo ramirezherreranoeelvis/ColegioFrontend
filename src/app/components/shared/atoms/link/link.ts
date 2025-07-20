@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { TFontStyle } from '../../../../core/types/TFontStyle';
 import { RouterLink } from '@angular/router';
+import { NgTemplateOutlet } from '@angular/common';
 
 /**
  * Reusable card or content container component.
@@ -24,33 +25,35 @@ import { RouterLink } from '@angular/router';
  */
 @Component({
       selector: 'atom-link',
-      imports: [RouterLink],
+      imports: [RouterLink, NgTemplateOutlet],
       template: `
+            <ng-template #linkContent>
+                  @if (text()) {
+                        {{ text() }}
+                  } @else {
+                        <ng-content />
+                  }
+            </ng-template>
+
             @if (isExternal()) {
                   <a
                         [href]="route()"
                         [class]="styleTheme() + ' ' + className()"
-                        [style.fontStyle]="fontStyle()"
+                        [style]="{ fontStyle: fontStyle() }"
+                        [target]="target() || '_blank'"
+                        [rel]="rel() || 'noopener noreferrer'"
                   >
-                        @if (text()) {
-                              {{ text() }}
-                        } @else {
-                              <ng-content />
-                        }
+                        <ng-container [ngTemplateOutlet]="linkContent" />
                   </a>
             } @else {
                   <a
                         [routerLink]="route()"
                         [class]="styleTheme() + ' ' + className()"
-                        [style]="{
-                              fontStyle: fontStyle(),
-                        }"
+                        [style]="{ fontStyle: fontStyle() }"
+                        [target]="target()"
+                        [rel]="rel()"
                   >
-                        @if (text()) {
-                              {{ text() }}
-                        } @else {
-                              <ng-content />
-                        }
+                        <ng-container [ngTemplateOutlet]="linkContent" />
                   </a>
             }
       `,
@@ -63,5 +66,7 @@ export class AtomLink {
       styleTheme = input<styleTheme>('');
       className = input<string>('');
       fontStyle = input<TFontStyle>('normal');
+      target = input<'' | '_blank' | '_parent' | '_self' | '_top'>('');
+      rel = input('');
 }
 type styleTheme = 'default-white' | 'default-blue' | 'kids-sky-blue' | '';

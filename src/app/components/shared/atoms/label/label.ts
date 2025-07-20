@@ -12,7 +12,7 @@ import { TFontStyle } from '../../../../core/types/TFontStyle';
  *                                   - 'gradient-purple-fuxea-rose'
  *                                   - 'gradient-light-purple-fuxea-rose'
  *                                   - 'gradient-rose-purple'
- *                                   - 'gradient-red-darkblue-purple'
+ *                                   - 'gradient-45deg-red-darkblue-purple'
  *                                   - 'gradient-45deg-red-red-darkblue-purple-purple'
  *                                   - '' (default)
  *
@@ -51,6 +51,6 @@ export type styleTheme =
       | 'gradient-purple-fuxea-rose'
       | 'gradient-light-purple-fuxea-rose'
       | 'gradient-rose-purple'
-      | 'gradient-red-darkblue-purple'
+      | 'gradient-45deg-red-darkblue-purple'
       | 'gradient-45deg-red-red-darkblue-purple-purple'
       | '';

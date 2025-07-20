@@ -1,7 +1,6 @@
 export interface RecursoContenidoCurso {
-      code:string;
+      code: string;
       nombre: string;
-      descripcion: string;
       tipo:
             | 'data'
             | 'forum'
@@ -12,15 +11,18 @@ export interface RecursoContenidoCurso {
             | 'bimonthly_exam'
             | 'exam_final'
             | 'quarterly_exam';
-      items: ItemRecursoCurso[];
+      // items: ItemRecursoCurso[];
+      items: ElementResourceCourse[];
       notas?: NotaRecursoCurso[] | NotaRecursoCurso;
 }
 
-export interface ItemRecursoCurso {
+// new resource item/element
+export interface ElementResourceCourse {
       dniPerson: string;
-      tipo: 'studentContent' | 'teacherContent';
+      provider: 'studentContent' | 'teacherContent';
+      tipo: 'text' | 'file' | 'image' | 'link';
       contenido: string;
-      nombreArchivo: string;
+      route?: string;
 }
 
 export interface NotaRecursoCurso {

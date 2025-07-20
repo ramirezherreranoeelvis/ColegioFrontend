@@ -39,7 +39,6 @@ export class TemplateCourse {
                               {
                                     code: '1000000',
                                     nombre: 'foro',
-                                    descripcion: '',
                                     tipo: 'forum',
                                     items: [],
                                     notas: [],
@@ -47,14 +46,12 @@ export class TemplateCourse {
                               {
                                     code: '1000001',
                                     nombre: 'contenido',
-                                    descripcion: '',
                                     tipo: 'data',
                                     items: [],
                               },
                               {
                                     code: '1000002',
                                     nombre: 'tarea',
-                                    descripcion: '',
                                     tipo: 'homework',
                                     items: [],
                                     notas: [],

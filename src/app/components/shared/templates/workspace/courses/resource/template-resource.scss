@@ -1,0 +1,95 @@
+$text-gradient: (
+      -webkit-background-clip: text,
+      background-clip: text,
+      -webkit-text-fill-color: transparent
+);
+
+.resource {
+      margin: 50px 0 0 0;
+      max-width: 60vw;
+
+      &__title {
+            &::first-letter {
+                  text-transform: uppercase;
+            }
+
+            text-align: center;
+            font-family: "Rubik Dirt";
+            background: linear-gradient(45deg, #e31c48, #000980, #8400ffde);
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 2.5rem;
+            padding: 25px 0;
+
+            @each $property, $value in $text-gradient {
+                  #{$property}: $value;
+            }
+      }
+
+      &__content {
+            min-width: 50vw;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+      }
+
+      &__description {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0 50px 0px;
+
+            &-text {
+                  position: relative;
+                  text-align: center;
+                  max-width: 70%;
+                  font-size: 1rem;
+                  z-index: 0;
+
+                  &::before {
+                        $alto: 30px;
+                        $ancho: 50px;
+                        padding: $alto $ancho;
+                        position: absolute;
+                        content: "";
+                        z-index: -1;
+                        background-color: #f0f0f0;
+                        filter: blur(2px);
+                        width: 100%;
+                        height: 100%;
+                        top: -$alto;
+                        left: -$ancho;
+                  }
+            }
+      }
+
+      &__items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+      }
+
+      &__item {
+            display: flex;
+            width: 90%;
+            margin-bottom: 10px;
+
+            &-download-button {
+                  border-radius: 5px;
+                  padding: 20px;
+                  width: 100%;
+                  height: 100%;
+                  box-shadow: 0 0 3px 2px #f0f0f0;
+                  padding: 25px 10px;
+                  text-decoration: none;
+                  color: #000980;
+
+                  &:hover {
+                        background: #eeeeee;
+                  }
+            }
+
+            &--empty {
+            }
+      }
+}

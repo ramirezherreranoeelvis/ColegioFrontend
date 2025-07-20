@@ -5,8 +5,6 @@ import { TeacherService } from '../../infrastructura/api/teacher.service';
 import { TemporadaService } from '../../infrastructura/api/temporada.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { catchError, Observable, of, switchMap } from 'rxjs';
-import { Curso } from './infrastructure/interfaces/course';
-import { RecursoContenidoCurso } from './infrastructure/interfaces/resource-content';
 
 @Component({
       selector: 'page-cursos',
