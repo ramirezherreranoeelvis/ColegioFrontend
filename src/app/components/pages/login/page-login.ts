@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthApi } from './infrastructure/api/authApi';
-import { AuthTokenManager } from '../../../infrastructure/utils/AuthTokenManager';
+import { AuthTokenManager } from '../../../infrastructure/services/AuthTokenManager';
 import { TemplateLogin } from '../../shared/templates/login/template-login';
 import ApiError from '../../../core/errors/api-error';
 
