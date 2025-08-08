@@ -1,11 +1,10 @@
 <section class="incidentes">
-    <h2 class="incidentes__title">
-        <atom-label
-            [class]="'font-rubik_dirt font-600 text-4xl leading-[1px]'"
-            text="Reportes"
-            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
-        />
-    </h2>
+    <atom-text
+        tag="h2"
+        [class]="'font-rubik_dirt font-600 text-4xl w-full text-center'"
+        text="Reportes"
+        themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+    />
     <div class="incidentes__select-wrapper">
         <atom-select
             default="Selecciona a tu hijo"
@@ -21,25 +20,15 @@
                 <thead class="incidentes__table-head">
                     <tr class="incidentes__table-row">
                         <th scope="col" class="incidentes__table-header">#</th>
-                        <th scope="col" class="incidentes__table-header">
-                            Fecha
-                        </th>
-                        <th scope="col" class="incidentes__table-header">
-                            Descripción
-                        </th>
-                        <th scope="col" class="incidentes__table-header">
-                            Auxiliar
-                        </th>
+                        <th scope="col" class="incidentes__table-header">Fecha</th>
+                        <th scope="col" class="incidentes__table-header">Descripción</th>
+                        <th scope="col" class="incidentes__table-header">Auxiliar</th>
                     </tr>
                 </thead>
                 <tbody class="incidentes__table-body">
                     @for (reporte of reportes; track $index) {
                         <tr class="incidentes__table-row">
-                            <th
-                                scope="row"
-                                class="incidentes__table-item"
-                                rowspan="2"
-                            >
+                            <th scope="row" class="incidentes__table-item" rowspan="2">
                                 {{ $index + 1 }}
                             </th>
                             <th class="incidentes__table-item" rowspan="2">

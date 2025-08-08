@@ -2,7 +2,7 @@ import { Component, signal, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Curso } from '../../../../pages/workspace/sub-pages/cursos/infrastructure/interfaces/course';
 import { InputTextComponent } from '../../../atoms/input-text/input-text.component';
-import { AtomLabel } from '../../../atoms/label/label';
+import { AtomText } from '../../../atoms/text/text';
 import { AtomLink } from '../../../atoms/link/link';
 import List from '../../../atoms/select/list';
 import { AtomSelect } from '../../../atoms/select/select';
@@ -15,7 +15,7 @@ import { CardCourse } from '../../../molecules/cards/card-course/course-card';
             CardCourse,
             AtomSelect,
             InputTextComponent,
-            AtomLabel,
+            AtomText,
             AtomLink,
       ],
       templateUrl: './template-cursos.component.html',

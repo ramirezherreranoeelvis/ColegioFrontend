@@ -6,11 +6,11 @@ import { TemporadaService } from '../../../../pages/workspace/infrastructura/api
 import { Promedios } from '../../../../pages/workspace/infrastructura/interfaces/notas/promedios';
 import List from '../../../atoms/select/list';
 import { FormsModule } from '@angular/forms';
-import { AtomLabel } from '../../../atoms/label/label';
+import { AtomText } from '../../../atoms/text/text';
 
 @Component({
       selector: 'template-notas-generales',
-      imports: [FormsModule, AtomSelect, AtomLabel],
+      imports: [FormsModule, AtomSelect, AtomText],
       templateUrl: './template-notas-generales.component.html',
       styleUrl: './template-notas-generales.scss',
 })

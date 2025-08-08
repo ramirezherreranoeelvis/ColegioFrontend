@@ -5,11 +5,11 @@ import { ParentService } from '../../../../pages/workspace/infrastructura/api/pa
 import List from '../../../atoms/select/list';
 import { AtomSelect } from '../../../atoms/select/select';
 import { Report } from '../../../../pages/workspace/infrastructura/interfaces/report';
-import { AtomLabel } from '../../../atoms/label/label';
+import { AtomText } from '../../../atoms/text/text';
 
 @Component({
       selector: 'template-reportes-incidentes',
-      imports: [AtomSelect, AtomLabel],
+      imports: [AtomSelect, AtomText],
       templateUrl: './template-reportes-incidentes.component.html',
       styleUrl: './template-reportes-incidentes.scss',
 })

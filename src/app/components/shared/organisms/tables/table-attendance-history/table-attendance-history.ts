@@ -33,8 +33,6 @@ export class TableAttendanceHistory {
                         clases = ' date';
                   }
             }
-            console.log(clases);
-
             return clases;
       }
 }

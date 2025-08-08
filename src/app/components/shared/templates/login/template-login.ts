@@ -1,7 +1,7 @@
 import { Component, input, OnInit, output } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AtomButton } from '../../atoms/button/button';
-import { AtomLabel } from '../../atoms/label/label';
+import { AtomText } from '../../atoms/text/text';
 import { AtomInput } from '../../atoms/form-inputs/input/input';
 import { AtomPassword } from '../../atoms/form-inputs/password/password';
 import { IProfileSignIn } from '../../../pages/login/page-login';
@@ -13,7 +13,7 @@ import { IconCactus } from '../../icons/cactus/icon-cactus';
       imports: [
             FormsModule,
             AtomButton,
-            AtomLabel,
+            AtomText,
             AtomInput,
             AtomPassword,
             ReactiveFormsModule,

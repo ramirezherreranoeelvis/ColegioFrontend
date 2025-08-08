@@ -1,7 +1,7 @@
-<div class="course__resource">
-    <div class="course__resource-name">{{ resource().nombre }}</div>
+<article class="px-2.5 py-[25px] cursor-pointer flex justify-between">
+    <div>{{ resource().nombre }}</div>
     @if (resource().notas) {
-        <div class="course__resource-nota">
+        <div class="mr-5">
             @if (singleGrade(); as grade) {
                 {{ grade }}
             } @else {
@@ -9,4 +9,9 @@
             }
         </div>
     }
-</div>
+</article>
+<style>
+    article:hover {
+        background: #eeeeee;
+    }
+</style>

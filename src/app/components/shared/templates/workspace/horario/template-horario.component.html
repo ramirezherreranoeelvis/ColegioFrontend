@@ -1,11 +1,10 @@
 <div class="py-[15px] px-[40px]">
-    <h2 class="text-center">
-        <atom-label
-            [class]="'font-rubik_dirt font-600 text-4xl leading-[1px]'"
-            text="Horario"
-            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
-        />
-    </h2>
+    <atom-text
+        tag="h2"
+        [class]="'font-rubik_dirt font-600 text-4xl w-full text-center'"
+        text="Horario"
+        themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+    />
     <header class="flex flex-row gap-[15px] my-[15px] mx-0">
         <atom-select
             default="Selecciona a tu hijo"
@@ -17,7 +16,7 @@
         />
 
         @if (studentSelectDNI != "0") {
-        <atom-select
+            <atom-select
                 default="Selecciona un año"
                 [class]="'block w-[200px] h-[50px]'"
                 [items]="temporadasList()"
@@ -27,12 +26,12 @@
         }
     </header>
     @if (studentSelectDNI == "0") {
-        <atom-label
+        <atom-text
             class="flex font-lexend justify-center w-full"
             text="Usted no tiene ningún hijo seleccionado"
         />
     } @else if (!horarioView) {
-        <atom-label
+        <atom-text
             class="flex font-lexend justify-center w-full"
             text="Usted no tiene un año escojido"
         />

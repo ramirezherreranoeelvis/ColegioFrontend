@@ -2,11 +2,11 @@ import { Component, input } from '@angular/core';
 import { SemanaHistorial } from '../../../../pages/workspace/sub-pages/historial/infrastruture/interfaces/semanaHistorial';
 import { AtomSelect } from '../../../atoms/select/select';
 import { TableAttendanceHistory } from '../../../organisms/tables/table-attendance-history/table-attendance-history';
-import { AtomLabel } from '../../../atoms/label/label';
+import { AtomText } from '../../../atoms/text/text';
 
 @Component({
       selector: 'template-historial',
-      imports: [AtomSelect, TableAttendanceHistory, AtomLabel],
+      imports: [AtomSelect, TableAttendanceHistory, AtomText],
       templateUrl: './template-historial.component.html',
       styleUrl: './template-historial.scss',
 })

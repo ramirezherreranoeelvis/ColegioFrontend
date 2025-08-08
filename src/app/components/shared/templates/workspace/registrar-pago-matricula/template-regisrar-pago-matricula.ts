@@ -7,11 +7,11 @@ import { PaymentService } from '../../../atoms/payment/payment.service';
 import List from '../../../atoms/select/list';
 import { AtomButtonPayment } from '../../../atoms/payment/payment';
 import { AtomSelect } from '../../../atoms/select/select';
-import { AtomLabel } from "../../../atoms/label/label";
+import { AtomText } from "../../../atoms/text/text";
 
 @Component({
       selector: 'template-regisrar-pago-matricula',
-      imports: [AtomButtonPayment, AtomSelect, AtomLabel],
+      imports: [AtomButtonPayment, AtomSelect, AtomText],
       templateUrl: './template-regisrar-pago-matricula.component.html',
       styleUrl: './template-regisrar-pago-matricula.scss',
 })

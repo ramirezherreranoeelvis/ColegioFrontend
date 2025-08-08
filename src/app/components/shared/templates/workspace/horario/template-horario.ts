@@ -4,7 +4,7 @@ import List from '../../../atoms/select/list';
 import { FormsModule } from '@angular/forms';
 import { AtomSelect } from '../../../atoms/select/select';
 import { TableHorario } from '../../../organisms/tables/table-horario/table-horario';
-import { AtomLabel } from '../../../atoms/label/label';
+import { AtomText } from '../../../atoms/text/text';
 import { AtomButton } from '../../../atoms/button/button';
 
 @Component({
@@ -13,7 +13,7 @@ import { AtomButton } from '../../../atoms/button/button';
             FormsModule,
             AtomSelect,
             TableHorario,
-            AtomLabel,
+            AtomText,
             AtomButton,
       ],
       templateUrl: './template-horario.component.html',

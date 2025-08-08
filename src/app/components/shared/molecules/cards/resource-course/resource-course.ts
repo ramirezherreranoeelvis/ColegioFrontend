@@ -4,7 +4,6 @@ import { RecursoContenidoCurso } from '../../../../pages/workspace/sub-pages/cur
 @Component({
       selector: 'resource-course',
       templateUrl: './resource-course.component.html',
-      styleUrl: './resource-course.scss',
 })
 export class ResourceCourseComponent {
       resource = input.required<RecursoContenidoCurso>();

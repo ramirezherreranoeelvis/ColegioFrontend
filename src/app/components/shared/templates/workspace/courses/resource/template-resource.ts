@@ -1,12 +1,12 @@
 import { Component, input } from '@angular/core';
-import { AtomLabel } from '../../../../atoms/label/label';
+import { AtomText } from '../../../../atoms/text/text';
 import { MenuExitComponent } from '../../../../molecules/menu-exit/menu-exit.component';
 import { AtomLink } from '../../../../atoms/link/link';
 import { RecursoContenidoCurso } from '../../../../../pages/workspace/sub-pages/cursos/infrastructure/interfaces/resource-content';
 
 @Component({
       selector: 'template-resource',
-      imports: [AtomLabel, MenuExitComponent, AtomLink],
+      imports: [AtomText, MenuExitComponent, AtomLink],
       templateUrl: './template-resource.component.html',
       styleUrl: './template-resource.scss',
 })

@@ -1,6 +1,7 @@
 <div id="template">
     <header class="mb-5 text-center font-rubik_dirt font-600 text-4xl">
-        <atom-label
+        <atom-text
+            tag="h2"
             text="Cursos"
             themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
         />
@@ -37,7 +38,7 @@
                 />
             </atom-link>
         } @empty {
-            <atom-label text="No se encontraron cursos" class="font-lexend" />
+            <atom-text text="No se encontraron cursos" class="font-lexend" />
         }
     </main>
 </div>

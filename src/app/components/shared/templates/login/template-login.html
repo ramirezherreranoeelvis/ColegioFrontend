@@ -5,13 +5,13 @@
     <div class="content">
         <div class="mt-8">
             <img src="logo/sin-fondo.png" alt="logo-colegio" />
-            <atom-label text="Welcome Colegio" />
+            <atom-text text="Welcome Colegio" />
         </div>
-        <atom-label text="Colegio" class="title" />
+        <atom-text text="Colegio" class="title" />
         <form [formGroup]="profile()" (submit)="evtSubmitLogin.emit()">
             <div class="gap-5">
                 <div class="gap-[7px]">
-                    <atom-label text="Usuario:" forId="username" />
+                    <atom-text tag="label" text="Usuario:" forId="username" />
                     <atom-input
                         [control]="formUtil.getFormControl('username')"
                         [message]="getMessage('username', 'El usuario es obligatorio', '', 'Correcto')"
@@ -23,7 +23,7 @@
                     />
                 </div>
                 <div class="gap-[7px]">
-                    <atom-label text="Contraseña:" forId="password" />
+                    <atom-text tag="label" text="Contraseña:" forId="password" />
                     <atom-password
                         [control]="formUtil.getFormControl('password')"
                         [message]="getMessage('password', 'La contraseña es obligatorio', 'La contraseña necesita 8 digitos', 'Correcto')"

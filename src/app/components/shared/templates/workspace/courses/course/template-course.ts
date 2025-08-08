@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { AtomLabel } from '../../../../atoms/label/label';
+import { AtomText } from '../../../../atoms/text/text';
 import { Curso } from '../../../../../pages/workspace/sub-pages/cursos/infrastructure/interfaces/course';
 import { MenuExitComponent } from '../../../../molecules/menu-exit/menu-exit.component';
 import { AtomLink } from '../../../../atoms/link/link';
@@ -9,7 +9,7 @@ import { CardContentCourse } from '../../../../molecules/cards/card-content-cour
 @Component({
       selector: 'template-course',
       imports: [
-            AtomLabel,
+            AtomText,
             MenuExitComponent,
             AtomLink,
             AtomLineSeparator,
