@@ -43,7 +43,7 @@ import { NgTemplateOutlet } from '@angular/common';
       selector: 'atom-text',
       imports: [NgTemplateOutlet],
       template: `
-            <ng-template #tagContent>
+            <ng-template #tagContent className="xd">
                   @if (text()) {
                         {{ text() }}
                   } @else {

@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
             <input
                   type="text"
                   name=""
-                  [class]="styleInput()"
+                  [class]="className()"
                   [placeholder]="placeholder"
                   [ngModel]="text"
                   (ngModelChange)="onSearchTermChange($event)"
@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
       styleUrl: './input-text.component.scss',
 })
 export class InputTextComponent {
-      styleInput = input('');
+      className = input('');
       @Input() placeholder: string = '';
       @Input() text!: string;
       @Output() search = new EventEmitter<string>();

@@ -8,13 +8,13 @@ import List from './list';
                   name="year"
                   id="select"
                   (change)="updateDataCoursesSelect($event)"
-                  [class]="styleSelect()"
+                  [class]="className()"
             >
-                  <option selected [value]="0" [class]="styleOption()">
+                  <option selected [value]="0" [class]="classNameOption()">
                         {{ default() }}
                   </option>
                   @for (item of items(); track $index) {
-                        <option [value]="item.id" [class]="styleOption()">
+                        <option [value]="item.id" [class]="classNameOption()">
                               {{ item.value }}
                         </option>
                   }
@@ -26,8 +26,8 @@ export class AtomSelect {
       default = input('');
       items = input<List[]>([]);
       changeElement = output<string>();
-      styleSelect = input('');
-      styleOption = input('');
+      className = input('');
+      classNameOption = input('');
 
       updateDataCoursesSelect(event: Event) {
             const itemSelect = (event.target as HTMLSelectElement).value;

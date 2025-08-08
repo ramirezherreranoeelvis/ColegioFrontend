@@ -1,35 +1,44 @@
 <div id="template">
-    <header class="mb-5 text-center font-rubik_dirt font-600 text-4xl">
+    <header class="mb-6">
         <atom-text
             tag="h2"
-            text="Cursos"
-            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+            text="Cursos Disponibles"
+            className="text-3xl font-bold text-slate-800"
+        />
+        <atom-text
+            tag="p"
+            text="Filtra y encuentra el curso que buscas para el periodo actual."
+            className="text-slate-500 mt-1"
         />
     </header>
+
     <form class="filters">
         <atom-select
             default="Selecciona a tu hijo"
             [items]="studentsList()"
-            styleSelect="bg-blue white"
-            styleOption="bg-dark-blue"
             id="select-hijo"
+            className="filter-input"
+            classNameOption="filter-option"
         />
         <input-text
-            placeholder="Busque sus cursos por nombre"
+            placeholder="Busque por nombre o código del curso..."
             [text]="nameCourseFind()"
+            className="filter-input"
         />
         <atom-select
             default="Periodos"
             [items]="seasonList()"
-            styleSelect="bg-blue white"
-            styleOption="bg-dark-blue"
             (changeElement)="evtChangeCourse.emit($event)"
             id="select-periodo"
+            className="filter-input"
+            classNameOption="filter-option"
         />
+        <button type="button" class="search-button">Buscar</button>
     </form>
-    <main class="flex justify-evenly flex-row flex-wrap z-10 gap-[30px]">
-        @for (curso of courses(); track $index) {
-            <atom-link [route]="`course/${curso.codigo}`">
+
+    <main class="courses-grid">
+        @for (curso of courses(); track curso.codigo) {
+            <atom-link [route]="'course/' + curso.codigo">
                 <card-course
                     [portada]="curso.portada"
                     [name]="curso.nombre"
@@ -38,43 +47,84 @@
                 />
             </atom-link>
         } @empty {
-            <atom-text text="No se encontraron cursos" class="font-lexend" />
+            <div class="empty-state">
+                <atom-text
+                    tag="p"
+                    text="No se encontraron cursos que coincidan con tu búsqueda."
+                    className="text-slate-600"
+                />
+            </div>
         }
     </main>
 </div>
 <style>
     #template {
-        @apply py-[15px] px-[40px] max-h-[75vh] w-[70vw];
+        @apply p-8 max-h-[90vh] w-full;
         @apply flex flex-col overflow-auto;
 
         &::-webkit-scrollbar {
-            @apply w-[15px] bg-[#ff0080] rounded-[10px];
+            @apply w-2 bg-slate-200 rounded-lg;
         }
         &::-webkit-scrollbar-thumb {
-            @apply rounded-[10px] bg-[#000980] cursor-pointer;
+            @apply rounded-lg bg-indigo-500 cursor-pointer;
         }
     }
 
     .filters {
-        display: grid;
-        grid-template-areas:
-            "selectHijo . . "
-            "selectText selectText selectPeriodo";
-        grid-template-columns: 200px 1fr 200px;
-        grid-template-rows: 50px 50px;
-        gap: 20px;
-        margin: 0 0 20px 0;
+        @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8;
+        @apply p-4 bg-slate-50 rounded-lg border border-slate-200;
 
-        atom-select#select-hijo {
-            grid-area: selectHijo;
-        }
+        grid-template-areas:
+            "selectHijo selectText selectText selectPeriodo"
+            "...        ...        ...        searchButton";
 
         input-text {
             grid-area: selectText;
         }
 
-        atom-select#select-periodo {
-            grid-area: selectPeriodo;
+        @media (max-width: 1024px) {
+            grid-template-areas:
+                "selectHijo selectText selectText"
+                "selectPeriodo searchButton searchButton";
+        }
+
+        @media (max-width: 768px) {
+            & {
+                @apply flex flex-col;
+            }
+        }
+    }
+
+    .courses-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+    }
+
+    .empty-state {
+        @apply col-span-full flex justify-center items-center py-16 bg-slate-50 rounded-lg;
+    }
+
+    :host {
+        ::ng-deep .filter-input {
+            @apply w-full bg-white border border-slate-300 rounded-md shadow-sm px-4 py-2;
+            @apply text-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500;
+            @apply transition-all duration-200;
+        }
+
+        /* Nuevos estilos para las opciones del select */
+        ::ng-deep .filter-option {
+            @apply font-semibold p-2; /* Un poco de padding para que no se vea apretado */
+        }
+
+        /* Le damos un estilo diferente a la opción por defecto para que se entienda que es un placeholder */
+        ::ng-deep .filter-option[value="0"] {
+            @apply text-slate-400 italic;
+        }
+
+        ::ng-deep .search-button {
+            @apply w-full md:w-auto justify-self-end bg-indigo-600 text-white font-semibold rounded-md px-6 py-2;
+            @apply hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+            @apply transition-colors duration-200;
+            grid-area: searchButton;
         }
     }
 </style>
