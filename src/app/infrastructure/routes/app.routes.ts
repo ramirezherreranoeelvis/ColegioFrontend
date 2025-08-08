@@ -13,10 +13,7 @@ export const routes: Routes = [
                   import('../../components/pages/login/page-login'),
       },
       {
-            path: 'workspace',
-            title: 'workspace',
-            loadComponent: () =>
-                  import('../../components/pages/workspace/page-workspace'),
+            path: '',
             loadChildren: () =>
                   import(
                         '../../components/pages/workspace/infrastructura/routes/workspace.routes'

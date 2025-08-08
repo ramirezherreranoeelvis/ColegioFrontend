@@ -25,29 +25,29 @@ import { TRolUsers } from '../../../../core/types/TRolUsers';
 export class TemplateWorkspace {
       rolUser = input<TRolUsers>('');
       private readonly routesMain: List[] = [
-            { id: '/workspace/horario', value: 'horario' },
-            { id: '/workspace/reportes-incidentes', value: 'incidentes' },
-            { id: '/workspace/cursos', value: 'cursos' },
-            { id: '/workspace/historial', value: 'historial de ingreso' },
-            { id: '/workspace/notas-generales', value: 'Notas Generales' },
+            { id: '/horario', value: 'horario' },
+            { id: '/reportes-incidentes', value: 'incidentes' },
+            { id: '/cursos', value: 'cursos' },
+            { id: '/historial', value: 'historial de ingreso' },
+            { id: '/notas-generales', value: 'Notas Generales' },
       ];
       private readonly routesPagos: List[] = [
             {
-                  id: '/workspace/registrar-matricula',
+                  id: '/registrar-matricula',
                   value: 'registrar matricula',
             },
             {
-                  id: '/workspace/registrar-pago-matricula',
+                  id: '/registrar-pago-matricula',
                   value: 'pago matricula',
             },
             {
-                  id: '/workspace/registrar-pago-mensual',
+                  id: '/registrar-pago-mensual',
                   value: 'pago mensualidad',
             },
       ];
       private readonly routesPagosTeacher: List[] = [
             {
-                  id: '/workspace/teacher/payment-history',
+                  id: '/teacher/payment-history',
                   value: 'Mi Historial de Pagos',
             },
       ];

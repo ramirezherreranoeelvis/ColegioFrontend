@@ -54,7 +54,7 @@ export default class PageLogin {
                         );
                   }
                   this.authTokenManager.setCurrentUser(userToken);
-                  this.router.navigate(['workspace']);
+                  this.router.navigate(['cursos']);
             } catch (error) {
                   throw new ApiError('Error al obtener los datos del usuario');
             }
