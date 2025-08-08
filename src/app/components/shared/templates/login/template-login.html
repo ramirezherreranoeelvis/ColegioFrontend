@@ -8,7 +8,7 @@
             <atom-label text="Welcome Colegio" />
         </div>
         <atom-label text="Colegio" class="title" />
-        <form [formGroup]="profile()" (submit)="submitForm.emit()">
+        <form [formGroup]="profile()" (submit)="evtSubmitLogin.emit()">
             <div class="gap-5">
                 <div class="gap-[7px]">
                     <atom-label text="Usuario:" forId="username" />

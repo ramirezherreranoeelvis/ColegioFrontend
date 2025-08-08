@@ -5,14 +5,14 @@ import { Router } from '@angular/router';
 import { AuthApi } from './infrastructure/api/authApi';
 import { AuthTokenManager } from '../../../infrastructure/utils/AuthTokenManager';
 import { TemplateLogin } from '../../shared/templates/login/template-login';
+import ApiError from '../../../core/errors/api-error';
 
 @Component({
       selector: 'page-login',
       imports: [TemplateLogin],
-      template: `<template-login
-            [profile]="profile"
-            (submitForm)="submitSignIn()"
-      /> `,
+      template: `
+            <template-login [profile]="profile" (evtSubmitLogin)="submitSignIn()" />
+      `,
 })
 export default class PageLogin {
       protected profile: FormGroup<IProfileSignIn> = new FormGroup({
@@ -48,18 +48,15 @@ export default class PageLogin {
                   const userToken = await firstValueFrom(
                         this.authApi.login(username, password),
                   );
-                  if (userToken) {
-                        this.authTokenManager.setCurrentUser(userToken);
-                        this.router.navigate(['workspace']);
-                  } else {
-                        alert('Usted no tiene acceso al sistema');
+                  if (!userToken) {
+                        throw new ApiError(
+                              'Error al obtener los datos del usuario',
+                        );
                   }
+                  this.authTokenManager.setCurrentUser(userToken);
+                  this.router.navigate(['workspace']);
             } catch (error) {
-                  alert('No se pudo ingresar');
-                  console.error(
-                        'Error al obtener los datos del usuario:',
-                        error,
-                  );
+                  throw new ApiError('Error al obtener los datos del usuario');
             }
       }
 }

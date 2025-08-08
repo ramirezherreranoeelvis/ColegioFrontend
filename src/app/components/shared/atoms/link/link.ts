@@ -14,6 +14,7 @@ import { NgTemplateOutlet } from '@angular/common';
  * @param {string} route             - route direction
  *
  * @param {styleTheme} styleTheme  - Theme style of the container:
+ *                                   - '_3d-purple'
  *                                   - '' (default)
  *
  * @param {string} className       - Additional Tailwind CSS classes for styling.
@@ -69,4 +70,4 @@ export class AtomLink {
       target = input<'' | '_blank' | '_parent' | '_self' | '_top'>('');
       rel = input('');
 }
-type styleTheme = 'default-white' | 'default-blue' | 'kids-sky-blue' | '';
+type styleTheme = '_3d-purple' | '';

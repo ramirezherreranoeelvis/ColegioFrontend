@@ -1,11 +1,11 @@
 <div class="resource">
     <h2 class="resource__title">{{ resource().nombre }}</h2>
     <div class="resource__content">
-        <div class="resource__description">
+        <!-- <div class="resource__description">
             <div class="resource__description-text">
                 {{ resource().descripcion }}
             </div>
-        </div>
+        </div> -->
         <div class="resource__items">
             @if (resource().items.length != 0) {
                 @for (item of resource().items; track $index) {

@@ -1,3 +1,18 @@
 a {
       @apply cursor-pointer;
 }
+._3d-purple {
+      @apply border-none rounded-[20em] capitalize;
+      @apply flex items-center cursor-pointer justify-center text-center;
+      @apply text-white font-500 text-[.9rem];
+      padding: 0.8em 1.5em 0.8em 1.2em;
+      background: linear-gradient(0deg, #4f38cf 0%, #8778fa 100%);
+      box-shadow: 0 0.7em 1.5em -0.5em #4b34cebe;
+
+      &:hover {
+            box-shadow: 0 0.5em 1.5em -0.5em #5138dabe;
+      }
+      &:active {
+            box-shadow: 0 0.3em 1em -0.5em #4d36d0be;
+      }
+}

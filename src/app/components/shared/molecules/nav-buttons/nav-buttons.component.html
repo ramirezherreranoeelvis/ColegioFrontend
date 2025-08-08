@@ -2,62 +2,19 @@
     <ul>
         @for (route of routes; track route.id) {
             <li class="list-none relative z-20">
-                <a [routerLink]="route.id">{{ route.value }}</a>
+                <atom-link
+                    [text]="route.value"
+                    [route]="route.id"
+                    styleTheme="_3d-purple"
+                />
             </li>
         }
     </ul>
 </nav>
 <style>
     ul {
-        @apply relative w-[200px] px-[30px] py-[50px] flex flex-col;
+        @apply relative w-[220px] px-[15px] py-[50px] flex flex-col;
         @apply font-lexend gap-6 rounded-[10px] bg-[#ffffff28];
         box-shadow: 0px 0px 10px 0px #0000004d;
-    }
-
-    li::before {
-        content: "";
-        @apply absolute -z-10 size-full -left-0.5 -top-0.5;
-        @apply blur-sm p-0.5 rounded-full;
-        background-position: 800% 0;
-        box-shadow: 0 0 3px 2px #0000004d;
-        background: linear-gradient(
-            45deg,
-            #4032ff,
-            #913dff,
-            #ff0080,
-            #4032ff,
-            #4032ff,
-            #913dff,
-            #ff0080,
-            #4032ff
-        );
-        background-size: 800%;
-        animation: background_animation 40s linear infinite;
-    }
-
-    a {
-        @apply no-underline border-none capitalize h-[35px] rounded-full;
-        @apply flex justify-center items-center text-center;
-        @apply bg-white text-[#1a3cff] font-bold text-[0.9rem];
-        transition:
-            background 0.1s,
-            color 0.1s;
-        &:hover {
-            @apply text-[#1a3cff] bg-[#e0e0e0];
-        }
-    }
-
-    @keyframes background_animation {
-        0% {
-            background-position: 0 0;
-        }
-
-        50% {
-            background-position: 800% 0;
-        }
-
-        100% {
-            background-position: 0 0;
-        }
     }
 </style>

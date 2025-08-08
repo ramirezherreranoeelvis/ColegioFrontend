@@ -24,9 +24,10 @@ import { IconCactus } from '../../icons/cactus/icon-cactus';
 })
 export class TemplateLogin implements OnInit {
       profile = input.required<FormGroup<IProfileSignIn>>();
-      submitForm = output();
+      evtSubmitLogin = output();
 
       constructor(protected formUtil: FormControlUtil) {}
+      
       ngOnInit(): void {
             this.formUtil.formGroup = this.profile();
       }

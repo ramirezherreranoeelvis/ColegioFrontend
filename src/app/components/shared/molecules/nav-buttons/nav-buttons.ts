@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import List from '../../atoms/select/list';
-import { RouterLink } from '@angular/router';
+import { AtomLink } from '../../atoms/link/link';
 
 @Component({
       selector: 'nav-buttons',
-      imports: [RouterLink],
+      imports: [AtomLink],
       templateUrl: './nav-buttons.component.html',
 })
 export class NavButtonsComponent {
