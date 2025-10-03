@@ -1,0 +1,56 @@
+<div class="py-[15px] px-[40px]">
+    <atom-text
+        tag="h2"
+        [class]="'font-rubik_dirt font-600 text-4xl w-full text-center'"
+        text="Horario"
+        themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+    />
+    <header class="flex flex-row gap-[15px] my-[15px] mx-0">
+        <atom-select
+            default="Selecciona a tu hijo"
+            [class]="'block w-[200px] h-[50px]'"
+            [items]="studentsList()"
+            className="bg-blue white"
+            (changeElement)="changeChildEvent($event)"
+        />
+
+        @if (studentSelectDNI != '0') {
+            <atom-select
+                default="Selecciona un año"
+                [class]="'block w-[200px] h-[50px]'"
+                [items]="temporadasList()"
+                className="bg-blue white"
+                (changeElement)="changeChildHorarioEvent($event, studentSelectDNI)"
+            />
+        }
+    </header>
+    @if (studentSelectDNI == '0') {
+        <atom-text
+            class="flex font-lexend justify-center w-full"
+            text="Usted no tiene ningún hijo seleccionado"
+        />
+    } @else if (!horarioView) {
+        <atom-text
+            class="flex font-lexend justify-center w-full"
+            text="Usted no tiene un año escojido"
+        />
+    } @else {
+        <main class="flex items-center justify-center flex-col my-[20px] mx-0">
+            <table-horario [dayHorarioList]="daysHorario()" />
+        </main>
+        <footer class="flex items-center justify-center">
+            <atom-button
+                text="Descargar horario"
+                [class]="
+                    `
+                        text-[15px] text-[white] font-lexend
+                        m-[30px] w-[200px] h-[50px]
+                    `
+                "
+                styleTheme="purple"
+                [className]="'size-full rounded-[10px]'"
+                (evtClick)="donwloadHorario()"
+            />
+        </footer>
+    }
+</div>

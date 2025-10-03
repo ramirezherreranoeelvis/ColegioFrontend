@@ -1,0 +1,23 @@
+<div class="incidentes py-[15px] px-[40px]">
+    <atom-text
+        tag="h2"
+        [class]="'font-rubik_dirt font-600 text-4xl w-full text-center block py-[10px]'"
+        text="Reportes"
+        themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+    />
+    <div class="w-full mt-[10px] mb-[20px]">
+        <atom-select
+            class="h-[50px] w-[200px] block"
+            default="Selecciona a tu hijo"
+            [items]="studentsList"
+            className="bg-celeste white"
+            classNameOption="bg-white pink"
+            (changeElement)="updateDataStudentSelect($event)"
+        />
+    </div>
+    <div>
+        @if (studentSelectDNI != '0') {
+            <table-reports [reports]="reportes" />
+        }
+    </div>
+</div>

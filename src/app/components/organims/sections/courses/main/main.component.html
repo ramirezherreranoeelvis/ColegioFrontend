@@ -1,0 +1,22 @@
+<main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-center">
+    @for (curso of courses(); track curso.codigo) {
+        <atom-link [route]="'course/' + curso.codigo" class="mx-auto">
+            <card-course
+                [portada]="curso.portada"
+                [name]="curso.nombre"
+                [code]="curso.codigo"
+                [profesores]="curso.profesores"
+            />
+        </atom-link>
+    } @empty {
+        <div
+            class="col-span-full bg-slate-200 flex justify-center items-center py-16 bg-slate-50 rounded-lg"
+        >
+            <atom-text
+                tag="p"
+                text="No se encontraron cursos que coincidan con tu búsqueda."
+                className="text-slate-600"
+            />
+        </div>
+    }
+</main>

@@ -1,0 +1,44 @@
+:host {
+      position: relative;
+}
+button {
+      @apply cursor-pointer overflow-hidden;
+      transition:
+            0.3s box-shadow,
+            0.2s background,
+            0.2s color;
+}
+.white-skyblue {
+      background: #ffffff;
+      &:hover {
+            box-shadow: 2px 1px 10px 0 #0000004d;
+            background: #0dcaf0;
+      }
+}
+.blue-purple {
+      background: #8b85d8;
+      &:hover {
+            background: #4400ff;
+            box-shadow: 2px 1px 10px 0 #00065a;
+      }
+}
+.purple {
+      background: #143ef7;
+      &:hover {
+            background: #4400ff;
+            box-shadow: 2px 1px 10px 0 #00065a;
+      }
+}
+.indigo {
+      background: #4f46e5;
+      color: white;
+      &:hover {
+            background: #4338ca;
+      }
+}
+.focus-indigo:focus {
+      outline: none;
+      box-shadow:
+            0 0 0 2px white,
+            0 0 0 4px #4f46e5;
+}

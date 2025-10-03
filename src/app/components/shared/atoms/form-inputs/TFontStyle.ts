@@ -1,1 +1,0 @@
-export type StyleTheme = 'purple' | '';

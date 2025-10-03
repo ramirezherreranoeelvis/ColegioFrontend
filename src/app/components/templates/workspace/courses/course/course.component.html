@@ -1,0 +1,66 @@
+<atom-link route="../../">
+    <menu-exit />
+</atom-link>
+<div id="template">
+    <header class="mb-5 text-center font-rubik_dirt font-600 text-4xl">
+        <atom-text
+            tag="h2"
+            [text]="course().nombre"
+            themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+        />
+    </header>
+    <!-- Profesores -->
+    <div class="w-full p-[10px]">
+        <details>
+            <summary>Profesores:</summary>
+            @for (profesor of course().profesores; track $index) {
+                <atom-text tag="p" [text]="profesor" class="text-[0.85rem]" />
+            }
+        </details>
+    </div>
+    <atom-line-separator />
+    <!-- data -->
+    <div class="w-full p-[10px]">
+        <details>
+            <summary>Datos:</summary>
+            <div class="text-[0.8rem] [&_span]:font-bold">
+                <div><span>Día: </span>{{ course().dia }}</div>
+                <div><span>Hora de Inicio: </span>{{ course().horaInicio }}</div>
+                <div><span>Hora de Salida: </span>{{ course().horaFin }}</div>
+                <div><span>Piso: </span>{{ course().piso }}</div>
+                <div><span>Salón: </span>{{ course().numeroSalon }}</div>
+                <div><span>Número de Sesiones:</span>{{ course().numeroSesiones }}</div>
+            </div>
+        </details>
+    </div>
+    <atom-line-separator />
+    <!-- content -->
+    <details open class="w-full p-[10px]">
+        <summary>Contenido:</summary>
+        @for (contenido of course().contenidos; track $index) {
+            <card-content-course [content]="contenido" />
+        }
+    </details>
+</div>
+<style>
+    #template {
+        @apply py-[15px] px-[40px] max-h-[75vh] w-[65vw];
+        @apply flex flex-col overflow-auto;
+
+        &::-webkit-scrollbar {
+            @apply w-[15px] bg-[#ff0080] rounded-[10px];
+        }
+        &::-webkit-scrollbar-thumb {
+            @apply rounded-[10px] bg-[#000980] cursor-pointer;
+        }
+    }
+    summary {
+        padding: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    summary::marker {
+        color: #ff0077;
+    }
+</style>

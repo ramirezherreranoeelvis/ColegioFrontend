@@ -1,0 +1,56 @@
+:host {
+      &::selection {
+            @apply text-[white] bg-[#240079];
+      }
+}
+$text-gradient: (
+      -webkit-background-clip: text,
+      background-clip: text,
+      -webkit-text-fill-color: transparent
+);
+.gradient {
+      &-purple-fuxea-rose {
+            background: linear-gradient(
+                  90deg,
+                  #a621ff 10%,
+                  #ff2072 30.77%,
+                  #fb00ff 90%
+            );
+      }
+
+      &-light-purple-fuxea-rose {
+            background: linear-gradient(
+                  90deg,
+                  #c977ff 10%,
+                  #ff629c 30.77%,
+                  #fc66ff 90%
+            );
+      }
+      &-rose-purple {
+            background: linear-gradient(180deg, #fd3fea 45%, #c72cf8 100%);
+            text-shadow: 0px 4px 58.5px rgba(215, 0, 211, 0.3);
+      }
+      &-45deg-red-darkblue-purple {
+            background: linear-gradient(45deg, #e31c48, #000980, #8400ffde);
+      }
+
+      &-45deg-red-red-darkblue-purple-purple {
+            background: linear-gradient(
+                  45deg,
+                  #e31c48,
+                  #e31c48,
+                  #000980,
+                  #8400ffde,
+                  #8400ffde
+            );
+      }
+      &-purple-fuxea-rose,
+      &-light-purple-fuxea-rose,
+      &-rose-purple,
+      &-45deg-red-darkblue-purple,
+      &-45deg-red-red-darkblue-purple-purple {
+            @each $property, $value in $text-gradient {
+                  #{$property}: $value;
+            }
+      }
+}

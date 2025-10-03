@@ -1,0 +1,44 @@
+<section class="notas px-[40px] py-[20px] max-h-[75vh] max-w-[70vw] flex flex-col overflow-auto">
+    <atom-text
+        tag="h2"
+        [class]="'font-rubik_dirt font-600 text-4xl w-full text-center'"
+        text="Notas Generales"
+        themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+    />
+
+    <div class="flex my-[5px] p-[10px] flex-row justify-evenly gap-5">
+        <atom-select
+            class="block w-[200px] h-[50px]"
+            default="Escoje a uno de tus crios"
+            className="bg-blue white"
+            classNameOption="bg-dark-blue"
+        />
+        <atom-select
+            class="block w-[200px] h-[50px]"
+            default="Periodos"
+            [items]="temporadasList"
+            className="bg-blue white"
+            classNameOption="bg-dark-blue"
+            (changeElement)="updateDataCoursesSelect($event)"
+        />
+    </div>
+    <div class="flex justify-center">
+        @if (cursoNotas) {
+            <table-notas [cursoNotas]="cursoNotas" />
+        } @else {
+            No hay promedios que mostrar
+        }
+    </div>
+</section>
+<style>
+    section::-webkit-scrollbar {
+        width: 15px;
+        background-color: #ff0080;
+        border-radius: 10px;
+    }
+    section::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #000980;
+        cursor: pointer;
+    }
+</style>

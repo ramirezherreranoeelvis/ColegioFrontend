@@ -1,9 +1,0 @@
-import { Component } from '@angular/core';
-import { TemplateRegisrarPagoMatricula } from '../../../../shared/templates/workspace/registrar-pago-matricula/template-regisrar-pago-matricula';
-
-@Component({
-      selector: 'page-registrar-pago-mensual',
-      imports: [TemplateRegisrarPagoMatricula],
-      template: `<template-regisrar-pago-matricula />`,
-})
-export default class PageRegistrarPagoMensual {}

@@ -1,0 +1,75 @@
+<style>
+    :host {
+        width: 35%;
+        min-width: 350px;
+    }
+    @media (max-width: 750px) {
+        :host {
+            width: calc(100% - 30px);
+            min-width: auto;
+        }
+    }
+</style>
+<form [formGroup]="formBody()" (submit)="evtSubmitLogin.emit()" class="flex flex-col gap-9 w-full">
+    <div class="gap-5 flex flex-col">
+        <div class="flex flex-col gap-[7px]">
+            <atom-text
+                tag="label"
+                text="Usuario:"
+                forId="username"
+                class="font-poppins text-[16px] text-black font-light"
+            />
+            <atom-input
+                [control]="formUtil.getFormControl('username')"
+                [message]="getMessage('username', 'El usuario es obligatorio', '', 'Correcto')"
+                [valid]="{ isValid: formUtil.getValid('username') }"
+                placeholder="Ingrese usuario"
+                forId="username"
+                styleTheme="purple"
+                [className]="`rounded-[10px] size-full pl-[13px]`"
+                [class]="`
+                    h-[46px] w-full mr-auto font-poppins 
+                    font-regular text-[15px] text-black
+                `"
+            />
+        </div>
+        <div class="gap-[7px] flex flex-col">
+            <atom-text
+                tag="label"
+                text="Contraseña:"
+                forId="password"
+                class="font-poppins text-[16px] text-black font-light"
+            />
+            <atom-password
+                [control]="formUtil.getFormControl('password')"
+                [message]="
+                    getMessage(
+                        'password',
+                        'La contraseña es obligatorio',
+                        'La contraseña necesita 8 digitos',
+                        'Correcto'
+                    )
+                "
+                [valid]="{ isValid: formUtil.getValid('password') }"
+                placeholder="Ingrese contraseña"
+                forId="password"
+                styleTheme="purple"
+                [className]="`rounded-[10px] size-full pl-[13px]`"
+                [class]="`
+                    h-[46px] w-full mr-auto font-poppins 
+                    font-regular text-[15px] text-black
+                `"
+            />
+        </div>
+    </div>
+    <atom-button
+        text="Iniciar Sesión"
+        type="submit"
+        styleTheme="blue-purple"
+        className="size-full rounded-[23px]"
+        [class]="`
+            mx-auto font-poppins text-[16px] text-white 
+            font-semibold w-[150px] h-[46px]
+        `"
+    />
+</form>

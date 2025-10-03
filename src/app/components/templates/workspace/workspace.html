@@ -1,0 +1,21 @@
+<nav class="absolute size-full">
+    <!-- <card-perfil [class]="'relative top-[86vh] left-5 block w-[300px] h-[88px] z-20'" /> -->
+    <!-- <nav-buttons [class]="'z-20 absolute top-[10px] left-5'" [routes]="finalRoutesMain()" /> -->
+    @if (finalRoutesPagos().length > 0) {
+        <nav-buttons [class]="'z-20 absolute top-[10px] right-5'" [routes]="finalRoutesPagos()" />
+    }
+</nav>
+<panel class="workspace">
+    <router-outlet />
+</panel>
+<style>
+    :host {
+        background: linear-gradient(212deg, #cb62ff, #cb62ff, #6281ff, #531fb3, #531fb3);
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+    }
+</style>

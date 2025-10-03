@@ -1,0 +1,56 @@
+<section class="registrar-pago-matricula">
+    <atom-text
+        tag="h2"
+        [class]="'font-rubik_dirt font-600 text-4xl w-full text-center'"
+        text="Pago de Matricula"
+        themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+    />
+    <section class="registrar-matricula__datos">
+        <atom-select
+            default="Escoge a tu hijo"
+            [items]="stutentList"
+            (changeElement)="updateDataStudentSelect($event)"
+            className="bg-blue white"
+            classNameOption="bg-dark-blue"
+        />
+    </section>
+    <section class="pago">
+        @if (studentSelect) {
+            <div class="data">
+                <div class="attribute">
+                    <span class="name">DNI: </span><span class="data">{{ studentSelect.dni }}</span>
+                </div>
+                <div class="attribute">
+                    <span class="name">Alumno: </span>
+                    <span class="data">
+                        {{
+                            studentSelect.name +
+                                ' ' +
+                                studentSelect.surnamePaternal +
+                                ' ' +
+                                studentSelect.surnameMaternal
+                        }}
+                    </span>
+                </div>
+                <div class="attribute">
+                    <span class="name">Grado: </span>
+                    <span class="data">
+                        {{ studentSelect.grade }}
+                    </span>
+                </div>
+                <div class="attribute">
+                    <span class="name">Costo: </span>
+                    <span class="data"> S/{{ matriculaPendiente!.pay }}</span>
+                </div>
+            </div>
+            <div class="options">
+                <atom-button-payment
+                    [dinero]="matriculaPendiente?.pay || 0"
+                    [idPay]="matriculaPendiente?.idPago || 0"
+                />
+            </div>
+        } @else {
+            Usted no ah seleccionado a ningun crio
+        }
+    </section>
+</section>

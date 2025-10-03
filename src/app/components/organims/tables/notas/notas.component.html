@@ -1,0 +1,47 @@
+<table class="font-lexend shadow-[0_0_10px_2px_#0000004d] border-collapse" border="1">
+    <thead>
+        <tr>
+            <th class="p-[5px_10px] text-[0.85rem] border-[2px_solid_black]">N°</th>
+            <th class="p-[5px_10px] text-[0.85rem] border-[2px_solid_black]">Curso</th>
+            @for (periodo of cursoNotas()!.periodos; track $index) {
+                <th class="p-[5px_10px] text-[0.85rem] border-[2px_solid_black]">{{ periodo }}</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (cursoNota of cursoNotas()!.promedioList; track $index) {
+            <tr class="hover:bg-[#dfdfdf]">
+                <td class="text-center p-[2.4px_10px] text-[0.85rem] border-[2px_solid_black]">
+                    {{ $index + 1 }}
+                </td>
+                <td class="text-center p-[2.4px_10px] text-[0.85rem] border-[2px_solid_black]">
+                    {{ cursoNota.nombre }}
+                </td>
+                @for (nota of cursoNota.promedios; track $index) {
+                    <td class="text-center p-[2.4px_10px] text-[0.85rem] border-[2px_solid_black]">
+                        @if (nota) {
+                            {{ nota }}
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    section::-webkit-scrollbar {
+        width: 15px;
+        background-color: #ff0080;
+        border-radius: 10px;
+    }
+    section::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #000980;
+        cursor: pointer;
+    }
+    td:nth-child(2) {
+        text-align: left;
+        padding-left: 7px;
+        cursor: pointer;
+    }
+</style>

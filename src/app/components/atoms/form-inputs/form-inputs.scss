@@ -1,0 +1,129 @@
+:host {
+      position: relative;
+      .button {
+            position: absolute;
+            height: 100%;
+            right: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+      }
+}
+input {
+      appearance: none;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 100%;
+      width: 100%;
+      transition: all 0.2s;
+      &.purple {
+            background: #b7bdff8a;
+            outline-style: none;
+            box-sizing: content-box;
+            &::placeholder {
+                  color: #696b7e;
+            }
+
+            &::selection {
+                  background: #240079;
+                  color: #ffffff;
+            }
+      }
+      &.white {
+            background: #ffffff;
+            outline: none;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            &::placeholder {
+                  color: #94a3b8;
+            }
+
+            &::selection {
+                  background: #240079;
+                  color: #ffffff;
+            }
+            &:hover,
+            &:focus {
+                  background: #eeeeee;
+            }
+      }
+      &.focus-indigo:focus {
+            outline-color: #6366f1;
+            box-shadow: 0 0 0 2px #6366f1;
+      }
+
+      &.bg-blue {
+            background: #240079;
+            color: white;
+            &:hover,
+            &:focus {
+                  background: #000441;
+                  box-shadow: 2px 1px 10px 0 #0000004d;
+            }
+      }
+
+      &.bg-dark-blue {
+            background: #000441;
+            color: white;
+            &:hover {
+                  box-shadow: 2px 1px 10px 0 #0000004d;
+            }
+            &:hover,
+            &:focus {
+                  background: #240079;
+            }
+      }
+
+      &.bg-celeste {
+            background: #00a2ff;
+            &:hover {
+                  box-shadow: 2px 1px 10px 0 #0000004d;
+            }
+            &:hover,
+            &:focus {
+                  background: #000441;
+                  color: white;
+            }
+      }
+}
+atom-button {
+      border-radius: 99999px;
+      width: 24px;
+      height: 24px;
+      &.purple {
+            background: #c0dbea;
+            mat-icon {
+                  color: #d885a3;
+            }
+      }
+}
+
+input.correct {
+      outline: 1px solid #28971e;
+      background-color: #89c58156;
+      color: #14500e;
+      &:focus {
+            outline: 1px solid #1be24d;
+      }
+      &::selection {
+            background: #005c11;
+            color: #ffffff;
+      }
+}
+
+input.incorrect {
+      outline: 1px solid #da3365;
+      background-color: #cc8c8c56;
+      color: #d11950;
+      &:focus {
+            outline: 1px solid #ff2466;
+      }
+      &::placeholder {
+            color: #6d5562;
+      }
+      &::selection {
+            background: #b91c4b;
+            color: #ffffff;
+      }
+}

@@ -1,0 +1,29 @@
+<div class="p-[15px_40px]">
+    <atom-text
+        tag="h2"
+        [class]="'font-rubik_dirt font-600 text-4xl w-full text-center'"
+        text="Historial de Ingreso"
+        themeStyle="gradient-45deg-red-red-darkblue-purple-purple"
+    />
+    <!-- para seleccionar algunos datos que pueden filtrar -->
+    <nav class="my-[15px]">
+        <atom-select
+            [class]="'block w-[200px] h-[50px]'"
+            default="Selecciona a tu hijo"
+            className="bg-blue white"
+            classNameOption="bg-dark-blue"
+        />
+    </nav>
+    <!-- tabla para mostrar datos -->
+    <main class="pb-5 rounded-[10px] bg-white flex justify-center items-center flex-1">
+        @if (historial()) {
+            <table-attendance-history [historial]="historial()" />
+        } @else {
+            <atom-text
+                tag="span"
+                [class]="'font-lexend text-lg'"
+                text="No tiene un historial de ingreso para ver"
+            />
+        }
+    </main>
+</div>

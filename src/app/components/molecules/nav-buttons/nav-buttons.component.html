@@ -1,0 +1,19 @@
+<nav class="relative inline-block">
+    <ul
+        [class]="`
+            relative w-[220px] px-[15px] py-[50px] flex flex-col
+            font-lexend gap-6 rounded-[10px] bg-[#ffffff28]
+        `"
+    >
+        @for (route of routes; track route.id) {
+        <li class="list-none relative z-20">
+            <atom-link [text]="route.value" [route]="route.id" styleTheme="_3d-purple" />
+        </li>
+        }
+    </ul>
+</nav>
+<style>
+    ul {
+        box-shadow: 0px 0px 10px 0px #0000004d;
+    }
+</style>

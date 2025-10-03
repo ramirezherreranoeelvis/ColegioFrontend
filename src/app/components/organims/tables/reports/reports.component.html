@@ -1,0 +1,33 @@
+<table class="font-lexend" border="2">
+    <thead class="text-[white] bg-[#000441] text-[.8rem]">
+        <tr class="[&_th]:p-[5px_10px]">
+            <th>#</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Auxiliar</th>
+        </tr>
+    </thead>
+    <tbody class="[&_td]:p-[5px_10px] text-[.75rem]">
+        @for (report of reports(); track $index) {
+            <tr>
+                <td rowspan="2">{{ $index + 1 }}</td>
+                <td rowspan="2">{{ report.date }}</td>
+                <td rowspan="2">{{ report.description }}</td>
+                <td>{{ report.assistant }}</td>
+            </tr>
+            <tr>
+                <td>{{ report.phoneNumberAssistant }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    th {
+        border: 5px solid #000441;
+    }
+
+    td {
+        border: 5px solid #d80048;
+    }
+</style>

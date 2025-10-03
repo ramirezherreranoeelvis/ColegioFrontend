@@ -1,0 +1,106 @@
+<div
+    id="template"
+    class="py-[2rem] px-[3rem] max-h-[85vh] max-w-[70vw] w-full flex flex-col overflow-auto box-content"
+>
+    <header class="mb-6">
+        <atom-text
+            tag="h2"
+            text="Cursos Disponibles"
+            className="text-3xl font-bold text-slate-800"
+        />
+        <atom-text
+            tag="p"
+            text="Filtra y encuentra el curso que buscas para el periodo actual."
+            className="text-slate-500 mt-1"
+        />
+    </header>
+    <filters
+        [class]="
+            'grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 ' +
+            'gap-4 mb-8 p-4 bg-slate-50 rounded-lg border border-slate-200'
+        "
+    >
+        <atom-select
+            default="Selecciona a tu hijo"
+            [items]="studentsList()"
+            id="select-hijo"
+            [className]="
+                'bg-white focus-indigo border-slate text-slate ' +
+                'w-full rounded-md shadow-sm px-4 py-2 font-lexend'
+            "
+            [classNameOption]="`font-semibold p-2  `"
+        />
+        <atom-input
+            placeholder="Busque por nombre o código del curso..."
+            styleTheme="white"
+            styleFocus="focus-indigo"
+            [className]="'px-4 py-2 text-[15px] font-lexend rounded-md shadow-sm'"
+        />
+        <atom-select
+            default="Periodos"
+            [items]="seasonList()"
+            (changeElement)="evtChangeCourse.emit($event)"
+            id="select-periodo"
+            [className]="
+                'bg-white focus-indigo border-slate text-slate ' +
+                'w-full rounded-md shadow-sm px-4 py-2 font-lexend'
+            "
+            [classNameOption]="`font-semibold p-2`"
+        />
+        <atom-button
+            class="search-button"
+            text="Buscar"
+            styleTheme="indigo"
+            styleFocus="focus-indigo"
+            [className]="'px-6 py-2 font-semibold rounded-md'"
+            [class]="'w-full md:w-auto'"
+        />
+    </filters>
+    <main-courses [courses]="courses()" />
+</div>
+<style>
+    #template::-webkit-scrollbar {
+        width: 0.5rem;
+        border-radius: 0.25rem;
+        background: #e2e8f0;
+    }
+
+    #template::-webkit-scrollbar-thumb {
+        border-radius: 0.5rem;
+        background-color: #6366f1;
+        cursor: pointer;
+    }
+
+    filters {
+        grid-template-areas:
+            'selectHijo selectText selectText selectPeriodo'
+            '...        ...        ...        searchButton';
+
+        atom-input {
+            grid-area: selectText;
+        }
+
+        @media (max-width: 1024px) {
+            grid-template-areas:
+                'selectHijo selectText selectText'
+                'selectPeriodo searchButton searchButton';
+        }
+
+        @media (max-width: 768px) {
+            & {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+    atom-select[id='select-periodo'] {
+        grid-area: selectPeriodo;
+    }
+
+    atom-select[id='select-hijo'] {
+        grid-area: selectHijo;
+    }
+    atom-button {
+        grid-area: searchButton;
+    }
+</style>
