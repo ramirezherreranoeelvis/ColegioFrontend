@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, output, viewChild } from '@angular/core';
 
 @Component({
       selector: 'hamburger-menu',
@@ -14,16 +14,16 @@ import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular
       styleUrl: './hamburger-menu.scss',
 })
 export class HamburgerMenuComponent {
-      @Output() clickMenu = new EventEmitter<void>();
-      @ViewChild('menu') menu!: ElementRef;
+      clickMenu = output<void>();
+      menu = viewChild.required<ElementRef<HTMLDivElement>>('menu');
 
       protected handleClick(): void {
             this.clickMenu.emit();
-            const menuElement = this.menu.nativeElement;
+            const menuElement = this.menu().nativeElement;
             if (menuElement.classList.contains('menu__active')) {
-                  menuElement.classList.remove('menu__active'); // Quitar clase
+                  menuElement.classList.remove('menu__active');
             } else {
-                  menuElement.classList.add('menu__active'); // Agregar clase
+                  menuElement.classList.add('menu__active');
             }
       }
 }

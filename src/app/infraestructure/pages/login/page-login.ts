@@ -6,6 +6,7 @@ import { AuthApi } from './infrastructure/api/authApi';
 import { TemplateLogin } from '../../../components/templates/login/template-login';
 import ApiError from '../../../core/errors/api-error';
 import { AuthTokenManager } from '../../services/AuthTokenManager';
+import IProfileSignIn from './infrastructure/interfaces/profile-sign-in';
 
 @Component({
       selector: 'page-login',
@@ -24,15 +25,13 @@ export default class PageLogin {
       constructor(
             private router: Router,
             private authApi: AuthApi,
-            private authTokenManager: AuthTokenManager
+            private authTokenManager: AuthTokenManager,
       ) {}
 
       protected submitSignIn = () => {
             if (this.profile.valid) {
                   const username = this.profile.get('username')?.value ?? '';
                   const password = this.profile.get('password')?.value ?? '';
-                  alert('password : ' + password);
-                  alert('username : ' + username);
                   this.signIn(username, password);
             } else {
                   alert('El formulario no es válido. Por favor, revisa los campos.');
@@ -51,8 +50,4 @@ export default class PageLogin {
                   throw new ApiError('Error al obtener los datos del usuario');
             }
       }
-}
-export interface IProfileSignIn {
-      username: FormControl<string | null>;
-      password: FormControl<string | null>;
 }

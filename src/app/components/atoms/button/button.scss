@@ -2,7 +2,8 @@
       position: relative;
 }
 button {
-      @apply cursor-pointer overflow-hidden;
+      cursor: pointer;
+      overflow: hidden;
       transition:
             0.3s box-shadow,
             0.2s background,
@@ -36,6 +37,7 @@ button {
             background: #4338ca;
       }
 }
+/* focus */
 .focus-indigo:focus {
       outline: none;
       box-shadow:
