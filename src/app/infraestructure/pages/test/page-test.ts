@@ -10,13 +10,13 @@ import Deatils from '../workspace/infrastructura/interfaces/details';
       template: `<template-test (evtPayEnrollment)="registrarPago($event)" />`,
 })
 export default class PageTest {
-      idPay = 1;
+      idPay = "dc8c156b-5d27-4bea-86d3-14017d8329a7";
       constructor(private apiPayment: ApiPayment) {}
       protected async registrarPago(details: Deatils) {
             try {
                   console.log(`Confirmando pago en backend para nuestro ID: ${this.idPay}`);
-                  const response = firstValueFrom(
-                        this.apiPayment.confirmarPago(this.idPay.toString(), details),
+                  const response = await firstValueFrom(
+                        this.apiPayment.confirmarPago(this.idPay, details),
                   );
                   console.log('Respuesta del backend:', response);
                   alert('Pago registrado y confirmado exitosamente en el sistema.');

@@ -6,7 +6,6 @@ import { firstValueFrom } from 'rxjs';
 import { ParentService } from '../../../../infraestructure/pages/workspace/infrastructura/api/parent.service';
 import { Pago } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/Pago';
 import { Student } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/student';
-import { ApiPaypal } from '../../../atoms/payment/api/paypal';
 import List from '../../../atoms/select/list';
 import { ApiPayment } from '../../../../infraestructure/pages/workspace/infrastructura/api/payment';
 

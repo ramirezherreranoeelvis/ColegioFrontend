@@ -7,7 +7,7 @@ import Deatils from '../interfaces/details';
 
 @Injectable({ providedIn: 'root' })
 export class ApiPayment {
-      private url: string = `${environment.urlPayment}/payment`;
+      private url: string = `${environment.urlPayment}/api/payments`;
       constructor(private httpClient: HttpClient) {}
 
       public obtenerDeudas(dniStudent: string): Observable<Pago[]> {
