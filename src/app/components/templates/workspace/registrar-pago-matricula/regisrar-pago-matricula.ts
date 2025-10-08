@@ -7,7 +7,7 @@ import { Student } from '../../../../infraestructure/pages/workspace/infrastruct
 import { Pago } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/Pago';
 import { ParentService } from '../../../../infraestructure/pages/workspace/infrastructura/api/parent.service';
 import { firstValueFrom } from 'rxjs';
-import { ApiPayment } from '../../../atoms/payment/api/payment';
+import { ApiPayment } from '../../../../infraestructure/pages/workspace/infrastructura/api/payment';
 
 @Component({
       selector: 'template-regisrar-pago-matricula',

@@ -4,12 +4,11 @@ import {
       input,
       OnChanges,
       OnInit,
+      output,
       SimpleChanges,
       viewChild,
 } from '@angular/core';
 import { ApiPaypal } from './api/paypal';
-import { firstValueFrom } from 'rxjs';
-import { ApiPayment } from './api/payment';
 import Deatils from './interfaces/details';
 
 @Component({
@@ -21,15 +20,11 @@ import Deatils from './interfaces/details';
       `,
 })
 export class AtomButtonPayment implements OnInit, OnChanges {
-      protected pagosRealizados: Deatils[] = [];
       dinero = input.required<string>();
-      idPay = input.required<number>();
       paypalElement = viewChild.required<ElementRef<HTMLDivElement>>('paypal');
+      evtRegistrarPago = output<Deatils>();
 
-      constructor(
-            private paypalService: ApiPaypal,
-            private apiPayment: ApiPayment,
-      ) {}
+      constructor(private paypalService: ApiPaypal) {}
 
       async ngOnInit() {
             try {
@@ -65,18 +60,7 @@ export class AtomButtonPayment implements OnInit, OnChanges {
                   this.handlePagoError('El pago no fue completado por PayPal.');
                   return;
             }
-            this.pagosRealizados.push(details);
-            try {
-                  console.log(`Confirmando pago en backend para nuestro ID: ${this.idPay()}`);
-                  const response = firstValueFrom(
-                        this.apiPayment.confirmarPago(this.idPay().toString(), details),
-                  );
-                  console.log('Respuesta del backend:', response);
-                  alert('Pago registrado y confirmado exitosamente en el sistema.');
-            } catch (error) {
-                  console.error('Error al confirmar el pago en el backend', error);
-                  alert('Hubo un error al confirmar tu pago. Por favor, contacta a soporte.');
-            }
+            this.evtRegistrarPago.emit(details);
       }
 
       protected handlePagoError(err: any): void {

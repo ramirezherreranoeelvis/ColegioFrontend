@@ -1,9 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Pago } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/Pago';
+import { Pago } from '../interfaces/Pago';
+import { environment } from '../../../../../core/env/environment.development';
 import Deatils from '../interfaces/details';
-import { environment } from '../../../../core/env/environment.development';
 
 @Injectable({ providedIn: 'root' })
 export class ApiPayment {

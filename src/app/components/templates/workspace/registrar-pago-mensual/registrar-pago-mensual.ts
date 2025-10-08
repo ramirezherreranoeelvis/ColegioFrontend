@@ -8,7 +8,7 @@ import { Pago } from '../../../../infraestructure/pages/workspace/infrastructura
 import { Student } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/student';
 import { ApiPaypal } from '../../../atoms/payment/api/paypal';
 import List from '../../../atoms/select/list';
-import { ApiPayment } from '../../../atoms/payment/api/payment';
+import { ApiPayment } from '../../../../infraestructure/pages/workspace/infrastructura/api/payment';
 
 @Component({
       selector: 'template-registrar-pago-mensual',
