@@ -1,13 +1,18 @@
 import { Injectable, ElementRef } from '@angular/core';
-import Data from './interfaces/data';
-import Actions from './interfaces/actions';
-import Deatils from './interfaces/details';
+import Data from '../interfaces/data';
+import Actions from '../interfaces/actions';
+import Deatils from '../interfaces/details';
 
 declare var paypal: any;
 
 @Injectable({ providedIn: 'root' })
-export class PaypalService {
+export class ApiPaypal {
+      private scriptLoaded = false;
       public loadPayPalScript(): Promise<void> {
+            if (this.scriptLoaded) {
+                  return Promise.resolve();
+            }
+
             return new Promise((resolve, reject) => {
                   const script = document.createElement('script');
                   script.src =

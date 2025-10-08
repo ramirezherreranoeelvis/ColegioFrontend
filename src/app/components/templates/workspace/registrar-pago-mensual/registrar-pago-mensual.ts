@@ -6,9 +6,9 @@ import { firstValueFrom } from 'rxjs';
 import { ParentService } from '../../../../infraestructure/pages/workspace/infrastructura/api/parent.service';
 import { Pago } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/Pago';
 import { Student } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/student';
-import { PaypalService } from '../../../atoms/payment/paypal.service';
+import { ApiPaypal } from '../../../atoms/payment/api/paypal';
 import List from '../../../atoms/select/list';
-import { ApiPayment } from '../../../atoms/payment/api-backend';
+import { ApiPayment } from '../../../atoms/payment/api/payment';
 
 @Component({
       selector: 'template-registrar-pago-mensual',

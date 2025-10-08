@@ -7,9 +7,9 @@ import {
       SimpleChanges,
       viewChild,
 } from '@angular/core';
-import { PaypalService } from './paypal.service';
+import { ApiPaypal } from './api/paypal';
 import { firstValueFrom } from 'rxjs';
-import { ApiPayment } from './api-backend';
+import { ApiPayment } from './api/payment';
 import Deatils from './interfaces/details';
 
 @Component({
@@ -27,35 +27,29 @@ export class AtomButtonPayment implements OnInit, OnChanges {
       paypalElement = viewChild.required<ElementRef<HTMLDivElement>>('paypal');
 
       constructor(
-            private paypalService: PaypalService,
+            private paypalService: ApiPaypal,
             private apiPayment: ApiPayment,
       ) {}
 
-      ngOnInit(): void {
-            this.paypalService
-                  .loadPayPalScript()
-                  .then(() => {
-                        this.realizarPago();
-                  })
-                  .catch((err) => {
-                        console.error('PayPal script could not be loaded.', err);
-                  });
-      }
-
-      ngOnChanges(changes: SimpleChanges): void {
-            if (changes['dinero'] && changes['dinero'].currentValue) {
-                  this.paypalService
-                        .loadPayPalScript()
-                        .then(() => {
-                              this.realizarPago();
-                        })
-                        .catch((err) => {
-                              console.error('PayPal script could not be loaded.', err);
-                        });
+      async ngOnInit() {
+            try {
+                  await this.paypalService.loadPayPalScript();
+                  this.realizarPago();
+            } catch (error) {
+                  console.error('PayPal script could not be loaded.', error);
             }
       }
 
-      public cancelarPago(idPayment: number): void {}
+      async ngOnChanges(changes: SimpleChanges) {
+            try {
+                  if (changes['dinero'] && changes['dinero'].currentValue) {
+                        await this.paypalService.loadPayPalScript();
+                        this.realizarPago();
+                  }
+            } catch (error) {
+                  console.error('PayPal script could not be loaded.', error);
+            }
+      }
 
       protected realizarPago(): void {
             this.paypalService.renderizarBotonPaypal(
@@ -66,14 +60,22 @@ export class AtomButtonPayment implements OnInit, OnChanges {
             );
       }
 
-      protected async registrarPago(detalles: Deatils) {
-            this.pagosRealizados.push(detalles);
+      protected async registrarPago(details: Deatils) {
+            if (details.status !== 'COMPLETED') {
+                  this.handlePagoError('El pago no fue completado por PayPal.');
+                  return;
+            }
+            this.pagosRealizados.push(details);
             try {
-                  const response = firstValueFrom(this.apiPayment.cancelarPago(this.idPay()));
-                  console.log(response);
-                  alert('Pago cancelado exitosamente.');
+                  console.log(`Confirmando pago en backend para nuestro ID: ${this.idPay()}`);
+                  const response = firstValueFrom(
+                        this.apiPayment.confirmarPago(this.idPay().toString(), details),
+                  );
+                  console.log('Respuesta del backend:', response);
+                  alert('Pago registrado y confirmado exitosamente en el sistema.');
             } catch (error) {
-                  console.error('Error al cancelar el pago', error);
+                  console.error('Error al confirmar el pago en el backend', error);
+                  alert('Hubo un error al confirmar tu pago. Por favor, contacta a soporte.');
             }
       }
 
