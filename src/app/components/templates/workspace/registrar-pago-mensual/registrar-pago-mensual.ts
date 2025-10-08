@@ -6,8 +6,9 @@ import { firstValueFrom } from 'rxjs';
 import { ParentService } from '../../../../infraestructure/pages/workspace/infrastructura/api/parent.service';
 import { Pago } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/Pago';
 import { Student } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/student';
-import { PaymentService } from '../../../atoms/payment/payment.service';
+import { PaypalService } from '../../../atoms/payment/paypal.service';
 import List from '../../../atoms/select/list';
+import { ApiPayment } from '../../../atoms/payment/api-backend';
 
 @Component({
       selector: 'template-registrar-pago-mensual',
@@ -24,7 +25,7 @@ export class TemplateRegistrarPagoMensual {
       protected isDetalles: boolean = false;
       stutentList: List[] = [];
       constructor(
-            private paymentService: PaymentService,
+            private apiPayment: ApiPayment,
             private parentService: ParentService,
       ) {}
       public ngOnInit(): void {
@@ -53,13 +54,13 @@ export class TemplateRegistrarPagoMensual {
                   return;
             }
             this.studentSelect = this.students.find((s) => s.dni === DNI) || null;
-            this.paymentService.obtenerDeudas(this.studentSelect!.dni).subscribe(
+            this.apiPayment.obtenerDeudas(this.studentSelect!.dni).subscribe(
                   (data: Pago[]) => {
                         this.mensualidadesPendientes = data.filter(
                               (pago) => pago.description === 'mensualidad',
                         );
                   },
-                  (error) => {
+                  (error: any) => {
                         console.error('No se pudo obtener los pagos pendientes', error);
                   },
             );

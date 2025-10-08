@@ -5,9 +5,9 @@ import { AtomText } from '../../../atoms/text/text';
 import List from '../../../atoms/select/list';
 import { Student } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/student';
 import { Pago } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/Pago';
-import { PaymentService } from '../../../atoms/payment/payment.service';
 import { ParentService } from '../../../../infraestructure/pages/workspace/infrastructura/api/parent.service';
 import { firstValueFrom } from 'rxjs';
+import { ApiPayment } from '../../../atoms/payment/api-backend';
 
 @Component({
       selector: 'template-regisrar-pago-matricula',
@@ -22,7 +22,7 @@ export class TemplateRegisrarPagoMatricula {
       stutentList: List[] = [];
       students: Student[] = [];
       constructor(
-            private paymentService: PaymentService,
+            private apiPayment: ApiPayment,
             private parentService: ParentService,
       ) {}
       public ngOnInit(): void {
@@ -55,7 +55,7 @@ export class TemplateRegisrarPagoMatricula {
                   this.matriculaPendiente = null;
                   return;
             }
-            this.paymentService.obtenerDeudas(this.studentSelect.dni).subscribe(
+            this.apiPayment.obtenerDeudas(this.studentSelect.dni).subscribe(
                   (data: Pago[]) => {
                         this.matriculaPendiente =
                               data.find((pago) => pago.description === 'Matricula') || null;

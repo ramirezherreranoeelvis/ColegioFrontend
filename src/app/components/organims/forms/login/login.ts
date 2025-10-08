@@ -9,9 +9,9 @@ import {
       ReactiveFormsModule,
       Validators,
 } from '@angular/forms';
-import { IProfileSignIn } from '../../../../infraestructure/pages/login/page-login';
 import FormControlUtil from '../../../../infraestructure/utils/FormControlUtil';
 import { AtomText } from '../../../atoms/text/text';
+import IProfileSignIn from '../../../../infraestructure/pages/login/infrastructure/interfaces/profile-sign-in';
 
 @Component({
       selector: 'form-login',
@@ -27,7 +27,7 @@ export class FormLogin {
                         Validators.maxLength(8),
                         Validators.minLength(8),
                   ]),
-            })
+            }),
       );
       evtSubmitLogin = output();
 
@@ -41,7 +41,7 @@ export class FormLogin {
             controlName: string,
             require: string,
             invalid: string,
-            correct: string
+            correct: string,
       ): string {
             let control = this.formUtil.getControl(controlName);
             if (!control) {

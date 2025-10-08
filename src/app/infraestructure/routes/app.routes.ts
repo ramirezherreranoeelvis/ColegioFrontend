@@ -15,8 +15,13 @@ export const routes: Routes = [
             path: '',
             loadChildren: () =>
                   import('../pages/workspace/infrastructura/routes/workspace.routes').then(
-                        (m) => m.workspace
+                        (m) => m.workspace,
                   ),
+      },
+      {
+            path: 'test',
+            title: 'test',
+            loadComponent: () => import('../pages/test/page-test'),
       },
       {
             path: '**',

@@ -1,82 +1,80 @@
 import {
       Component,
       ElementRef,
-      Input,
+      input,
       OnChanges,
       OnInit,
       SimpleChanges,
-      ViewChild,
+      viewChild,
 } from '@angular/core';
-import { PaymentService } from './payment.service';
+import { PaypalService } from './paypal.service';
+import { firstValueFrom } from 'rxjs';
+import { ApiPayment } from './api-backend';
+import Deatils from './interfaces/details';
 
 @Component({
       selector: 'atom-button-payment',
       template: `
-            <div>
+            <div class="w-[300px]">
                   <div #paypal></div>
             </div>
       `,
 })
 export class AtomButtonPayment implements OnInit, OnChanges {
-      protected pagosRealizados: any[] = [];
-      @Input() dinero: any;
-      @Input() idPay!: number;
+      protected pagosRealizados: Deatils[] = [];
+      dinero = input.required<string>();
+      idPay = input.required<number>();
+      paypalElement = viewChild.required<ElementRef<HTMLDivElement>>('paypal');
 
-      @ViewChild('paypal', { static: true }) paypalElement!: ElementRef;
-      constructor(private paymentService: PaymentService) {}
+      constructor(
+            private paypalService: PaypalService,
+            private apiPayment: ApiPayment,
+      ) {}
 
       ngOnInit(): void {
-            this.paymentService
+            this.paypalService
                   .loadPayPalScript()
                   .then(() => {
-                        this.realizarPago(this.dinero);
+                        this.realizarPago();
                   })
                   .catch((err) => {
-                        console.error(
-                              'PayPal script could not be loaded.',
-                              err,
-                        );
+                        console.error('PayPal script could not be loaded.', err);
                   });
       }
 
       ngOnChanges(changes: SimpleChanges): void {
             if (changes['dinero'] && changes['dinero'].currentValue) {
-                  this.paymentService
+                  this.paypalService
                         .loadPayPalScript()
                         .then(() => {
-                              this.realizarPago(this.dinero);
+                              this.realizarPago();
                         })
                         .catch((err) => {
-                              console.error(
-                                    'PayPal script could not be loaded.',
-                                    err,
-                              );
+                              console.error('PayPal script could not be loaded.', err);
                         });
             }
       }
 
       public cancelarPago(idPayment: number): void {}
 
-      protected realizarPago(monto: string): void {
-            this.paymentService.renderizarBotonPaypal(
-                  this.paypalElement,
-                  monto,
+      protected realizarPago(): void {
+            this.paypalService.renderizarBotonPaypal(
+                  this.paypalElement(),
+                  this.dinero(),
                   this.registrarPago.bind(this),
                   this.handlePagoError.bind(this),
             );
       }
 
-      protected registrarPago(detalles: any): void {
+      protected async registrarPago(detalles: Deatils) {
             this.pagosRealizados.push(detalles);
-            this.paymentService.cancelarPago(this.idPay).subscribe(
-                  (response) => {
-                        console.log(response);
-                        alert('Pago cancelado exitosamente.');
-                  },
-                  (error) => {
-                        console.error('Error al cancelar el pago', error);
-                  },
-            );
+            try {
+                  const response = firstValueFrom(this.apiPayment.cancelarPago(this.idPay()));
+                  console.log(response);
+                  alert('Pago cancelado exitosamente.');
+            } catch (error) {
+                  console.error('Error al cancelar el pago', error);
+            }
       }
 
       protected handlePagoError(err: any): void {

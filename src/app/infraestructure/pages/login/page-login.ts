@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthApi } from './infrastructure/api/authApi';
-import { TemplateLogin } from '../../../components/templates/login/template-login';
+import { TemplateLogin } from '../../../components/templates/login/login';
 import ApiError from '../../../core/errors/api-error';
 import { AuthTokenManager } from '../../services/AuthTokenManager';
 import IProfileSignIn from './infrastructure/interfaces/profile-sign-in';

@@ -7,16 +7,16 @@ import {
       Validators,
 } from '@angular/forms';
 import { Panel } from '../../wrappers/panel/panel';
-import { IProfileSignIn } from '../../../infraestructure/pages/login/page-login';
 import FormControlUtil from '../../../infraestructure/utils/FormControlUtil';
 import { IconCactus } from '../../icons/cactus/icon-cactus';
 import { AtomText } from '../../atoms/text/text';
 import { FormLogin } from '../../organims/forms/login/login';
+import IProfileSignIn from '../../../infraestructure/pages/login/infrastructure/interfaces/profile-sign-in';
 
 @Component({
       selector: 'template-login',
       imports: [Panel, FormsModule, ReactiveFormsModule, IconCactus, AtomText, FormLogin],
-      templateUrl: './template-login.html',
+      templateUrl: './login.html',
 })
 export class TemplateLogin implements OnInit {
       profile = input<FormGroup<IProfileSignIn>>(
