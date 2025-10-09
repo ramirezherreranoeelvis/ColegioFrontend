@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TemplateTest } from '../../../components/templates/test/test';
 import { firstValueFrom } from 'rxjs';
 import { ApiPayment } from '../workspace/infrastructura/api/payment';
@@ -10,8 +10,12 @@ import Deatils from '../workspace/infrastructura/interfaces/details';
       template: `<template-test (evtPayEnrollment)="registrarPago($event)" />`,
 })
 export default class PageTest {
-      idPay = "dc8c156b-5d27-4bea-86d3-14017d8329a7";
-      constructor(private apiPayment: ApiPayment) {}
+      /* services */
+      private apiPayment = inject(ApiPayment);
+
+      /* signals */
+      idPay = 'dc8c156b-5d27-4bea-86d3-14017d8329a7';
+
       protected async registrarPago(details: Deatils) {
             try {
                   console.log(`Confirmando pago en backend para nuestro ID: ${this.idPay}`);
