@@ -15,9 +15,9 @@ export const workspace: Routes = [
                         title: 'cursos',
                         loadComponent: () => import(`../../pages/cursos/layout`),
                         loadChildren: () =>
-                              import(
-                                    '../../pages/cursos/infrastructure/routes/courses.routes'
-                              ).then((m) => m.courses),
+                              import('../../pages/cursos/infrastructure/routes').then(
+                                    (m) => m.courses,
+                              ),
                   },
                   {
                         path: 'historial',

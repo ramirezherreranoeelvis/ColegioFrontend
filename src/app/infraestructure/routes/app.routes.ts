@@ -14,7 +14,7 @@ export const routes: Routes = [
       {
             path: '',
             loadChildren: () =>
-                  import('../pages/workspace/infrastructura/routes/workspace.routes').then(
+                  import('../pages/workspace/infrastructura/routes').then(
                         (m) => m.workspace,
                   ),
       },
