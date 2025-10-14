@@ -4,7 +4,7 @@ import { MenuExitComponent } from '../../../../molecules/menu-exit/menu-exit';
 import { AtomText } from '../../../../atoms/text/text';
 import { AtomLineSeparator } from '../../../../atoms/line-separator/line-separator';
 import { CardContentCourse } from '../../../../molecules/cards/content-course/content-course';
-import { Curso } from '../../../../../infraestructure/pages/workspace/sub-pages/cursos/infrastructure/interfaces/course';
+import { Curso } from '../../../../../infraestructure/pages/workspace/pages/cursos/infrastructure/interfaces/course';
 
 @Component({
       selector: 'template-course',

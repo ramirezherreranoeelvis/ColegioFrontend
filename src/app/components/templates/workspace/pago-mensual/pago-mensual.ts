@@ -10,12 +10,12 @@ import List from '../../../atoms/select/list';
 import { ApiPayment } from '../../../../infraestructure/pages/workspace/infrastructura/api/payment';
 
 @Component({
-      selector: 'template-registrar-pago-mensual',
+      selector: 'template-pago-mensual',
       imports: [AtomText, AtomSelect, AtomButtonPayment],
-      templateUrl: './registrar-pago-mensual.component.html',
-      styleUrl: './registrar-pago-mensual.scss',
+      templateUrl: './pago-mensual.component.html',
+      styleUrl: './pago-mensual.scss',
 })
-export class TemplateRegistrarPagoMensual {
+export class TemplatePagoMensual {
       protected dniParent: string = '99233923';
       protected students: Student[] = [];
       protected studentSelect: Student | null = null;

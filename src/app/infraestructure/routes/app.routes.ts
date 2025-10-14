@@ -9,7 +9,7 @@ export const routes: Routes = [
       {
             path: 'login',
             title: 'login',
-            loadComponent: () => import('../pages/login/page-login'),
+            loadComponent: () => import('../pages/login'),
       },
       {
             path: '',
@@ -21,11 +21,11 @@ export const routes: Routes = [
       {
             path: 'test',
             title: 'test',
-            loadComponent: () => import('../pages/test/page-test'),
+            loadComponent: () => import('../pages/test'),
       },
       {
             path: '**',
             title: 'Pagina no encontrada',
-            loadComponent: () => import('../pages/not-found/page-not-found'),
+            loadComponent: () => import('../pages/not-found'),
       },
 ];

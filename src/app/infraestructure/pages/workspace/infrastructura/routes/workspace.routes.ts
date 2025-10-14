@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const workspace: Routes = [
       {
             path: '',
-            loadComponent: () => import('../../page-workspace-layout'),
+            loadComponent: () => import('../../layout'),
             children: [
                   {
                         path: '',
@@ -13,68 +13,46 @@ export const workspace: Routes = [
                   {
                         path: 'cursos',
                         title: 'cursos',
-                        loadComponent: () =>
-                              import(
-                                    `../../sub-pages/cursos/page-courses-layout`
-                              ),
+                        loadComponent: () => import(`../../pages/cursos/layout`),
                         loadChildren: () =>
                               import(
-                                    '../../sub-pages/cursos/infrastructure/routes/courses.routes'
+                                    '../../pages/cursos/infrastructure/routes/courses.routes'
                               ).then((m) => m.courses),
                   },
                   {
                         path: 'historial',
                         title: 'historial',
-                        loadComponent: () =>
-                              import(
-                                    `../../sub-pages/historial/page-historial`
-                              ),
+                        loadComponent: () => import(`../../pages/historial`),
                   },
                   {
                         path: 'horario',
                         title: 'horario',
-                        loadComponent: () =>
-                              import(`../../sub-pages/horario/page-horario`),
+                        loadComponent: () => import(`../../pages/horario`),
                   },
                   {
                         path: 'notas-generales',
                         title: 'notas generales',
-                        loadComponent: () =>
-                              import(
-                                    `../../sub-pages/notas-generales/page-notas-generales`
-                              ),
+                        loadComponent: () => import(`../../pages/notas-generales`),
                   },
                   {
                         path: 'reportes-incidentes',
                         title: 'reportes incidentes',
-                        loadComponent: () =>
-                              import(
-                                    `../../sub-pages/reportes-incidentes/page-reportes-incidentes`
-                              ),
+                        loadComponent: () => import(`../../pages/reportes`),
                   },
                   {
                         path: 'registrar-matricula',
                         title: 'registrar-matricula',
-                        loadComponent: () =>
-                              import(
-                                    `../../sub-pages/registrar-matricula/page-registrar-matricula`
-                              ),
+                        loadComponent: () => import(`../../pages/registrar-matricula`),
                   },
                   {
-                        path: 'registrar-pago-matricula',
+                        path: 'pago-matricula',
                         title: 'registrar-pago-matricula',
-                        loadComponent: () =>
-                              import(
-                                    `../../sub-pages/registrar-pago-matricula/page-registrar-pago-matricula`
-                              ),
+                        loadComponent: () => import(`../../pages/pago-matricula`),
                   },
                   {
-                        path: 'registrar-pago-mensual',
+                        path: 'pago-mensual',
                         title: 'registrar-pago-mensual',
-                        loadComponent: () =>
-                              import(
-                                    `../../sub-pages/registrar-pago-mensual/pageregistrar-pago-mensual`
-                              ),
+                        loadComponent: () => import(`../../pages/pago-mensual`),
                   },
             ],
       },

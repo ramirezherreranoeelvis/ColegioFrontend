@@ -1,6 +1,6 @@
 import { Component, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Curso } from '../../../../infraestructure/pages/workspace/sub-pages/cursos/infrastructure/interfaces/course';
+import { Curso } from '../../../../infraestructure/pages/workspace/pages/cursos/infrastructure/interfaces/course';
 import List from '../../../atoms/select/list';
 import { AtomSelect } from '../../../atoms/select/select';
 import { AtomText } from '../../../atoms/text/text';

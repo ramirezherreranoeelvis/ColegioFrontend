@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { TemplateCourse } from '../../../../../../components/templates/workspace/courses/course/course';
+import { TemplateCourse } from '../../../../../../../components/templates/workspace/courses/course/course';
 
 @Component({
       selector: 'page-course',

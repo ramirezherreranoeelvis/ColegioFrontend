@@ -7,11 +7,11 @@ import { firstValueFrom } from 'rxjs';
 import { Report } from '../../infrastructura/interfaces/report';
 
 @Component({
-      selector: 'page-reportes-incidentes',
+      selector: 'page-reportes',
       imports: [TemplateReportes],
       template: `<template-reportes />`,
 })
-export default class PageReportesIncidentes {
+export default class PageReportes {
       private incidentesService = inject(IncidentesService);
       private parentService = inject(ParentService);
 

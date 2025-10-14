@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { TemplateResource } from '../../../../../../components/templates/workspace/courses/resource/resource';
+import { TemplateResource } from '../../../../../../../components/templates/workspace/courses/resource/resource';
 
 @Component({
       selector: 'page-resource',

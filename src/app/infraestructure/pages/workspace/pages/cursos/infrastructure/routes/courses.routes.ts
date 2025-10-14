@@ -4,16 +4,16 @@ export const courses: Routes = [
       {
             path: '',
             title: 'courses',
-            loadComponent: () => import('../../page-cursos'),
+            loadComponent: () => import('../..'),
       },
       {
             path: 'course/:code',
             title: 'course',
-            loadComponent: () => import('../../sub-pages/page-course'),
+            loadComponent: () => import('../../pages/course'),
       },
       {
             path: 'resource/:code',
             title: 'resource',
-            loadComponent: () => import('../../sub-pages/page-resource'),
+            loadComponent: () => import('../../pages/resource'),
       },
 ];

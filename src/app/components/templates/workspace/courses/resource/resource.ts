@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { RecursoContenidoCurso } from '../../../../../infraestructure/pages/workspace/sub-pages/cursos/infrastructure/interfaces/resource-content';
+import { RecursoContenidoCurso } from '../../../../../infraestructure/pages/workspace/pages/cursos/infrastructure/interfaces/resource-content';
 import { AtomLink } from '../../../../atoms/link/link';
 import { MenuExitComponent } from '../../../../molecules/menu-exit/menu-exit';
 import { AtomText } from '../../../../atoms/text/text';

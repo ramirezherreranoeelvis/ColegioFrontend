@@ -10,12 +10,12 @@ import { firstValueFrom } from 'rxjs';
 import { ApiPayment } from '../../../../infraestructure/pages/workspace/infrastructura/api/payment';
 
 @Component({
-      selector: 'template-regisrar-pago-matricula',
+      selector: 'template-pago-matricula',
       imports: [AtomButtonPayment, AtomSelect, AtomText],
-      templateUrl: './regisrar-pago-matricula.component.html',
-      styleUrl: './regisrar-pago-matricula.scss',
+      templateUrl: './pago-matricula.component.html',
+      styleUrl: './pago-matricula.scss',
 })
-export class TemplateRegisrarPagoMatricula {
+export class TemplatePagoMatricula {
       dniParent: string = '99233923';
       matriculaPendiente: Pago | null = null;
       studentSelect: Student | null = null;
