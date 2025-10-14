@@ -1,5 +1,5 @@
 export const environment = {
-      baseUrl: 'http://localhost:8090',
-      PORT: 8090,
-      urlPayment: 'http://localhost:8010',
+      urlAuth: 'http://localhost:8000',
+      urlEnrollment: 'http://localhost:8010',
+      urlCourses:'http://localhost:8020'
 };

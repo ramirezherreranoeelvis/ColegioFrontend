@@ -7,7 +7,7 @@ import { environment } from '../../../../../core/env/environment.development';
       providedIn: 'root',
 })
 export class TeacherService {
-      url: string = `${environment.baseUrl}/teacher`;
+      url: string = `${environment.urlAuth}/teacher`;
 
       constructor(private httpClient: HttpClient) {}
 
