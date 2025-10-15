@@ -8,7 +8,7 @@ import {
       SimpleChanges,
       viewChild,
 } from '@angular/core';
-import { ApiPaypal } from './api/paypal';
+import { ApiPaypal } from './service/paypal';
 import Deatils from './interfaces/details';
 
 @Component({

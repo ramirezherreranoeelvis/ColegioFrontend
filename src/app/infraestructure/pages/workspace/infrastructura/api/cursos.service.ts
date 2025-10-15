@@ -2,29 +2,21 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Curso } from '../../pages/cursos/infrastructure/interfaces/course';
-
+import { environment } from '../../../../../core/env/environment.development';
 @Injectable({
       providedIn: 'root',
 })
 export class CursoService {
-      private url = 'http://localhost:8080/cursos';
+      private url = `${environment.urlCourses}/api/courses`;
       constructor(private httpCLient: HttpClient) {}
 
-      public findCursosByStudentByYear(
-            dniStudent: string,
-            year: string,
-      ): Observable<Curso[]> {
-            const params: HttpParams = new HttpParams()
-                  .set('dni', dniStudent)
-                  .set('year', year);
+      public findCursosByStudentByYear(dniStudent: string, year: string): Observable<Curso[]> {
+            const params: HttpParams = new HttpParams().set('dni', dniStudent).set('year', year);
             return this.httpCLient.get<Curso[]>(this.url, { params });
       }
 
       public verCursoSeleccionado(codigoCurso: string): Observable<Curso> {
-            const params: HttpParams = new HttpParams().set(
-                  'code',
-                  codigoCurso,
-            );
+            const params: HttpParams = new HttpParams().set('code', codigoCurso);
             const url: string = `${this.url}/curso`;
             return this.httpCLient.get<Curso>(url, { params });
       }

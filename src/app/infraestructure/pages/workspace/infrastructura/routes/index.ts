@@ -35,7 +35,7 @@ export const workspace: Routes = [
                         loadComponent: () => import(`../../pages/notas-generales`),
                   },
                   {
-                        path: 'reportes-incidentes',
+                        path: 'reportes',
                         title: 'reportes incidentes',
                         loadComponent: () => import(`../../pages/reportes`),
                   },

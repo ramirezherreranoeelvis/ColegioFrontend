@@ -22,9 +22,9 @@ export class TemplateWorkspace {
       rolUser = input<TRolUsers>('FATHER');
       private readonly routesMain: List[] = [
             { id: '/horario', value: 'horario' },
-            { id: '/reportes-incidentes', value: 'incidentes' },
+            // { id: '/reportes', value: 'incidentes' },
             { id: '/cursos', value: 'cursos' },
-            { id: '/historial', value: 'historial de ingreso' },
+            // { id: '/historial', value: 'historial de ingreso' },
             { id: '/notas-generales', value: 'Notas Generales' },
       ];
       private readonly routesPagos: List[] = [
@@ -33,11 +33,11 @@ export class TemplateWorkspace {
                   value: 'registrar matricula',
             },
             {
-                  id: '/registrar-pago-matricula',
+                  id: '/pago-matricula',
                   value: 'pago matricula',
             },
             {
-                  id: '/registrar-pago-mensual',
+                  id: '/pago-mensual',
                   value: 'pago mensualidad',
             },
       ];
