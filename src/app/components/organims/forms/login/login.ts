@@ -2,13 +2,7 @@ import { Component, input, output } from '@angular/core';
 import { AtomButton } from '../../../atoms/button/button';
 import { AtomInput } from '../../../atoms/form-inputs/input/input';
 import { AtomPassword } from '../../../atoms/form-inputs/password/password';
-import {
-      FormControl,
-      FormGroup,
-      FormsModule,
-      ReactiveFormsModule,
-      Validators,
-} from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import FormControlUtil from '../../../../infraestructure/utils/FormControlUtil';
 import { AtomText } from '../../../atoms/text/text';
 import IProfileSignIn from '../../../../infraestructure/pages/login/infrastructure/interfaces/Iprofile-sign-in';
@@ -19,16 +13,7 @@ import IProfileSignIn from '../../../../infraestructure/pages/login/infrastructu
       templateUrl: './login.html',
 })
 export class FormLogin {
-      formBody = input<FormGroup<IProfileSignIn>>(
-            new FormGroup({
-                  username: new FormControl('', [Validators.required]),
-                  password: new FormControl('', [
-                        Validators.required,
-                        Validators.maxLength(8),
-                        Validators.minLength(8),
-                  ]),
-            }),
-      );
+      formBody = input.required<FormGroup<IProfileSignIn>>();
       evtSubmitLogin = output();
 
       constructor(protected formUtil: FormControlUtil) {}

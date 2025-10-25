@@ -13,6 +13,13 @@ import { AtomText } from '../../atoms/text/text';
 import { FormLogin } from '../../organims/forms/login/login';
 import IProfileSignIn from '../../../infraestructure/pages/login/infrastructure/interfaces/Iprofile-sign-in';
 
+/**
+ * TemplateLogin Component
+ *
+ * @param {FormGroup<IProfileSignIn>} profile - FormGroup containing username and password controls.
+ *
+ * @param {EventEmitter<void>} evtSubmitLogin - Event emitter for login submission.
+ */
 @Component({
       selector: 'template-login',
       imports: [Panel, FormsModule, ReactiveFormsModule, IconCactus, AtomText, FormLogin],
@@ -20,14 +27,20 @@ import IProfileSignIn from '../../../infraestructure/pages/login/infrastructure/
 })
 export class TemplateLogin implements OnInit {
       profile = input<FormGroup<IProfileSignIn>>(
-            new FormGroup({
-                  username: new FormControl('', [Validators.required]),
-                  password: new FormControl('', [
-                        Validators.required,
-                        Validators.maxLength(8),
-                        Validators.minLength(8),
-                  ]),
-            })
+            new FormGroup<IProfileSignIn>({
+                  username: new FormControl('', {
+                        nonNullable: true,
+                        validators: [Validators.required],
+                  }),
+                  password: new FormControl('', {
+                        nonNullable: true,
+                        validators: [
+                              Validators.required,
+                              Validators.maxLength(8),
+                              Validators.minLength(8),
+                        ],
+                  }),
+            }),
       );
       evtSubmitLogin = output();
 
@@ -41,7 +54,7 @@ export class TemplateLogin implements OnInit {
             controlName: string,
             require: string,
             invalid: string,
-            correct: string
+            correct: string,
       ): string {
             let control = this.formUtil.getControl(controlName);
             if (!control) {

@@ -11,16 +11,22 @@ import IProfileSignIn from './infrastructure/interfaces/Iprofile-sign-in';
 @Component({
       selector: 'page-login',
       imports: [TemplateLogin],
-      template: ` <template-login /> `,
+      template: ` <template-login [profile]="profile" (evtSubmitLogin)="submitSignIn()" /> `,
 })
 export default class PageLogin {
-      protected profile: FormGroup<IProfileSignIn> = new FormGroup({
-            username: new FormControl('', [Validators.required]),
-            password: new FormControl('', [
-                  Validators.required,
-                  Validators.maxLength(8),
-                  Validators.minLength(8),
-            ]),
+      protected profile = new FormGroup<IProfileSignIn>({
+            username: new FormControl('', {
+                  nonNullable: true,
+                  validators: [Validators.required],
+            }),
+            password: new FormControl('', {
+                  nonNullable: true,
+                  validators: [
+                        Validators.required,
+                        Validators.maxLength(8),
+                        Validators.minLength(8),
+                  ],
+            }),
       });
       constructor(
             private router: Router,
