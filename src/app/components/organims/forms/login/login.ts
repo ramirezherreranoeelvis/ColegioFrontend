@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 import FormControlUtil from '../../../../infraestructure/utils/FormControlUtil';
 import { AtomText } from '../../../atoms/text/text';
-import IProfileSignIn from '../../../../infraestructure/pages/login/infrastructure/interfaces/profile-sign-in';
+import IProfileSignIn from '../../../../infraestructure/pages/login/infrastructure/interfaces/Iprofile-sign-in';
 
 @Component({
       selector: 'form-login',

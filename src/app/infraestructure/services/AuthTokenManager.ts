@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import Token from '../pages/login/infrastructure/interfaces/token';
+import Token from '../pages/login/infrastructure/interfaces/Itoken';
 
 @Injectable({
       providedIn: 'root',

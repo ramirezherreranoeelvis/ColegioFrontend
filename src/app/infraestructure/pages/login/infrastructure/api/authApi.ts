@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import Token from '../interfaces/token';
+import Token from '../interfaces/Itoken';
 import { environment } from '../../../../../core/env/environment.development';
 
 @Injectable({

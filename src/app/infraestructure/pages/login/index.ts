@@ -6,7 +6,7 @@ import { AuthApi } from './infrastructure/api/authApi';
 import { TemplateLogin } from '../../../components/templates/login/login';
 import ApiError from '../../../core/errors/api-error';
 import { AuthTokenManager } from '../../services/AuthTokenManager';
-import IProfileSignIn from './infrastructure/interfaces/profile-sign-in';
+import IProfileSignIn from './infrastructure/interfaces/Iprofile-sign-in';
 
 @Component({
       selector: 'page-login',

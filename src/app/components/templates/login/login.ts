@@ -11,7 +11,7 @@ import FormControlUtil from '../../../infraestructure/utils/FormControlUtil';
 import { IconCactus } from '../../icons/cactus/icon-cactus';
 import { AtomText } from '../../atoms/text/text';
 import { FormLogin } from '../../organims/forms/login/login';
-import IProfileSignIn from '../../../infraestructure/pages/login/infrastructure/interfaces/profile-sign-in';
+import IProfileSignIn from '../../../infraestructure/pages/login/infrastructure/interfaces/Iprofile-sign-in';
 
 @Component({
       selector: 'template-login',
