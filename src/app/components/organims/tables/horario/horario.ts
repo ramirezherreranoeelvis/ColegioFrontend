@@ -1,6 +1,6 @@
 import { Component, computed, input } from '@angular/core';
-import { DayHorario } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/horario/dayHorario';
-import { TurnoHorario } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/horario/turnoHorario';
+import { DayHorario } from '../../../../infraestructure/pages/workspace/pages/horario/infrastructura/interfaces/dayHorario';
+import { TurnoHorario } from '../../../../infraestructure/pages/workspace/pages/horario/infrastructura/interfaces/turnoHorario';
 
 @Component({
       selector: 'table-horario',

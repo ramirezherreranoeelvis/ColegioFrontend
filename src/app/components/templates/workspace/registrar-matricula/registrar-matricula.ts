@@ -4,7 +4,7 @@ import { AtomSelect } from '../../../atoms/select/select';
 import List from '../../../atoms/select/list';
 import { Student } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/student';
 import { Enrollment } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/registrarMatricula/nextEnrollment';
-import { DayHorario } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/horario/dayHorario';
+import { DayHorario } from '../../../../infraestructure/pages/workspace/pages/horario/infrastructura/interfaces/dayHorario';
 import { TableHorario } from '../../../organims/tables/horario/horario';
 
 @Component({

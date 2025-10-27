@@ -1,5 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { CursoService } from '../../infrastructura/api/cursos.service';
+import { CursoService } from './infrastructure/api/cursos.service';
 import { TeacherService } from '../../infrastructura/api/teacher.service';
 import { TemporadaService } from '../../infrastructura/api/temporada.service';
 import { toSignal } from '@angular/core/rxjs-interop';

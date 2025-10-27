@@ -5,7 +5,7 @@ import { AtomSelect } from '../../../atoms/select/select';
 import { AtomText } from '../../../atoms/text/text';
 import { AtomButton } from '../../../atoms/button/button';
 import { TableHorario } from '../../../organims/tables/horario/horario';
-import { DayHorario } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/horario/dayHorario';
+import { DayHorario } from '../../../../infraestructure/pages/workspace/pages/horario/infrastructura/interfaces/dayHorario';
 
 @Component({
       selector: 'template-horario',

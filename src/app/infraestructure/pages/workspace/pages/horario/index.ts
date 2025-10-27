@@ -1,6 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { HorarioService } from '../../infrastructura/api/horario.service';
+import { HorarioService } from './infrastructura/api/horario.service';
 import { ParentService } from '../../infrastructura/api/parent.service';
 import { TemporadaService } from '../../infrastructura/api/temporada.service';
 import { catchError, of, switchMap } from 'rxjs';

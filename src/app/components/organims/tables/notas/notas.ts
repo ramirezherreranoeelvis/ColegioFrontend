@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Promedios } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/notas/promedios';
+import { Promedios } from '../../../../infraestructure/pages/workspace/pages/notas-generales/infrastructura/interfaces/promedios';
 
 @Component({
       selector: 'table-notas',

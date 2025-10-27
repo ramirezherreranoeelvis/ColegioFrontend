@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { NotasService } from '../../../../infraestructure/pages/workspace/infrastructura/api/notas.service';
+import { NotasService } from '../../../../infraestructure/pages/workspace/pages/notas-generales/infrastructura/api/notas.service';
 import { TemporadaService } from '../../../../infraestructure/pages/workspace/infrastructura/api/temporada.service';
-import { Promedios } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/notas/promedios';
+import { Promedios } from '../../../../infraestructure/pages/workspace/pages/notas-generales/infrastructura/interfaces/promedios';
 import List from '../../../atoms/select/list';
 import { FormsModule } from '@angular/forms';
 import { AtomSelect } from '../../../atoms/select/select';

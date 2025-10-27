@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DayHorario } from '../interfaces/horario/dayHorario';
+import { DayHorario } from '../interfaces/dayHorario';
 
 @Injectable({
       providedIn: 'root',
