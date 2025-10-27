@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import Token from '../interfaces/Itoken';
 import { environment } from '../../../../../core/env/environment.development';
@@ -8,7 +8,7 @@ import { environment } from '../../../../../core/env/environment.development';
       providedIn: 'root',
 })
 export class AuthApi {
-      private url: string = `${environment.urlAuth}/api/auth/login`;
+      private url: string = `${environment.urlAuth}/api/auth`;
 
       constructor(private httpClient: HttpClient) {}
 
@@ -17,6 +17,12 @@ export class AuthApi {
                   username: username,
                   password: password,
             };
-            return this.httpClient.post<Token>(this.url, body);
+            return this.httpClient.post<Token>(`${this.url}/login`, body);
+      }
+
+      isLogged(token: string) {
+            return this.httpClient
+                  .get<Token>(`${this.url}/is-logged?token=${token}`)
+                  .pipe(map((response: Token) => response.accessToken));
       }
 }
