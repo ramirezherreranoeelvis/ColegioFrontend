@@ -1,7 +1,6 @@
-import { Routes } from '@angular/router';
 import { checkIfIsLogoutGuard } from '../../../../../../../core/guards/check-if-is-logout.guard';
 
-export const courses: Routes = [
+export default [
       {
             path: '',
             title: 'courses',

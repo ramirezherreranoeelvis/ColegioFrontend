@@ -3,11 +3,6 @@ import { checkIfIsLoggedOnGuard } from '../../core/guards/check-if-is-logged-on.
 
 export const routes: Routes = [
       {
-            path: '',
-            redirectTo: 'login',
-            pathMatch: 'full',
-      },
-      {
             path: 'login',
             title: 'login',
             loadComponent: () => import('../pages/login'),
@@ -15,8 +10,8 @@ export const routes: Routes = [
       },
       {
             path: '',
-            loadChildren: () =>
-                  import('../pages/workspace/infrastructura/routes').then((m) => m.workspace),
+            loadComponent: () => import('../pages/workspace/layout'),
+            loadChildren: () => import('../pages/workspace/infrastructura/routes'),
       },
       {
             path: 'test',
