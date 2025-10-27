@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { IncidentesService } from '../../../../infraestructure/pages/workspace/infrastructura/api/incidentes.service';
+import { IncidentesService } from '../../../../infraestructure/pages/workspace/pages/reportes/infrastructura/api/incidentes.service';
 import { ParentService } from '../../../../infraestructure/pages/workspace/infrastructura/api/parent.service';
 import List from '../../../atoms/select/list';
 import { AtomText } from '../../../atoms/text/text';
 import { AtomSelect } from '../../../atoms/select/select';
-import { Report } from '../../../../infraestructure/pages/workspace/infrastructura/interfaces/report';
+import { Report } from '../../../../infraestructure/pages/workspace/pages/reportes/infrastructura/interfaces/report';
 import { TableReports } from '../../../organims/tables/reports/reports';
 
 @Component({

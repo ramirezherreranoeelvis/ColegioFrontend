@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { TemplateReportes } from '../../../../../components/templates/workspace/reportes/reportes';
-import { IncidentesService } from '../../infrastructura/api/incidentes.service';
+import { IncidentesService } from './infrastructura/api/incidentes.service';
 import { ParentService } from '../../infrastructura/api/parent.service';
 import List from '../../../../../components/atoms/select/list';
 import { firstValueFrom } from 'rxjs';
-import { Report } from '../../infrastructura/interfaces/report';
+import { Report } from './infrastructura/interfaces/report';
 
 @Component({
       selector: 'page-reportes',
