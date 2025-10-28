@@ -38,6 +38,7 @@ export default class PageLogin {
             if (this.profile.valid) {
                   const username = this.profile.get('username')?.value ?? '';
                   const password = this.profile.get('password')?.value ?? '';
+                  alert('Formulario válido. Enviando datos...');
                   this.signIn(username, password);
             } else {
                   alert('El formulario no es válido. Por favor, revisa los campos.');
@@ -46,11 +47,16 @@ export default class PageLogin {
 
       private async signIn(username: string, password: string) {
             try {
+                  alert('Iniciando sesión...');
                   const userToken = await firstValueFrom(this.authApi.login(username, password));
                   if (!userToken) {
                         throw new ApiError('Error al obtener los datos del usuario');
                   }
+                  alert('Inicio de sesión exitoso');
+                  alert(`Token: ${userToken.accessToken}`);
                   this.authTokenManager.setCurrentUser(userToken);
+                  console.log('Token almacenado en AuthTokenManager');
+                  console.log(this.authTokenManager.userToken$()?.accessToken);
                   this.router.navigate(['cursos']);
             } catch (error) {
                   throw new ApiError('Error al obtener los datos del usuario');

@@ -24,7 +24,7 @@ export const checkIfIsLogoutGuard: CanActivateFn = (
       }
 
       // Si hay token, verificarlo con la API
-      return userApi.isLogged(token).pipe(
+      return userApi.getTokenInfo(token).pipe(
             map((data: any) => {
                   // Si la API responde y confirma que el token es válido (tiene 'iat')
                   if (!isJsonEmpty(data) && data.iat) {

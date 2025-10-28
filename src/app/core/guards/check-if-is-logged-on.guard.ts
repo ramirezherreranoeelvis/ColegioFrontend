@@ -20,12 +20,12 @@ export const checkIfIsLoggedOnGuard: CanActivateFn = (route, state) => {
             return true; // Permite el acceso a la ruta (login)
       }
 
-      return userApi.isLogged(token).pipe(
+      return userApi.getTokenInfo(token).pipe(
             map((data: any) => {
                   // Si la respuesta indica que SÍ está logueado (data tiene iat)
                   if (!isJsonEmpty(data) && data.iat) {
                         // Redirigir al dashboard porque ya está logueado
-                        router.navigate(['/dashboard']);
+                        router.navigate(['/horario']);
                         // Prevenir el acceso a la ruta actual (login)
                         return false;
                   }
@@ -43,7 +43,7 @@ export const checkIfIsLoggedOnGuard: CanActivateFn = (route, state) => {
                   }
 
                   // Para otros tipos de errores de la API (ej. 401, 500), también permitimos ir a login
-                  console.error('Error inesperado al verificar estado de login:', error.message);
+                  console.error('Error inesperado al verificar estado de login:', error);
                   // router.navigate(['/login']); // Opcional
                   return of(true); // Permite el acceso a la ruta (login)
             }),
