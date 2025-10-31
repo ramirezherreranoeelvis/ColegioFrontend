@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { CardResourceCourse } from '../resource-course/resource-course';
 import { AtomLineSeparator } from '../../../atoms/line-separator/line-separator';
 import { AtomLink } from '../../../atoms/link/link';
-import { IconBook } from '../../../icons/book/icon-book';
+import { IconBook } from '../../../icons/book/book';
 import { ContenidoCurso } from '../../../../infraestructure/pages/workspace/pages/cursos/infrastructure/interfaces/course';
 
 @Component({

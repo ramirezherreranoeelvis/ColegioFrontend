@@ -10,8 +10,8 @@ import { Component, input } from '@angular/core';
  */
 @Component({
       selector: 'icon-cactus',
-      templateUrl: './icon-cactus.html',
-      styleUrl: `./icon-cactus.scss`,
+      templateUrl: './cactus.html',
+      styleUrl: `./cactus.scss`,
 })
 export class IconCactus {
       className = input('');

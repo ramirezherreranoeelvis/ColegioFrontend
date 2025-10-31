@@ -29,22 +29,18 @@ import { NgTemplateOutlet } from '@angular/common';
  */
 @Component({
       selector: 'atom-button',
-      imports: [NgTemplateOutlet],
       template: `
-            <ng-template #content>
-                  @if (text()) {
-                        {{ text() }}
-                  } @else {
-                        <ng-content />
-                  }
-            </ng-template>
             <button
                   [class]="styleTheme() + ' ' + className() + ' ' + styleFocus()"
                   [type]="type()"
                   [style.fontStyle]="fontStyle()"
                   (click)="evtClick.emit()"
             >
-                  <ng-container [ngTemplateOutlet]="content" />
+                  @if (text()) {
+                        {{ text() }}
+                  } @else {
+                        <ng-content />
+                  }
             </button>
       `,
       styleUrl: './button.scss',

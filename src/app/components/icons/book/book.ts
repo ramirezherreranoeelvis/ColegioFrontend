@@ -30,7 +30,7 @@ import { Component, input } from '@angular/core';
                   <rect x="14" y="10" width="4" height="50" class="spine" />
             </svg>
       `,
-      styleUrl: `./icon-book.scss`,
+      styleUrl: `./book.scss`,
 })
 export class IconBook {
       className = input('w-[40px] h-[40px] p-[5px_10px]');
