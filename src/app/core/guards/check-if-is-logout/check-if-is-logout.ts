@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthTokenManager } from '../../infraestructure/services/AuthTokenManager';
-import { AuthApi } from '../../infraestructure/pages/login/infrastructure/api/authApi';
+import { AuthTokenManager } from '../../../infraestructure/services/AuthTokenManager';
+import { AuthApi } from '../../../infraestructure/pages/login/infrastructure/api/authApi';
 import { map, catchError, of, Observable } from 'rxjs'; // Importa catchError, of, Observable
-import { isJsonEmpty } from '../utils/isJsonEmpty';
+import { isJsonEmpty } from '../../utils/isJsonEmpty';
 import { HttpErrorResponse } from '@angular/common/http'; // Importa HttpErrorResponse
 
 export const checkIfIsLogoutGuard: CanActivateFn = (

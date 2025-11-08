@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { checkIfIsLoggedOnGuard } from '../../core/guards/check-if-is-logged-on.guard';
+import { checkIfIsLoggedOnGuard } from '../../core/guards/check-if-is-logged-on/check-if-is-logged-on';
 
 export const routes: Routes = [
       {

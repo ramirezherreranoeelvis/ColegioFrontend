@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { CanActivateFn } from '@angular/router';
 
-import { checkIfIsLoggedOnGuard } from './check-if-is-logged-on.guard';
+import { checkIfIsLoggedOnGuard } from './check-if-is-logged-on';
 
 describe('checkIfIsLoggedOnGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) => 

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { checkIfIsLogoutGuard } from '../../../../../core/guards/check-if-is-logout.guard';
+import { checkIfIsLogoutGuard } from '../../../../../core/guards/check-if-is-logout/check-if-is-logout';
 
 const workspace: Routes = [
       {

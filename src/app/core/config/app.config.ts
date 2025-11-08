@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 
-import { routes } from '../../infraestructure/routes/app.routes';
+import { routes } from '../../infraestructure/routes/app';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 

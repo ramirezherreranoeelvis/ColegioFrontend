@@ -1,4 +1,4 @@
-import { checkIfIsLogoutGuard } from '../../../../../../../core/guards/check-if-is-logout.guard';
+import { checkIfIsLogoutGuard } from '../../../../../../../core/guards/check-if-is-logout/check-if-is-logout';
 
 export default [
       {
